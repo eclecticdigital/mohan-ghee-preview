@@ -659,6 +659,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    max-width: 1140px;
+    margin: 0 auto;
   }
   .product {
     background: var(--paper);
@@ -671,7 +673,7 @@
   }
   .product:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--red); }
   .product .img {
-    aspect-ratio: 1/1.05;
+    aspect-ratio: 1/1;
     background: var(--cream);
     position: relative;
     border-bottom: 3px solid var(--turmeric);
@@ -679,7 +681,7 @@
   .product .img image-slot { width: 100%; height: 100%; }
   .product .img img.img-fill {
     object-fit: contain;
-    padding: 18px;
+    padding: 8px;
     background: var(--cream);
   }
   .tea-products .product .img img.img-fill {
