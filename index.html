@@ -307,14 +307,17 @@
     aspect-ratio: 16/7;
     background: var(--ink);
     overflow: hidden;
+    cursor: pointer;
   }
   .video-band image-slot { width: 100%; height: 100%; }
-  .video-band::after {
-    content: "";
+  .video-band .scrim {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.55));
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
     pointer-events: none;
+    transition: opacity 0.7s ease;
+    z-index: 1;
   }
+  .video-band.is-playing .scrim { opacity: 0; }
   .video-band .overlay {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
@@ -322,6 +325,12 @@
     z-index: 2;
     color: var(--paper);
     padding: 32px;
+    pointer-events: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .video-band.is-playing .overlay {
+    opacity: 0;
+    transform: translateY(-12px);
   }
   .video-band .overlay h2 {
     font-family: var(--display);
@@ -338,22 +347,25 @@
     color: var(--turmeric);
     margin-bottom: 22px;
   }
-  .video-band .play-btn {
-    width: 88px; height: 88px;
+  .video-band .mute-btn {
+    position: absolute;
+    bottom: 22px; right: 22px;
+    z-index: 3;
+    width: 48px; height: 48px;
     border-radius: 50%;
-    background: var(--red);
-    border: 4px solid var(--paper);
-    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.55);
     color: var(--paper);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer;
-    margin-top: 24px;
-    box-shadow: 0 0 0 6px rgba(192,39,30,0.3);
-    animation: pulse 2.5s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s ease, transform 0.2s ease;
   }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 6px rgba(192,39,30,0.3); }
-    50% { box-shadow: 0 0 0 16px rgba(192,39,30,0.05); }
-  }
+  .video-band .mute-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.06); }
+  .video-band .mute-btn .icon-unmute { display: none; }
+  .video-band .mute-btn[data-muted="false"] .icon-mute { display: none; }
+  .video-band .mute-btn[data-muted="false"] .icon-unmute { display: inline; }
 
   /* SECTION HEADERS */
   .sec-head {
@@ -2283,17 +2295,19 @@
 </section>
 
 <!-- VIDEO BAND 1 -->
-<section class="video-band">
-  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/banner-hero.png" autoplay muted loop playsinline></video>
+<section class="video-band" data-video-band>
+  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/banner-hero.png" muted loop playsinline preload="metadata"></video>
+  <div class="scrim"></div>
   <div class="overlay">
     <div>
       <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
       <h2 class="display">A taste of <span style="color:var(--turmeric);">tradition,</span><br/>untouched since 1947.</h2>
-      <button class="play-btn" aria-label="Play video">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
-      </button>
     </div>
   </div>
+  <button class="mute-btn" data-muted="true" aria-label="Unmute">
+    <svg class="icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    <svg class="icon-unmute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+  </button>
 </section>
 
 <!-- PRODUCTS (moved up) -->
@@ -2469,17 +2483,19 @@
 </section>
 
 <!-- VIDEO BAND 3 -->
-<section class="video-band">
-  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/lifestyle-pour.jpg" autoplay muted loop playsinline></video>
+<section class="video-band" data-video-band>
+  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/lifestyle-pour.jpg" muted loop playsinline preload="metadata"></video>
+  <div class="scrim"></div>
   <div class="overlay">
     <div>
       <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
       <h2 class="display">Made by hand. <span style="color:var(--turmeric);">Posted</span> with care.</h2>
-      <button class="play-btn" aria-label="Play video">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
-      </button>
     </div>
   </div>
+  <button class="mute-btn" data-muted="true" aria-label="Unmute">
+    <svg class="icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    <svg class="icon-unmute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+  </button>
 </section>
 
 <!-- STANDARDS -->
@@ -2748,6 +2764,72 @@
   /* close drawer when any in-page link is tapped */
   if (menu) menu.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', shut);
+  });
+})();
+
+/* Video bands: scroll-reveal autoplay, mute toggle, tap-to-show-title */
+(function() {
+  var bands = document.querySelectorAll('[data-video-band]');
+  if (!bands.length) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  bands.forEach(function(band) {
+    var vid = band.querySelector('video');
+    var muteBtn = band.querySelector('.mute-btn');
+    var hideTimer;
+
+    function reveal() {
+      band.classList.add('is-playing');
+    }
+    function showTitle(autoHide) {
+      band.classList.remove('is-playing');
+      clearTimeout(hideTimer);
+      if (autoHide) hideTimer = setTimeout(reveal, 3500);
+    }
+
+    /* Play/pause based on visibility */
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            vid.play().catch(function(){});
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(reveal, prefersReduced ? 0 : 1800);
+          } else {
+            vid.pause();
+            band.classList.remove('is-playing');
+            clearTimeout(hideTimer);
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(band);
+    } else {
+      vid.play().catch(function(){});
+      reveal();
+    }
+
+    /* Mute / unmute toggle */
+    if (muteBtn) {
+      muteBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        vid.muted = !vid.muted;
+        muteBtn.setAttribute('data-muted', vid.muted ? 'true' : 'false');
+        muteBtn.setAttribute('aria-label', vid.muted ? 'Unmute' : 'Mute');
+      });
+    }
+
+    /* Click anywhere on the band → bring title back briefly */
+    band.addEventListener('click', function() {
+      if (band.classList.contains('is-playing')) showTitle(true);
+    });
+
+    /* Pause when tab is hidden, resume when visible */
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) vid.pause();
+      else if (band.getBoundingClientRect().top < window.innerHeight && band.getBoundingClientRect().bottom > 0) {
+        vid.play().catch(function(){});
+      }
+    });
   });
 })();
 </script>
