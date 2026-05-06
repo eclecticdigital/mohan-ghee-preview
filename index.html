@@ -431,30 +431,24 @@
     font-family: var(--serif);
     font-style: italic;
     font-size: 13px;
+    line-height: 1.5;
     color: var(--muted);
     margin-bottom: 14px;
   }
-  .dish .meta {
+  .dish .recipe-link {
     margin-top: auto;
-    display: flex; justify-content: space-between; align-items: baseline;
     padding-top: 12px;
     border-top: 1px dashed var(--rule);
-  }
-  .dish .price {
-    font-family: var(--display);
+    display: inline-flex; align-items: center;
+    font-family: var(--condensed);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--red);
-    font-size: 18px;
+    transition: color 0.2s ease;
   }
-  .dish .add {
-    background: var(--blue-deep);
-    color: var(--paper);
-    border: none;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: inline-flex; align-items: center; justify-content: center;
-  }
+  .dish .recipe-link:hover { color: var(--blue-deep); }
 
   /* BILONA RITUAL */
   .bilona { background: var(--cream); padding: 110px 0; position: relative; }
@@ -650,8 +644,21 @@
     font-family: var(--display);
     font-size: 20px;
     color: var(--red);
+    line-height: 1.1;
   }
-  .product .price small { font-family: var(--serif); font-size: 11px; color: var(--muted); margin-left: 4px; }
+  .product .price small {
+    font-family: var(--condensed);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-right: 4px;
+  }
+  .product .price small:last-child {
+    margin-right: 0;
+    margin-left: 4px;
+  }
   .product .add {
     background: var(--blue-deep);
     color: var(--paper);
@@ -1534,35 +1541,35 @@
     <div class="product-grid">
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p1-mohan-desi.jpg" alt="Mohan Ghee Desi Ghee tin"/><span class="pill">★ Since 1947</span></div>
-        <div class="body"><h3>Mohan Ghee® Desi Ghee</h3><div class="sub">A2 Buffalo · Predominantly Bilona</div><div class="meta"><div class="price">₹865<small>/tin</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Mohan Ghee® Desi Ghee</h3><div class="sub">A2 Buffalo · Predominantly Bilona</div><div class="meta"><div class="price"><small>From</small> ₹208<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p2-mohan-cow.jpg" alt="Mohan Ghee Cow Ghee tin"/><span class="pill">Cow Milk</span></div>
-        <div class="body"><h3>Mohan Ghee® Cow Ghee</h3><div class="sub">Traditional Bilona Method</div><div class="meta"><div class="price">₹923<small>/tin</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Mohan Ghee® Cow Ghee</h3><div class="sub">Traditional Bilona Method</div><div class="meta"><div class="price"><small>From</small> ₹217<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p3-morhav-a2gir.jpg" alt="Morhav A2 Gir Cow Ghee jar"/><span class="pill">A2 Gir · Ayurvedic</span></div>
-        <div class="body"><h3>Morhav® A2 Gir Cow Ghee</h3><div class="sub">Hand-curd · Ayurvedic Bilona</div><div class="meta"><div class="price">₹1,405<small>/jar</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Morhav® A2 Gir Cow Ghee</h3><div class="sub">Hand-curd · Ayurvedic Bilona</div><div class="meta"><div class="price"><small>From</small> ₹217<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p4-morhav-buffalo.jpg" alt="Morhav Desi Ghee from A2 Buffalo"/><span class="pill">A2 Murrah</span></div>
-        <div class="body"><h3>Morhav® Ghee Desi Ghee</h3><div class="sub">A2 Buffalo · Grass-fed Murrah</div><div class="meta"><div class="price">₹1,405<small>/jar</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Morhav® Ghee Desi Ghee</h3><div class="sub">A2 Buffalo · Grass-fed Murrah</div><div class="meta"><div class="price"><small>From</small> ₹300<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p5-morhav-veda-cow.jpg" alt="Morhav Veda Ghee Cow jar"/><span class="pill">Vedic</span></div>
-        <div class="body"><h3>Morhav® Veda Ghee · Cow</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price">₹1,612<small>/jar</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Morhav® Veda Ghee · Cow</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price"><small>From</small> ₹158<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p6-morhav-veda-buff.jpg" alt="Morhav Veda Ghee Buffalo jar"/><span class="pill">Vedic Buffalo</span></div>
-        <div class="body"><h3>Morhav® Veda Ghee · Buffalo</h3><div class="sub">A2 Buffalo · Ayurvedic</div><div class="meta"><div class="price">₹1,612<small>/jar</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Morhav® Veda Ghee · Buffalo</h3><div class="sub">A2 Buffalo · Ayurvedic</div><div class="meta"><div class="price"><small>From</small> ₹158<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
-        <div class="img"><img class="img-fill" src="assets/p7-morhav-cow.jpg" alt="Morhav A2 Bilona Reserve jar"/><span class="pill">Reserve</span></div>
-        <div class="body"><h3>Morhav® A2 Bilona Reserve</h3><div class="sub">100% Ayurvedic · Authentic Vedic</div><div class="meta"><div class="price">₹2,395<small>/jar</small></div><button class="add">Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/p7-morhav-cow.jpg" alt="Morhav Ghee Cow Ghee jar"/><span class="pill">Bilona Cow</span></div>
+        <div class="body"><h3>Morhav® Ghee · Cow Ghee</h3><div class="sub">100% Bilona · Curd-Churned</div><div class="meta"><div class="price"><small>From</small> ₹300<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
       <article class="product">
         <div class="img"><img class="img-fill" src="assets/p1-mohan-desi-alt.jpg" alt="Mohan Ghee Desi Ghee — 2 Litre Family Tin"/><span class="pill">Family Tin · 2 L</span></div>
-        <div class="body"><h3>Mohan Ghee® Desi · Family Tin</h3><div class="sub">A2 Buffalo · 2 Ltr Bilona</div><div class="meta"><div class="price">₹1,729<small>/tin</small></div><button class="add">Add</button></div></div>
+        <div class="body"><h3>Mohan Ghee® Desi · Family Tin</h3><div class="sub">A2 Buffalo · 2 Ltr Bilona</div><div class="meta"><div class="price">₹1,729<small>/2 L</small></div><button class="add">Add</button></div></div>
       </article>
     </div>
   </div>
@@ -1679,35 +1686,35 @@
     <div class="dish-grid">
       <article class="dish">
         <div class="img"><img class="img-fill" src="assets/dish-puri.jpg" alt="Aloo puri thali with ghee dollop"/><span class="pill">Festive</span></div>
-        <div class="body"><h3>Aloo Puri Thali</h3><div class="sub">Predominantly Bilona · 1 kg</div><div class="meta"><div class="price">₹865</div><button class="add">+ Add</button></div></div>
+        <div class="body"><h3>Aloo Puri Thali</h3><div class="sub">A festival morning, finished with a spoon of ghee</div><a class="recipe-link" href="recipe-aloo-puri.html">View Recipe →</a></div>
       </article>
       <article class="dish">
-        <div class="img"><img class="img-fill" src="assets/dish-dal.jpg" alt="Dal tadka with ghee"/><span class="pill">Cow Milk</span></div>
-        <div class="body"><h3>Dal Tadka Series</h3><div class="sub">Cow Bilona · 1 kg</div><div class="meta"><div class="price">₹923</div><button class="add">+ Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/dish-dal.jpg" alt="Dal tadka with ghee"/><span class="pill">Comfort</span></div>
+        <div class="body"><h3>Dal Tadka</h3><div class="sub">Everyday hero · pressure-cooked, finished with tadka</div><a class="recipe-link" href="#">Coming Soon</a></div>
       </article>
       <article class="dish">
-        <div class="img"><img class="img-fill" src="assets/dish-khichdi.jpg" alt="Khichdi with golden ghee on top"/><span class="pill">A2 Gir</span></div>
-        <div class="body"><h3>Khichdi Reserve</h3><div class="sub">Hand-curd · Ayurvedic</div><div class="meta"><div class="price">₹1,405</div><button class="add">+ Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/dish-khichdi.jpg" alt="Khichdi with golden ghee on top"/><span class="pill">Wholesome</span></div>
+        <div class="body"><h3>Bilona Khichdi</h3><div class="sub">Ayurvedic comfort · a dollop on top, the way Dadi made it</div><a class="recipe-link" href="recipe-bilona-khichdi.html">View Recipe →</a></div>
       </article>
       <article class="dish">
-        <div class="img"><img class="img-fill" src="assets/dish-biryani.jpg" alt="Biryani with ghee finish"/><span class="pill">A2 Buffalo</span></div>
-        <div class="body"><h3>Biryani Special</h3><div class="sub">Murrah · Bilona Method</div><div class="meta"><div class="price">₹1,405</div><button class="add">+ Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/dish-biryani.jpg" alt="Biryani with ghee finish"/><span class="pill">Aromatic</span></div>
+        <div class="body"><h3>Hyderabadi Biryani</h3><div class="sub">Layered, fragrant, finished with a generous ladle</div><a class="recipe-link" href="#">Coming Soon</a></div>
       </article>
       <article class="dish">
-        <div class="img"><img class="img-fill" src="assets/dish-ladoo.jpg" alt="Besan ladoo platter"/><span class="pill">Vedic</span></div>
-        <div class="body"><h3>Besan Ladoo</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price">₹1,612</div><button class="add">+ Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/dish-ladoo.jpg" alt="Besan ladoo platter"/><span class="pill">Festive</span></div>
+        <div class="body"><h3>Besan Ladoo</h3><div class="sub">Slow-cooked in pure ghee · the smell of Diwali</div><a class="recipe-link" href="recipe-besan-ladoo.html">View Recipe →</a></div>
       </article>
       <article class="dish">
-        <div class="img"><img class="img-fill" src="assets/dish-halwa.jpg" alt="Sooji halwa with raisins"/><span class="pill">Reserve</span></div>
-        <div class="body"><h3>Sooji Halwa</h3><div class="sub">100% Ayurvedic Bilona</div><div class="meta"><div class="price">₹2,395</div><button class="add">+ Add</button></div></div>
+        <div class="img"><img class="img-fill" src="assets/dish-halwa.jpg" alt="Sooji halwa with raisins"/><span class="pill">Heritage</span></div>
+        <div class="body"><h3>Sooji Halwa</h3><div class="sub">A Sunday morning ritual · roasted in ghee, dressed with cardamom</div><a class="recipe-link" href="#">Coming Soon</a></div>
       </article>
       <article class="dish">
         <div class="img"><img class="img-fill" src="assets/dish-chyawanprash.jpg" alt="Chyawanprash with almonds"/><span class="pill">Wellness</span></div>
-        <div class="body"><h3>Chyawanprash</h3><div class="sub">40+ herbs · Slow-cooked</div><div class="meta"><div class="price">₹1,612</div><button class="add">+ Add</button></div></div>
+        <div class="body"><h3>Chyawanprash Spoon</h3><div class="sub">Ayurvedic tonic · 40+ herbs slow-cooked in ghee</div><a class="recipe-link" href="#">Coming Soon</a></div>
       </article>
       <article class="dish">
         <div class="img"><img class="img-fill" src="assets/dish-roti.jpg" alt="Phulka roti with ghee"/><span class="pill">Daily</span></div>
-        <div class="body"><h3>Phulka Pure</h3><div class="sub">Everyday Bilona · Family</div><div class="meta"><div class="price">₹790</div><button class="add">+ Add</button></div></div>
+        <div class="body"><h3>Phulka with Ghee</h3><div class="sub">Hot off the tava · a fingertip's worth makes it home</div><a class="recipe-link" href="#">Coming Soon</a></div>
       </article>
     </div>
   </div>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Besan Ladoo — A Recipe from the Mohan Ghee Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #c0271e; --red-deep: #8d1a14;
+    --blue: #1d3a8a; --blue-deep: #122766;
+    --saffron: #e8841a; --turmeric: #f2b134;
+    --cream: #fbe9b6; --cream-2: #f7e0a0;
+    --paper: #fff8e6; --paper-2: #fdf6df;
+    --ink: #1a1305; --muted: #6b5a3a;
+    --rule: #d8b86a; --rule-soft: #ecd9a6;
+    --display: "Alfa Slab One", "Oswald", Georgia, serif;
+    --condensed: "Oswald", "Inter", sans-serif;
+    --serif: "Lora", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+    --hindi: "Tiro Devanagari Hindi", "Lora", serif;
+    --maxw: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body { font-family: var(--serif); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* TICKER */
+  .ticker { background: var(--red); color: var(--paper); font-family: var(--condensed); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; overflow: hidden; border-bottom: 3px solid var(--turmeric); }
+  .ticker .row { display: flex; gap: 56px; padding: 12px 0; white-space: nowrap; animation: scroll 50s linear infinite; }
+  .ticker .row span { display: inline-flex; gap: 56px; align-items: center; }
+  .ticker .row span::after { content: "✦"; color: var(--turmeric); margin-left: 56px; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* NAV */
+  nav.primary { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 4px solid var(--red); }
+  nav.primary .row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; height: 88px; gap: 32px; }
+  nav.primary img.logo { height: 64px; width: auto; }
+  nav.primary ul { display: flex; gap: 32px; margin: 0; padding: 0; list-style: none; justify-content: center; font-family: var(--condensed); font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+  nav.primary ul a { color: var(--blue-deep); }
+  nav.primary ul a:hover { color: var(--red); }
+  nav.primary .ico-row { display: flex; gap: 12px; align-items: center; }
+  nav.primary .cart-pill { font-family: var(--condensed); background: var(--red); color: var(--paper); border: none; padding: 10px 18px; border-radius: 999px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; }
+
+  /* BREADCRUMB */
+  .breadcrumb { background: var(--cream); border-bottom: 1px solid var(--rule-soft); padding: 14px 0; font-family: var(--condensed); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .breadcrumb a { color: var(--red); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 10px; color: var(--rule); }
+
+  /* HERO */
+  .recipe-hero { background: var(--cream); padding: 80px 0; border-bottom: 8px solid var(--blue-deep); position: relative; }
+  .recipe-hero::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: repeating-linear-gradient(90deg, var(--red) 0 24px, var(--turmeric) 24px 48px, var(--blue-deep) 48px 72px); }
+  .recipe-hero .grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: center; }
+  .recipe-hero .badge { display: inline-flex; gap: 10px; align-items: center; background: var(--paper); border: 2px solid var(--red); padding: 8px 18px; border-radius: 999px; font-family: var(--condensed); font-weight: 700; color: var(--red); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 24px; }
+  .recipe-hero h1 { font-family: var(--display); font-size: clamp(44px, 6vw, 84px); margin: 0 0 14px; color: var(--blue-deep); line-height: 0.95; letter-spacing: -0.005em; }
+  .recipe-hero h1 .red { color: var(--red); }
+  .recipe-hero .hindi-line { font-family: var(--hindi); font-size: clamp(20px, 2.4vw, 28px); color: var(--red); margin: 4px 0 22px; }
+  .recipe-hero .lede { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); max-width: 460px; margin: 0 0 32px; line-height: 1.65; }
+  .recipe-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 32px; padding-top: 24px; border-top: 2px dashed var(--rule); }
+  .recipe-meta .it { padding-right: 16px; }
+  .recipe-meta strong { display: block; font-family: var(--display); font-size: 22px; color: var(--red); line-height: 1; margin-bottom: 6px; letter-spacing: -0.005em; }
+  .recipe-meta span { font-family: var(--condensed); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-deep); }
+  .hero-img { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; background: var(--turmeric); border: 6px solid var(--blue-deep); box-shadow: 12px 12px 0 var(--red); position: relative; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img .seal { position: absolute; top: 24px; right: 24px; width: 100px; height: 100px; border-radius: 50%; background: var(--red); color: var(--paper); display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--display); font-size: 11px; line-height: 1.1; padding: 12px; border: 3px solid var(--paper); box-shadow: 0 0 0 3px var(--red); transform: rotate(-8deg); letter-spacing: -0.005em; }
+
+  /* RECIPE BODY */
+  .recipe-body { padding: 110px 0; }
+  .recipe-body .grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; }
+  .ingredients h2,
+  .method h2 { font-family: var(--display); font-size: clamp(32px, 3.6vw, 48px); color: var(--blue-deep); margin: 0 0 28px; line-height: 0.95; letter-spacing: -0.005em; }
+  .ingredients h2 .red,
+  .method h2 .red { color: var(--red); }
+  .ingredients .eyebrow,
+  .method .eyebrow { font-family: var(--condensed); font-size: 12px; text-transform: uppercase; letter-spacing: 0.28em; font-weight: 600; color: var(--red); display: inline-flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+  .ingredients .eyebrow::before,
+  .method .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--red); }
+  .ingredients ul { list-style: none; padding: 0; margin: 0; }
+  .ingredients li { padding: 14px 0; border-bottom: 1px dashed var(--rule); display: grid; grid-template-columns: 70px 1fr; gap: 18px; font-size: 15px; line-height: 1.5; }
+  .ingredients li .qty { font-family: var(--display); color: var(--red); font-size: 15px; letter-spacing: -0.005em; }
+  .ingredients li .item { color: var(--ink); }
+  .ingredients li.section-head { padding-top: 24px; padding-bottom: 8px; border-bottom: none; grid-template-columns: 1fr; }
+  .ingredients li.section-head strong { font-family: var(--condensed); font-weight: 700; color: var(--blue-deep); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .method ol { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .method ol li { padding: 0 0 32px 80px; position: relative; counter-increment: step; }
+  .method ol li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: -8px; font-family: var(--display); font-size: 48px; color: var(--red); line-height: 1; }
+  .method ol li strong { display: block; font-family: var(--display); font-size: 18px; color: var(--blue-deep); margin-bottom: 6px; letter-spacing: -0.005em; }
+  .method ol li p { margin: 0; color: var(--ink); font-size: 15px; line-height: 1.65; }
+
+  /* TIP CALLOUT */
+  .tip { background: var(--blue-deep); color: var(--paper); padding: 50px 0; border-top: 8px solid var(--red); border-bottom: 8px solid var(--red); }
+  .tip .grid { display: grid; grid-template-columns: 80px 1fr; gap: 28px; align-items: start; max-width: 900px; margin: 0 auto; }
+  .tip .badge { width: 80px; height: 80px; border-radius: 50%; background: var(--turmeric); color: var(--blue-deep); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 32px; line-height: 1; box-shadow: 6px 6px 0 var(--red); }
+  .tip h3 { font-family: var(--display); font-size: 28px; line-height: 1.05; color: var(--turmeric); margin: 0 0 8px; letter-spacing: -0.005em; }
+  .tip p { font-size: 16px; line-height: 1.65; color: rgba(255,248,230,0.92); margin: 0; max-width: 640px; }
+
+  /* MADE WITH */
+  .made-with { background: var(--paper); padding: 80px 0; }
+  .made-with .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; max-width: 980px; margin: 0 auto; }
+  .made-with .eyebrow { font-family: var(--condensed); font-size: 12px; text-transform: uppercase; letter-spacing: 0.28em; font-weight: 600; color: var(--red); display: inline-flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+  .made-with .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--red); }
+  .made-with h3 { font-family: var(--display); font-size: clamp(28px, 3vw, 40px); color: var(--blue-deep); margin: 0 0 14px; line-height: 1.05; letter-spacing: -0.005em; }
+  .made-with h3 .red { color: var(--red); }
+  .made-with p { color: var(--ink); margin: 0 0 24px; max-width: 380px; }
+  .made-with .product-card { background: var(--paper-2); border: 3px solid var(--blue-deep); border-radius: 6px; padding: 24px; display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: center; box-shadow: 6px 6px 0 var(--red); }
+  .made-with .product-card .img { width: 100px; height: 100px; border-radius: 4px; overflow: hidden; background: var(--cream); border: 2px solid var(--blue-deep); }
+  .made-with .product-card .img img { width: 100%; height: 100%; object-fit: cover; }
+  .made-with .product-card h4 { font-family: var(--serif); font-weight: 600; font-size: 16px; color: var(--ink); margin: 0 0 6px; line-height: 1.25; }
+  .made-with .product-card .price { font-family: var(--display); color: var(--red); font-size: 18px; line-height: 1; }
+  .made-with .product-card .price small { font-family: var(--condensed); font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; margin-right: 4px; }
+  .made-with .btn { display: inline-flex; align-items: center; gap: 12px; font-family: var(--condensed); font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 24px; border: none; border-radius: 4px; cursor: pointer; background: var(--red); color: var(--paper); box-shadow: 4px 4px 0 var(--blue-deep); }
+  .made-with .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--blue-deep); }
+
+  /* MORE RECIPES */
+  .more-recipes { background: var(--cream); padding: 100px 0; }
+  .more-recipes h2 { font-family: var(--display); font-size: clamp(36px, 4.4vw, 56px); color: var(--blue-deep); text-align: center; margin: 0 0 14px; line-height: 0.95; letter-spacing: -0.005em; }
+  .more-recipes h2 .red { color: var(--red); }
+  .more-recipes p.lede { text-align: center; font-style: italic; color: var(--muted); margin: 0 auto 56px; max-width: 600px; }
+  .more-recipes .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 900px; margin: 0 auto; }
+  .more-recipes a.r-card { background: var(--paper); border: 3px solid var(--blue-deep); border-radius: 6px; overflow: hidden; transition: transform .2s ease; display: block; }
+  .more-recipes a.r-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--red); }
+  .more-recipes a.r-card .img { aspect-ratio: 16/9; overflow: hidden; }
+  .more-recipes a.r-card .img img { width: 100%; height: 100%; object-fit: cover; }
+  .more-recipes a.r-card .body { padding: 22px 24px; }
+  .more-recipes a.r-card h4 { font-family: var(--display); font-size: 22px; color: var(--blue-deep); margin: 0 0 6px; line-height: 1.05; letter-spacing: -0.005em; }
+  .more-recipes a.r-card .sub { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 14px; }
+
+  /* FOOTER */
+  footer { background: var(--blue-deep); color: var(--paper); padding: 60px 0 24px; border-top: 8px solid var(--red); margin-top: 0; }
+  footer .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+  footer .logo-block img { height: 72px; width: auto; margin-bottom: 18px; background: var(--paper); padding: 10px 14px; border-radius: 4px; }
+  footer .tag { font-family: var(--hindi); font-size: 18px; color: var(--turmeric); margin-bottom: 14px; }
+  footer .body-tag { font-size: 13px; color: rgba(255,248,230,0.6); line-height: 1.6; max-width: 340px; }
+  footer h5 { font-family: var(--condensed); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; margin: 0 0 22px; color: var(--turmeric); }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 12px; font-size: 14px; }
+  footer a:hover { color: var(--turmeric); }
+  .foot-base { border-top: 1px dashed rgba(255,248,230,0.2); padding-top: 24px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; font-family: var(--condensed); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,248,230,0.55); }
+  .foot-base .center { color: var(--turmeric); text-align: center; }
+  .foot-base .right { text-align: right; }
+
+  /* PREVIEW BADGE */
+  .preview-badge { position: fixed; left: 18px; bottom: 18px; z-index: 9999; background: var(--ink); color: var(--paper); font-family: var(--condensed); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 10px 16px; border-radius: 999px; border: 2px solid var(--turmeric); box-shadow: 4px 4px 0 var(--red); pointer-events: auto; user-select: none; }
+  .preview-badge .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--turmeric); margin-right: 8px; vertical-align: 1px; }
+  .preview-badge a { color: var(--turmeric); margin-left: 10px; }
+  .preview-badge a:hover { text-decoration: underline; }
+
+  @media (max-width: 960px) {
+    .recipe-hero .grid, .recipe-body .grid, .made-with .grid, .more-recipes .grid, footer .grid { grid-template-columns: 1fr; gap: 40px; }
+    .recipe-meta { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .tip .grid { grid-template-columns: 1fr; }
+    .tip .badge { margin: 0 auto; }
+    nav.primary ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="row">
+    <span>Recipe · From the Mohan Ghee Kitchen</span>
+    <span>शुद्धता का विश्वास · Trust of Purity</span>
+    <span>Hand-Churned Since 1947</span>
+    <span>Free Shipping over ₹999</span>
+    <span>Recipe · From the Mohan Ghee Kitchen</span>
+    <span>शुद्धता का विश्वास · Trust of Purity</span>
+    <span>Hand-Churned Since 1947</span>
+    <span>Free Shipping over ₹999</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="primary">
+  <div class="wrap">
+    <div class="row">
+      <a href="index.html"><img class="logo" src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd."/></a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+        <li><a href="index.html#legacy">Since 1947</a></li>
+        <li><a href="index.html#bilona">Vedic Ghee</a></li>
+        <li><a href="index.html#dishes">Recipes</a></li>
+        <li><a href="index.html#wellness">Wellness</a></li>
+      </ul>
+      <div class="ico-row">
+        <button class="cart-pill">Cart · 0</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="wrap">
+    <a href="index.html">Home</a><span>›</span><a href="index.html#dishes">Recipes</a><span>›</span> Besan Ladoo
+  </div>
+</div>
+
+<!-- RECIPE HERO -->
+<section class="recipe-hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="badge">★ Festive Sweet · The Smell of Diwali</div>
+        <h1><span class="red">Besan</span><br/>Ladoo.</h1>
+        <div class="hindi-line">बेसन के लड्डू</div>
+        <p class="lede">Slow-roasted gram flour, drowned in pure ghee, rolled in your palm. The smell that hits you the moment Diwali begins — and the one your hands will smell of for hours.</p>
+        <div class="recipe-meta">
+          <div class="it"><strong>10</strong><span>Min Prep</span></div>
+          <div class="it"><strong>40</strong><span>Min Cook</span></div>
+          <div class="it"><strong>14</strong><span>Ladoos</span></div>
+          <div class="it"><strong>Medium</strong><span>Difficulty</span></div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/dish-ladoo.jpg" alt="Besan Ladoo — golden gram flour sweets rolled in ghee"/>
+        <div class="seal">FESTIVE<br/>SWEETS<br/>BILONA GHEE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECIPE BODY -->
+<section class="recipe-body">
+  <div class="wrap">
+    <div class="grid">
+      <div class="ingredients">
+        <div class="eyebrow">What You'll Need</div>
+        <h2>Ingredients<span class="red">.</span></h2>
+        <ul>
+          <li class="section-head"><strong>The Base</strong></li>
+          <li><span class="qty">2 cups</span><span class="item">Coarse besan (gram flour) — preferably ladoo besan</span></li>
+          <li><span class="qty">¾ cup</span><span class="item">Mohan Ghee® Desi Ghee — generous and melted</span></li>
+          <li><span class="qty">1 cup</span><span class="item">Boora / powdered sugar (tagar), sifted</span></li>
+
+          <li class="section-head"><strong>To Finish</strong></li>
+          <li><span class="qty">½ tsp</span><span class="item">Green cardamom powder (elaichi)</span></li>
+          <li><span class="qty">2 tbsp</span><span class="item">Almonds, slivered</span></li>
+          <li><span class="qty">2 tbsp</span><span class="item">Cashews, broken</span></li>
+          <li><span class="qty">1 tbsp</span><span class="item">Pistachios, slivered</span></li>
+          <li><span class="qty">A pinch</span><span class="item">Saffron strands (optional, for kesari ladoo)</span></li>
+
+          <li class="section-head"><strong>For Garnishing</strong></li>
+          <li><span class="qty">2 tbsp</span><span class="item">Pistachio slivers</span></li>
+          <li><span class="qty">14</span><span class="item">Whole almonds (one for each ladoo, optional)</span></li>
+        </ul>
+      </div>
+
+      <div class="method">
+        <div class="eyebrow">How to Make</div>
+        <h2>The Method<span class="red">.</span></h2>
+        <ol>
+          <li>
+            <strong>Warm the ghee.</strong>
+            <p>In a heavy, non-stick kadai, melt ¾ cup of Mohan Ghee on low flame. Don't rush this — the ghee should be warm but not smoking. The aroma will fill the kitchen first.</p>
+          </li>
+          <li>
+            <strong>Add the besan.</strong>
+            <p>Add the coarse besan into the warm ghee. Stir continuously with a wooden spatula. The besan will look loose and pasty at first — keep moving it on low flame.</p>
+          </li>
+          <li>
+            <strong>Roast — slow, patient, steady.</strong>
+            <p>This is the soul of the recipe. Roast on the lowest flame for 20–25 minutes, stirring constantly. You'll watch the besan turn from pale yellow → deep golden → reddish-gold. The aroma will sweeten and deepen. Don't walk away — burnt besan is bitter and ruined.</p>
+          </li>
+          <li>
+            <strong>Smell the ready signal.</strong>
+            <p>You'll know it's done when the besan smells nutty and warm, the colour is deep gold-brown, and the ghee has separated and risen to the top — leaving the besan loose, almost foamy. Switch off the flame.</p>
+          </li>
+          <li>
+            <strong>Add the chopped nuts.</strong>
+            <p>Stir in the slivered almonds, broken cashews and pistachios. The residual heat of the ghee will toast them lightly. Let the mixture rest for 5–7 minutes until it's just warm to the touch (but not cold — sugar can't go in a cold mixture).</p>
+          </li>
+          <li>
+            <strong>Add the boora and cardamom.</strong>
+            <p>Sift in the boora (powdered sugar) and cardamom powder. Mix gently with the spatula until everything comes together. If using saffron, crush it between fingers and add now. The mixture should hold its shape when you press it — if it crumbles, drizzle a teaspoon more melted ghee.</p>
+          </li>
+          <li>
+            <strong>Roll while warm.</strong>
+            <p>Take a small portion (about 2 tablespoons) and roll between your palms into a smooth round ball. Press a single almond on top, or roll in pistachio slivers. Place on a plate. Repeat for all 14 ladoos. They will firm up as they cool.</p>
+          </li>
+          <li>
+            <strong>Store and savour.</strong>
+            <p>Once fully cool, store in an airtight steel dabba. They keep beautifully for 10 days at room temperature, longer if refrigerated. The flavour matures by day 2 — patience rewards you.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIP CALLOUT -->
+<section class="tip">
+  <div class="wrap">
+    <div class="grid">
+      <div class="badge">★</div>
+      <div>
+        <h3>Grandmother's Tip</h3>
+        <p>The lowest flame, the longest patience. Most ladoos fail because the besan was roasted on too-high heat — it browns on the outside but stays raw underneath, and the ladoo crumbles. The flame should barely flicker, the spatula should never stop moving. 25 minutes is normal. Half an hour is even better.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MADE WITH -->
+<section class="made-with">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Made With Morhav Ghee</div>
+        <h3>For festive sweets, choose <span class="red">cow ghee.</span></h3>
+        <p>Cow ghee gives ladoos their signature golden hue and a softer, sweeter aroma. Morhav A2 Gir Cow Ghee is grass-fed, hand-curd, slow-cooked — the gold standard for any sweet you'll be proud of.</p>
+        <a href="index.html#shop" class="btn">Shop Morhav A2 Gir
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="img"><img src="assets/p3-morhav-a2gir.jpg" alt="Morhav A2 Gir Cow Ghee jar"/></div>
+        <div>
+          <h4>Morhav® A2 Gir Cow Ghee</h4>
+          <div style="font-style:italic; font-size:12px; color: var(--muted); margin-bottom:10px;">A2 Gir · Ayurvedic Bilona</div>
+          <div class="price"><small>From</small> ₹217</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE RECIPES -->
+<section class="more-recipes">
+  <div class="wrap">
+    <h2>More from <span class="red">the kitchen.</span></h2>
+    <p class="lede">Three generations of recipes, finished with a spoon of ghee.</p>
+    <div class="grid">
+      <a href="recipe-aloo-puri.html" class="r-card">
+        <div class="img"><img src="assets/dish-puri.jpg" alt="Aloo Puri Thali"/></div>
+        <div class="body">
+          <h4>Aloo Puri Thali</h4>
+          <div class="sub">A festival morning, finished with a spoon of ghee</div>
+        </div>
+      </a>
+      <a href="recipe-bilona-khichdi.html" class="r-card">
+        <div class="img"><img src="assets/dish-khichdi.jpg" alt="Bilona Khichdi"/></div>
+        <div class="body">
+          <h4>Bilona Khichdi</h4>
+          <div class="sub">Ayurvedic comfort · a dollop on top, the way Dadi made it</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="logo-block">
+        <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd."/>
+        <div class="tag">शुद्धता का विश्वास, 1947 से</div>
+        <div class="body-tag">Hand-churned, slow-cooked A2 Bilona Ghee from indigenous desi cows. Made with patience. Posted with care.</div>
+      </div>
+      <div>
+        <h5>Recipes</h5>
+        <ul>
+          <li><a href="recipe-aloo-puri.html">Aloo Puri Thali</a></li>
+          <li><a href="recipe-besan-ladoo.html">Besan Ladoo</a></li>
+          <li><a href="recipe-bilona-khichdi.html">Bilona Khichdi</a></li>
+          <li><a href="index.html#dishes">View All Recipes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="index.html#shop">Mohan Desi Ghee</a></li>
+          <li><a href="index.html#shop">Mohan Cow Ghee</a></li>
+          <li><a href="index.html#shop">Morhav A2 Gir</a></li>
+          <li><a href="index.html#shop">Veda Ghee</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <div>© Mohan Ghee Products Pvt. Ltd. · Since 1947</div>
+      <div class="center">Made by hand · Posted with care</div>
+      <div class="right">Privacy · Terms · Accessibility</div>
+    </div>
+  </div>
+</footer>
+
+<div class="preview-badge">
+  <span class="dot"></span>v1 Recipe · Besan Ladoo <a href="index.html">back to home</a>
+</div>
+
+</body>
+</html>
