@@ -159,7 +159,7 @@
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 64px;
-    align-items: end;
+    align-items: center;
   }
   .hero .since {
     display: inline-flex;
@@ -1503,6 +1503,16 @@
     .ritual-steps, .timeline, .testi-grid, .commit-grid, .cert-wall, footer .grid {
       grid-template-columns: 1fr;
     }
+    /* Hero: slot the image between the Hindi line and the lede on mobile */
+    .hero .grid { display: flex; flex-direction: column; }
+    .hero .grid > div:first-child { display: contents; }
+    .hero .since      { order: 1; }
+    .hero h1          { order: 2; }
+    .hero .hindi-line { order: 3; }
+    .hero-image       { order: 4; }
+    .hero .lede       { order: 5; }
+    .hero-cta         { order: 6; }
+    .hero-stats       { order: 7; }
     .timeline .pt { border-right: none; border-bottom: 1px solid rgba(255,248,230,0.2); padding-bottom: 24px; margin-bottom: 24px; }
     nav.primary .row { grid-template-columns: auto 1fr auto; }
     nav.primary ul { display: none; }
