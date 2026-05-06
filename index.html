@@ -300,57 +300,86 @@
     transform: rotate(-8deg);
   }
 
-  /* VIDEO BAND */
+  /* VIDEO BAND — centered 16:9 card that pops on scroll */
   .video-band {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/7;
     background: var(--ink);
+    padding: 56px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     cursor: pointer;
   }
   .video-band image-slot { width: 100%; height: 100%; }
+  .video-frame {
+    position: relative;
+    width: min(92vw, 1240px);
+    aspect-ratio: 16 / 9;
+    max-height: 78vh;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.94);
+    opacity: 0.88;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, box-shadow 0.7s ease;
+    will-change: transform, opacity;
+  }
+  .video-band.is-playing .video-frame {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 26px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
   .video-band .scrim {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
     pointer-events: none;
     transition: opacity 0.7s ease;
     z-index: 1;
   }
-  .video-band.is-playing .scrim { opacity: 0; }
+  .video-band.is-playing .scrim { opacity: 0.45; }
   .video-band .overlay {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
     color: var(--paper);
     padding: 32px;
     pointer-events: none;
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.55s ease, transform 0.55s ease;
   }
   .video-band.is-playing .overlay {
     opacity: 0;
-    transform: translateY(-12px);
+    transform: translateY(-14px);
   }
   .video-band .overlay h2 {
     font-family: var(--display);
-    font-size: clamp(40px, 6vw, 96px);
-    line-height: 0.95;
+    font-size: clamp(36px, 5.4vw, 86px);
+    line-height: 0.98;
     margin: 0 0 12px;
     color: var(--paper);
-    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
-    max-width: 1100px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.45);
+    max-width: 1000px;
   }
   .video-band .overlay .tag {
     font-family: var(--hindi);
-    font-size: clamp(20px, 2.4vw, 32px);
+    font-size: clamp(18px, 2.2vw, 30px);
     color: var(--turmeric);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
   .video-band .mute-btn {
     position: absolute;
     bottom: 22px; right: 22px;
-    z-index: 3;
+    z-index: 4;
     width: 48px; height: 48px;
     border-radius: 50%;
     background: rgba(0,0,0,0.55);
@@ -1606,17 +1635,21 @@
       box-shadow: 0 0 0 2px var(--red);
     }
 
-    /* VIDEO BAND — shorter */
+    /* VIDEO BAND — mobile, 16:9 card with tighter padding */
     .video-band {
-      aspect-ratio: auto;
-      height: 240px;
+      padding: 28px 12px;
       border-top: 4px solid var(--turmeric);
       border-bottom: 4px solid var(--turmeric);
     }
-    .video-band .overlay { padding: 0 24px; }
-    .video-band .overlay h2 { font-size: 22px; line-height: 1; margin: 0 0 14px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
-    .video-band .overlay .tag { font-size: 16px; margin-bottom: 6px; }
-    .video-band .play-btn { width: 56px; height: 56px; border-width: 3px; margin-top: 10px; }
+    .video-frame {
+      width: min(96vw, 560px);
+      max-height: 60vh;
+      border-radius: 6px;
+    }
+    .video-band .overlay { padding: 0 16px; }
+    .video-band .overlay h2 { font-size: 24px; line-height: 1; margin: 0 0 10px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+    .video-band .overlay .tag { font-size: 14px; margin-bottom: 6px; }
+    .video-band .mute-btn { bottom: 14px; right: 14px; width: 40px; height: 40px; }
 
     /* SECTION HEADERS — smaller display */
     .sec-head { padding: 36px 0 22px; margin-bottom: 22px; max-width: none; }
@@ -2296,8 +2329,10 @@
 
 <!-- VIDEO BAND 1 -->
 <section class="video-band" data-video-band>
-  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/banner-hero.png" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
+  <div class="video-frame">
+    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/banner-hero.png" muted loop playsinline preload="metadata"></video>
+  </div>
   <div class="overlay">
     <div>
       <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
@@ -2484,8 +2519,10 @@
 
 <!-- VIDEO BAND 3 -->
 <section class="video-band" data-video-band>
-  <video class="img-fill" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/lifestyle-pour.jpg" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
+  <div class="video-frame">
+    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/lifestyle-pour.jpg" muted loop playsinline preload="metadata"></video>
+  </div>
   <div class="overlay">
     <div>
       <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
