@@ -383,6 +383,22 @@
     object-fit: cover;
     display: block;
   }
+  .video-pop.needs-tap::after {
+    content: "▶  TAP TO PLAY";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    z-index: 1;
+    pointer-events: none;
+  }
   .video-pop .pop-controls {
     position: absolute;
     top: 10px; right: 10px;
@@ -665,6 +681,10 @@
     object-fit: contain;
     padding: 18px;
     background: var(--cream);
+  }
+  .tea-products .product .img img.img-fill {
+    object-fit: cover;
+    padding: 0;
   }
   .product .pill {
     position: absolute; top: 12px; left: 12px;
@@ -2445,50 +2465,6 @@
   </div>
 </section>
 
-<!-- TEA LAUNCH -->
-<section class="tea-launch" id="tea">
-  <div class="wrap">
-    <div class="tea-grid">
-      <div class="tea-copy">
-        <div class="eyebrow" style="color: var(--red);">A New Chapter · नया अध्याय</div>
-        <div class="hindi-sub" style="color: var(--blue-deep);">हिमालय की चाय</div>
-        <h2>From the <span class="red">hearth</span>, now to the <span class="red italic">kettle.</span></h2>
-        <p class="tea-lede">After 78 years of pouring ghee into India's kitchens, Mohan is proud to introduce its next ritual — <strong>Mohan Tea</strong>. Four hill-grown, hand-blended infusions, brewed the way grandmother taught us: with herbs, with patience, with love.</p>
-        <ul class="tea-list">
-          <li><span class="tea-bullet">i.</span><div><strong>Hibiscus Tea</strong><span>Sun-dried hibiscus petals · tart, ruby-red, caffeine-free</span></div></li>
-          <li><span class="tea-bullet">ii.</span><div><strong>Peppermint Tea</strong><span>Whole-leaf peppermint · cooling, digestive, aromatic</span></div></li>
-          <li><span class="tea-bullet">iii.</span><div><strong>Rhododendron Tulsi Tea</strong><span>Himalayan rhododendron · holy basil · immunity blend</span></div></li>
-          <li><span class="tea-bullet">iv.</span><div><strong>Turmeric Moringa Tea</strong><span>Golden turmeric · moringa leaf · ayurvedic wellness</span></div></li>
-        </ul>
-        <div class="tea-cta">
-          <button class="btn btn-red">Shop the Tea Range
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="btn btn-outline-blue">Read the Story</button>
-        </div>
-      </div>
-
-      <div class="tea-visual">
-        <div class="tea-vis-frame">
-          <img class="img-fill" src="assets/tea-turmeric-moringa.jpg" alt="Mohan Turmeric Moringa Tea — golden ayurvedic blend"/>
-          <div class="tea-vis-tag">No. 01 · Turmeric Moringa</div>
-        </div>
-        <div class="tea-vis-side">
-          <div class="tea-mini">
-            <img class="img-fill" src="assets/tea-hibiscus.jpg" alt="Hibiscus Tea — sun-dried ruby petals"/>
-          </div>
-          <div class="tea-mini">
-            <img class="img-fill" src="assets/tea-peppermint.jpg" alt="Peppermint Tea — whole-leaf, cooling"/>
-          </div>
-          <div class="tea-mini">
-            <img class="img-fill" src="assets/tea-rhododendron-tulsi.jpg" alt="Rhododendron Tulsi Tea — Himalayan immunity blend"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- BILONA RITUAL -->
 <section class="bilona" id="bilona">
   <div class="wrap">
@@ -2513,6 +2489,37 @@
       <div class="step"><div class="num">02</div><h4>The Curd</h4><p>Whole milk, cultured with yesterday's curd. Set in clay pots, overnight, in the cool of dawn.</p></div>
       <div class="step"><div class="num">03</div><h4>The Churn</h4><p>Two women, a wooden bilona, four hours of rhythm. Butter rises. Buttermilk falls.</p></div>
       <div class="step"><div class="num">04</div><h4>The Flame</h4><p>Slow-simmered in copper kadhai over wood-fire until white butter turns gold.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEA — product list -->
+<section class="products tea-products" id="tea">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow cream center">Mohan Tea · हमारी चाय</div>
+      <div class="hindi-sub">हिमालय से, घर तक</div>
+      <h2>Four blends. <span class="gold">Brewed slow.</span></h2>
+      <p>From the same hands that pour our ghee — four hill-grown infusions for the morning cup.</p>
+    </div>
+
+    <div class="product-grid tea-product-grid">
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/tea-hibiscus.jpg" alt="Mohan Hibiscus Tea"/><span class="pill">Caffeine-Free</span></div>
+        <div class="body"><h3>Hibiscus Tea</h3><div class="sub">Tart · ruby-red</div><div class="meta"><div class="price"><small>From</small> ₹249<small>/30 bags</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/tea-peppermint.jpg" alt="Mohan Peppermint Tea"/><span class="pill">Cooling</span></div>
+        <div class="body"><h3>Peppermint Tea</h3><div class="sub">Cool · crisp · digestive</div><div class="meta"><div class="price"><small>From</small> ₹229<small>/30 bags</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/tea-rhododendron-tulsi.jpg" alt="Mohan Rhododendron Tulsi Tea"/><span class="pill">Himalayan</span></div>
+        <div class="body"><h3>Rhododendron Tulsi</h3><div class="sub">Immunity blend</div><div class="meta"><div class="price"><small>From</small> ₹279<small>/30 bags</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/tea-turmeric-moringa.jpg" alt="Mohan Turmeric Moringa Tea"/><span class="pill">Ayurvedic</span></div>
+        <div class="body"><h3>Turmeric Moringa</h3><div class="sub">Golden · wellness</div><div class="meta"><div class="price"><small>From</small> ₹279<small>/30 bags</small></div><button class="add">Add</button></div></div>
+      </article>
     </div>
   </div>
 </section>
@@ -2852,14 +2859,32 @@
 })();
 
 /* Video bands: poster banner stays put; after 2s of scroll dwell, the video
-   pops OUT into a fixed-position 16:9 floating player (bottom-right of viewport).
-   Page keeps scrolling normally behind it. When the band leaves the viewport
-   the player shrinks back and pauses. */
+   pops OUT into a fixed-position centered 16:9 floating player. Page keeps
+   scrolling normally behind it. When the band leaves the viewport the player
+   shrinks back and pauses. Mobile: warm videos on first interaction so iOS
+   allows muted playback later, with a tap-to-play hint as a fallback. */
 (function() {
   var bands = document.querySelectorAll('[data-video-band]');
   if (!bands.length) return;
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var DWELL_MS = prefersReduced ? 200 : 2000;
+
+  /* On the user's first touch / scroll / tap, prime each video so iOS
+     treats subsequent muted .play() calls as user-initiated. */
+  function warmAll() {
+    bands.forEach(function(b) {
+      var v = b.querySelector('video');
+      if (!v) return;
+      v.muted = true;
+      try { v.load(); } catch(_) {}
+    });
+  }
+  ['touchstart', 'pointerdown', 'click', 'scroll'].forEach(function(evt) {
+    window.addEventListener(evt, function once() {
+      window.removeEventListener(evt, once, { passive: true });
+      warmAll();
+    }, { passive: true, once: true });
+  });
 
   bands.forEach(function(band) {
     var pop = band.querySelector('.video-pop');
@@ -2871,20 +2896,44 @@
     var isInView = false;
     var dismissed = false;
 
+    function showTapHint() {
+      pop.classList.add('needs-tap');
+      var tap = function() {
+        pop.classList.remove('needs-tap');
+        pop.removeEventListener('click', tap);
+        vid.muted = true;
+        vid.play().catch(function(){});
+      };
+      pop.addEventListener('click', tap);
+    }
+
     function tryPlay() {
       vid.muted = true;
+      vid.setAttribute('playsinline', '');
       var p = vid.play();
       if (p && typeof p.then === 'function') {
-        p.catch(function() {
-          /* iOS / mobile: video may not be ready. Force a load and retry on canplay. */
+        p.then(function() {
+          pop.classList.remove('needs-tap');
+        }).catch(function() {
+          /* First retry: force load + wait for canplay */
           var onCanPlay = function() {
             vid.removeEventListener('canplay', onCanPlay);
             vid.removeEventListener('loadeddata', onCanPlay);
-            if (pop.classList.contains('is-active')) vid.play().catch(function(){});
+            if (!pop.classList.contains('is-active')) return;
+            var p2 = vid.play();
+            if (p2 && typeof p2.then === 'function') {
+              p2.then(function() {
+                pop.classList.remove('needs-tap');
+              }).catch(showTapHint);
+            }
           };
           vid.addEventListener('canplay', onCanPlay);
           vid.addEventListener('loadeddata', onCanPlay);
           try { vid.load(); } catch(_) {}
+          /* If nothing happens within 1.5s, surface a tap-to-play hint */
+          setTimeout(function() {
+            if (vid.paused && pop.classList.contains('is-active')) showTapHint();
+          }, 1500);
         });
       }
     }
