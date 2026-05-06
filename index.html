@@ -2218,6 +2218,44 @@
     .testi-card { flex: 0 0 260px; }
     .ritual-steps, .commit-grid, .dish-grid { gap: 10px; }
   }
+
+  /* Floating action stack — scroll-to-top + WhatsApp */
+  .fab-stack {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .fab {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.32); }
+  .fab.fab-top { background: var(--blue-deep); }
+  .fab.fab-wa  { background: #25D366; }
+  .fab.fab-top.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+  @media (max-width: 768px) {
+    .fab-stack { right: 14px; bottom: 14px; gap: 10px; }
+    .fab { width: 46px; height: 46px; }
+  }
 </style>
 </head>
 <body>
@@ -3003,6 +3041,31 @@
     });
   });
 })();
+
+/* Floating action stack: scroll-to-top + WhatsApp */
+(function() {
+  var topBtn = document.querySelector('.fab-top');
+  if (!topBtn) return;
+  topBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  var toggle = function() {
+    if (window.scrollY > 600) topBtn.classList.remove('is-hidden');
+    else topBtn.classList.add('is-hidden');
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+})();
 </script>
+
+<!-- Floating action stack -->
+<div class="fab-stack" aria-hidden="false">
+  <button class="fab fab-top is-hidden" aria-label="Scroll to top">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+  <a class="fab fab-wa" href="https://wa.me/919999999999?text=Hi%20Mohan%20Ghee%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor"><path d="M16.003 3C9.376 3 4 8.373 4 15a11.93 11.93 0 0 0 1.704 6.143L4 29l8.108-1.677A11.97 11.97 0 0 0 16.003 27C22.63 27 28 21.627 28 15S22.63 3 16.003 3Zm0 21.823a9.79 9.79 0 0 1-4.992-1.36l-.358-.214-4.815.996.997-4.696-.234-.376A9.792 9.792 0 0 1 6.18 15c0-5.413 4.41-9.823 9.824-9.823 5.412 0 9.823 4.41 9.823 9.823 0 5.413-4.411 9.823-9.823 9.823Zm5.42-7.337c-.297-.149-1.762-.869-2.036-.969-.273-.099-.471-.149-.67.149-.197.297-.769.969-.943 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.476-.884-.788-1.48-1.762-1.654-2.06-.173-.297-.018-.458.13-.607.133-.132.297-.347.446-.52.149-.174.198-.297.297-.495.099-.198.05-.371-.025-.52-.074-.149-.67-1.61-.917-2.205-.241-.58-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.075-.793.371-.273.297-1.04 1.017-1.04 2.479 0 1.461 1.064 2.872 1.213 3.07.149.198 2.094 3.197 5.075 4.485.71.306 1.262.488 1.694.625.711.226 1.359.194 1.871.118.571-.085 1.762-.72 2.011-1.415.247-.694.247-1.29.173-1.415-.074-.123-.272-.197-.57-.346Z"/></svg>
+  </a>
+</div>
 </body>
 </html>
