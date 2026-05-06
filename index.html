@@ -300,53 +300,50 @@
     transform: rotate(-8deg);
   }
 
-  /* VIDEO BAND — centered 16:9 card that pops on scroll */
+  /* VIDEO BAND — full-width 16:9, poster banner that pops to live video on dwell */
   .video-band {
     position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 82vh;
     background: var(--ink);
-    padding: 56px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     cursor: pointer;
   }
   .video-band image-slot { width: 100%; height: 100%; }
-  .video-frame {
-    position: relative;
-    width: min(92vw, 1240px);
-    aspect-ratio: 16 / 9;
-    max-height: 78vh;
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transform: scale(0.94);
-    opacity: 0.88;
-    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, box-shadow 0.7s ease;
-    will-change: transform, opacity;
+  .video-band .poster {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: opacity 0.7s ease, transform 1.4s ease;
   }
-  .video-band.is-playing .video-frame {
-    transform: scale(1);
+  .video-band.is-popped .poster {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  .video-band video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.9, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .video-band.is-popped video {
     opacity: 1;
-    box-shadow: 0 26px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
-  }
-  .video-frame video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+    transform: scale(1);
   }
   .video-band .scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
     pointer-events: none;
-    transition: opacity 0.7s ease;
-    z-index: 1;
+    transition: opacity 0.6s ease;
+    z-index: 2;
   }
-  .video-band.is-playing .scrim { opacity: 0.45; }
+  .video-band.is-popped .scrim { opacity: 0; }
   .video-band .overlay {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
@@ -357,24 +354,24 @@
     pointer-events: none;
     transition: opacity 0.55s ease, transform 0.55s ease;
   }
-  .video-band.is-playing .overlay {
+  .video-band.is-popped .overlay {
     opacity: 0;
     transform: translateY(-14px);
   }
   .video-band .overlay h2 {
     font-family: var(--display);
-    font-size: clamp(36px, 5.4vw, 86px);
-    line-height: 0.98;
+    font-size: clamp(40px, 6vw, 96px);
+    line-height: 0.95;
     margin: 0 0 12px;
     color: var(--paper);
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.45);
-    max-width: 1000px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+    max-width: 1100px;
   }
   .video-band .overlay .tag {
     font-family: var(--hindi);
-    font-size: clamp(18px, 2.2vw, 30px);
+    font-size: clamp(20px, 2.4vw, 32px);
     color: var(--turmeric);
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
   .video-band .mute-btn {
     position: absolute;
@@ -389,7 +386,13 @@
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: background 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+    transition: background 0.2s ease, transform 0.2s ease, opacity 0.4s ease;
+  }
+  .video-band.is-popped .mute-btn {
+    opacity: 1;
+    pointer-events: auto;
   }
   .video-band .mute-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.06); }
   .video-band .mute-btn .icon-unmute { display: none; }
@@ -1635,20 +1638,15 @@
       box-shadow: 0 0 0 2px var(--red);
     }
 
-    /* VIDEO BAND — mobile, 16:9 card with tighter padding */
+    /* VIDEO BAND — mobile: keep 16:9 banner, smaller text, smaller mute btn */
     .video-band {
-      padding: 28px 12px;
+      max-height: 70vh;
       border-top: 4px solid var(--turmeric);
       border-bottom: 4px solid var(--turmeric);
     }
-    .video-frame {
-      width: min(96vw, 560px);
-      max-height: 60vh;
-      border-radius: 6px;
-    }
-    .video-band .overlay { padding: 0 16px; }
-    .video-band .overlay h2 { font-size: 24px; line-height: 1; margin: 0 0 10px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
-    .video-band .overlay .tag { font-size: 14px; margin-bottom: 6px; }
+    .video-band .overlay { padding: 0 24px; }
+    .video-band .overlay h2 { font-size: 26px; line-height: 1; margin: 0 0 12px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+    .video-band .overlay .tag { font-size: 15px; margin-bottom: 8px; }
     .video-band .mute-btn { bottom: 14px; right: 14px; width: 40px; height: 40px; }
 
     /* SECTION HEADERS — smaller display */
@@ -2329,10 +2327,9 @@
 
 <!-- VIDEO BAND 1 -->
 <section class="video-band" data-video-band>
+  <img class="poster" src="assets/banner-hero.png" alt="A taste of tradition, untouched since 1947 — Mohan Ghee" />
+  <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
-  <div class="video-frame">
-    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/banner-hero.png" muted loop playsinline preload="metadata"></video>
-  </div>
   <div class="overlay">
     <div>
       <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
@@ -2519,10 +2516,9 @@
 
 <!-- VIDEO BAND 3 -->
 <section class="video-band" data-video-band>
+  <img class="poster" src="assets/lifestyle-pour.jpg" alt="Made by hand, posted with care — Mohan Ghee" />
+  <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
-  <div class="video-frame">
-    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/lifestyle-pour.jpg" muted loop playsinline preload="metadata"></video>
-  </div>
   <div class="overlay">
     <div>
       <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
@@ -2804,45 +2800,46 @@
   });
 })();
 
-/* Video bands: scroll-reveal autoplay, mute toggle, tap-to-show-title */
+/* Video bands: poster banner by default; on 2s scroll dwell, pops to live video.
+   Reverts when band scrolls out. Pure scroll-driven, no scroll hijack. */
 (function() {
   var bands = document.querySelectorAll('[data-video-band]');
   if (!bands.length) return;
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DWELL_MS = prefersReduced ? 200 : 2000;
 
   bands.forEach(function(band) {
     var vid = band.querySelector('video');
     var muteBtn = band.querySelector('.mute-btn');
-    var hideTimer;
+    var dwellTimer;
+    var isInView = false;
 
-    function reveal() {
-      band.classList.add('is-playing');
+    function popOut() {
+      if (!isInView) return;
+      band.classList.add('is-popped');
+      vid.play().catch(function(){});
     }
-    function showTitle(autoHide) {
-      band.classList.remove('is-playing');
-      clearTimeout(hideTimer);
-      if (autoHide) hideTimer = setTimeout(reveal, 3500);
+    function popIn() {
+      band.classList.remove('is-popped');
+      vid.pause();
     }
 
-    /* Play/pause based on visibility */
+    /* Dwell-trigger pop on scroll into view */
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
           if (e.isIntersecting) {
-            vid.play().catch(function(){});
-            clearTimeout(hideTimer);
-            hideTimer = setTimeout(reveal, prefersReduced ? 0 : 1800);
+            isInView = true;
+            clearTimeout(dwellTimer);
+            dwellTimer = setTimeout(popOut, DWELL_MS);
           } else {
-            vid.pause();
-            band.classList.remove('is-playing');
-            clearTimeout(hideTimer);
+            isInView = false;
+            clearTimeout(dwellTimer);
+            popIn();
           }
         });
-      }, { threshold: 0.4 });
+      }, { threshold: 0.55 });
       io.observe(band);
-    } else {
-      vid.play().catch(function(){});
-      reveal();
     }
 
     /* Mute / unmute toggle */
@@ -2855,15 +2852,11 @@
       });
     }
 
-    /* Click anywhere on the band → bring title back briefly */
-    band.addEventListener('click', function() {
-      if (band.classList.contains('is-playing')) showTitle(true);
-    });
-
-    /* Pause when tab is hidden, resume when visible */
+    /* Pause when tab is hidden; resume only if currently popped */
     document.addEventListener('visibilitychange', function() {
-      if (document.hidden) vid.pause();
-      else if (band.getBoundingClientRect().top < window.innerHeight && band.getBoundingClientRect().bottom > 0) {
+      if (document.hidden) {
+        vid.pause();
+      } else if (band.classList.contains('is-popped')) {
         vid.play().catch(function(){});
       }
     });
