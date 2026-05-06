@@ -721,6 +721,11 @@
     margin: 0 0 6px;
     line-height: 1.25;
     letter-spacing: -0.005em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.5em;
   }
   .product .sub {
     font-family: var(--serif);
@@ -2469,44 +2474,44 @@
       <p>From the iconic Mohan Ghee Desi tin to the new Morhav Organics A2 Gir Reserve — every jar carries the same recipe, the same patience, the same hands.</p>
     </div>
 
-    <div class="filter-row">
-      <span class="active">All</span>
-      <span>Mohan Ghee · Since 1947</span>
-      <span>Morhav A2 Gir</span>
-      <span>Vedic Ghee</span>
-      <span>Wellness</span>
+    <div class="filter-row" data-filter-group>
+      <span class="active" data-filter="all">All</span>
+      <span data-filter="mohan">Mohan Ghee · Since 1947</span>
+      <span data-filter="a2gir">Morhav A2 Gir</span>
+      <span data-filter="vedic">Vedic Ghee</span>
+      <span data-filter="wellness">Wellness</span>
     </div>
 
     <div class="product-grid">
-      <article class="product">
+      <article class="product" data-cat="mohan wellness">
         <div class="img"><img class="img-fill" src="assets/p1-mohan-desi.jpg" alt="Mohan Ghee Desi Ghee tin"/><span class="pill">★ Since 1947</span></div>
         <div class="body"><h3>Mohan Ghee® Desi Ghee</h3><div class="sub">A2 Buffalo · Predominantly Bilona</div><div class="meta"><div class="price"><small>From</small> ₹208<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="mohan wellness">
         <div class="img"><img class="img-fill" src="assets/p2-mohan-cow.jpg" alt="Mohan Ghee Cow Ghee tin"/><span class="pill">Cow Milk</span></div>
         <div class="body"><h3>Mohan Ghee® Cow Ghee</h3><div class="sub">Traditional Bilona Method</div><div class="meta"><div class="price"><small>From</small> ₹217<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="a2gir vedic wellness">
         <div class="img"><img class="img-fill" src="assets/p3-morhav-a2gir.jpg" alt="Morhav A2 Gir Cow Ghee jar"/><span class="pill">A2 Gir · Ayurvedic</span></div>
         <div class="body"><h3>Morhav® A2 Gir Cow Ghee</h3><div class="sub">Hand-curd · Ayurvedic Bilona</div><div class="meta"><div class="price"><small>From</small> ₹217<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="wellness">
         <div class="img"><img class="img-fill" src="assets/p4-morhav-buffalo.jpg" alt="Morhav Desi Ghee from A2 Buffalo"/><span class="pill">A2 Murrah</span></div>
         <div class="body"><h3>Morhav® Ghee Desi Ghee</h3><div class="sub">A2 Buffalo · Grass-fed Murrah</div><div class="meta"><div class="price"><small>From</small> ₹300<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="vedic wellness">
         <div class="img"><img class="img-fill" src="assets/p5-morhav-veda-cow.jpg" alt="Morhav Veda Ghee Cow jar"/><span class="pill">Vedic</span></div>
         <div class="body"><h3>Morhav® Veda Ghee · Cow</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price"><small>From</small> ₹158<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="vedic wellness">
         <div class="img"><img class="img-fill" src="assets/p6-morhav-veda-buff.jpg" alt="Morhav Veda Ghee Buffalo jar"/><span class="pill">Vedic Buffalo</span></div>
         <div class="body"><h3>Morhav® Veda Ghee · Buffalo</h3><div class="sub">A2 Buffalo · Ayurvedic</div><div class="meta"><div class="price"><small>From</small> ₹158<small>/50 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="wellness">
         <div class="img"><img class="img-fill" src="assets/p7-morhav-cow.jpg" alt="Morhav Ghee Cow Ghee jar"/><span class="pill">Bilona Cow</span></div>
         <div class="body"><h3>Morhav® Ghee · Cow Ghee</h3><div class="sub">100% Bilona · Curd-Churned</div><div class="meta"><div class="price"><small>From</small> ₹300<small>/200 ml</small></div><button class="add">Add</button></div></div>
       </article>
-      <article class="product">
+      <article class="product" data-cat="mohan">
         <div class="img"><img class="img-fill" src="assets/p1-mohan-desi-alt.jpg" alt="Mohan Ghee Desi Ghee — 2 Litre Family Tin"/><span class="pill">Family Tin · 2 L</span></div>
         <div class="body"><h3>Mohan Ghee® Desi · Family Tin</h3><div class="sub">A2 Buffalo · 2 Ltr Bilona</div><div class="meta"><div class="price">₹1,729<small>/2 L</small></div><button class="add">Add</button></div></div>
       </article>
@@ -3050,6 +3055,25 @@
       } else if (pop.classList.contains('is-active')) {
         tryPlay();
       }
+    });
+  });
+})();
+
+/* Product range filters */
+(function() {
+  var group = document.querySelector('[data-filter-group]');
+  if (!group) return;
+  var pills = group.querySelectorAll('span[data-filter]');
+  var products = document.querySelectorAll('.product-grid .product');
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      var f = pill.getAttribute('data-filter');
+      pills.forEach(function(p) { p.classList.toggle('active', p === pill); });
+      products.forEach(function(prod) {
+        var cats = (prod.getAttribute('data-cat') || '').split(/\s+/);
+        var show = (f === 'all') || cats.indexOf(f) !== -1;
+        prod.style.display = show ? '' : 'none';
+      });
     });
   });
 })();
