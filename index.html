@@ -1359,6 +1359,23 @@
   .foot-base .center { color: var(--turmeric); text-align: center; }
   .foot-base .right { text-align: right; }
 
+  /* Unified character spacing across all section headlines —
+     matches the "Made by hand. Posted with care." video-band tightness */
+  .sec-head h2,
+  .products h2,
+  .bilona h2,
+  .legacy h2,
+  .health-band h2,
+  .standards h2,
+  .lab h2,
+  .wellness h2,
+  .morhav h2,
+  .cta h2,
+  .video-band .overlay h2 {
+    letter-spacing: -0.005em;
+    font-weight: 400;
+  }
+
   /* Real-image slots (replaces the <image-slot> web component for client preview) */
   .img-fill {
     width: 100%;
