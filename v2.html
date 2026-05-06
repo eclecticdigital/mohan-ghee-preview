@@ -638,7 +638,7 @@
     font-weight: 600;
     color: var(--terracotta);
   }
-  .tea-vis-side { display: grid; grid-template-rows: 1fr 1fr 0.85fr; gap: 18px; }
+  .tea-vis-side { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 18px; }
   .tea-mini { background: var(--cream-2); border-radius: var(--radius); overflow: hidden; }
   .tea-mini img { width: 100%; height: 100%; object-fit: cover; }
   .tea-spec {
@@ -1500,7 +1500,7 @@
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="home">
   <div class="bg">
-    <img src="assets/lifestyle-pour.jpg" alt="Hand-churned ghee being poured over a fresh paratha"/>
+    <img src="assets/banner-hero.png" alt="Mohan Ghee — hand-churned since 1947"/>
   </div>
   <div class="wrap">
     <div class="eyebrow eyebrow-gold" style="color: var(--ghee-gold);">Since 1947 · शुद्धता का विश्वास</div>
@@ -1523,7 +1523,7 @@
 
 <!-- ═══════════ VIDEO BAND 1 ═══════════ -->
 <section class="video-band">
-  <img class="bg" src="assets/dnbf-banner.jpg" alt="A taste of tradition"/>
+  <video class="bg" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" poster="assets/dnbf-banner.jpg" autoplay muted loop playsinline></video>
   <div class="overlay">
     <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
     <h2>A taste of <span class="italic">tradition,</span><br/>untouched since 1947.</h2>
@@ -1652,42 +1652,35 @@
   </div>
 </section>
 
-<!-- ═══════════ TEA LAUNCH TEASER ═══════════ -->
+<!-- ═══════════ TEA LAUNCH ═══════════ -->
 <section class="tea sec" id="tea">
   <div class="wrap">
     <div class="tea-grid">
       <div>
-        <div class="stamp">
-          <span class="big">New</span>
-          <span>Coming<br/>2025</span>
-        </div>
         <div class="eyebrow" style="color: var(--terracotta);">A New Chapter · नया अध्याय</div>
         <h2>From the hearth,<br/>now to the <span class="italic">kettle.</span></h2>
-        <p class="tea-lede">After 78 years of pouring ghee into India's kitchens, Mohan is proud to introduce its next ritual — <strong>Mohan Tea</strong>. Hand-plucked, hill-grown, and blended the way grandmother brewed it: with cardamom, with patience, with love.</p>
+        <p class="tea-lede">After 78 years of pouring ghee into India's kitchens, Mohan is proud to introduce its next ritual — <strong>Mohan Tea</strong>. Four hill-grown, hand-blended infusions, brewed the way grandmother taught us: with herbs, with patience, with love.</p>
         <ul class="tea-list">
-          <li><span class="tea-bullet">i.</span><div><strong>Mohan Masala Chai</strong><span>Single-origin Assam · cardamom, clove, ginger, fennel</span></div></li>
-          <li><span class="tea-bullet">ii.</span><div><strong>Mohan Kesar Chai</strong><span>Kashmiri saffron · slow-blended with green cardamom</span></div></li>
-          <li><span class="tea-bullet">iii.</span><div><strong>Mohan Tulsi Green</strong><span>Whole-leaf Darjeeling · holy basil · ayurvedic</span></div></li>
-          <li><span class="tea-bullet">iv.</span><div><strong>Mohan Adrak Elaichi</strong><span>Handpicked CTC · ginger and cardamom · for the morning cup</span></div></li>
+          <li><span class="tea-bullet">i.</span><div><strong>Hibiscus Tea</strong><span>Sun-dried hibiscus petals · tart, ruby-red, caffeine-free</span></div></li>
+          <li><span class="tea-bullet">ii.</span><div><strong>Peppermint Tea</strong><span>Whole-leaf peppermint · cooling, digestive, aromatic</span></div></li>
+          <li><span class="tea-bullet">iii.</span><div><strong>Rhododendron Tulsi Tea</strong><span>Himalayan rhododendron · holy basil · immunity blend</span></div></li>
+          <li><span class="tea-bullet">iv.</span><div><strong>Turmeric Moringa Tea</strong><span>Golden turmeric · moringa leaf · ayurvedic wellness</span></div></li>
         </ul>
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a class="btn btn-primary">Notify Me at Launch</a>
+          <a class="btn btn-primary">Shop the Tea Range</a>
           <a class="btn btn-secondary">Read the Story</a>
         </div>
       </div>
 
       <div class="tea-visual">
         <div class="tea-vis-frame">
-          <img src="assets/tea-pack.jpg" alt="Mohan Tea masala chai with whole spices"/>
-          <div class="tea-vis-tag">No. 01 · Mohan Masala</div>
+          <img src="assets/tea-turmeric-moringa.jpg" alt="Mohan Turmeric Moringa Tea — golden ayurvedic blend"/>
+          <div class="tea-vis-tag">No. 01 · Turmeric Moringa</div>
         </div>
         <div class="tea-vis-side">
-          <div class="tea-mini"><img src="assets/tea-cup.jpg" alt="Brewing chai with cardamom"/></div>
-          <div class="tea-mini"><img src="assets/tea-leaves.jpg" alt="Loose tea leaves"/></div>
-          <div class="tea-spec">
-            <div class="tea-spec-num">04</div>
-            <div class="tea-spec-label">Blends<br/>at launch</div>
-          </div>
+          <div class="tea-mini"><img src="assets/tea-hibiscus.jpg" alt="Hibiscus Tea — sun-dried ruby petals"/></div>
+          <div class="tea-mini"><img src="assets/tea-peppermint.jpg" alt="Peppermint Tea — whole-leaf, cooling"/></div>
+          <div class="tea-mini"><img src="assets/tea-rhododendron-tulsi.jpg" alt="Rhododendron Tulsi Tea — Himalayan immunity blend"/></div>
         </div>
       </div>
     </div>
@@ -1740,7 +1733,7 @@
       </div>
       <div class="bilona-step right">
         <div class="marker"></div>
-        <div class="img"><img src="assets/live-bilona-banner.jpg" alt="Wooden bilona hand-churning"/></div>
+        <div class="img"><img src="assets/section-bilona-churning.png" alt="Four hours of churning, twenty-seven of patience"/></div>
       </div>
 
       <div class="bilona-step left">
@@ -1803,14 +1796,14 @@
         <p>Affordable. Inclusive. Authentic. Mohan Ghee is the taste of tradition served in every Indian home — from the first jar in 1947 to the kitchens of today. Discover the original recipe, untouched.</p>
         <a class="btn btn-primary">Shop the Range</a>
       </div>
-      <div class="health-vis"><img src="assets/live-jingle1.jpg" alt="Mohan Ghee — taste of tradition served in every Indian home"/></div>
+      <div class="health-vis"><img src="assets/section-health-wellness.png" alt="Health & wellness for all — Mohan Ghee for every Indian home"/></div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════ LEGACY 1947 BANNER ═══════════ -->
 <section class="legacy-banner" id="legacy">
-  <img class="bg" src="assets/lifestyle-grandma.jpg" alt="Three generations of Mohan Ghee — since 1947"/>
+  <img class="bg" src="assets/section-1947-legacy.png" alt="Begun in 1947 — carried in a thousand kitchens"/>
   <div class="seal">M</div>
   <div class="wrap overlay">
     <div class="copy">
@@ -1825,7 +1818,7 @@
 
 <!-- ═══════════ VIDEO BAND 3 ═══════════ -->
 <section class="video-band">
-  <img class="bg" src="assets/video-poster.jpg" alt="Made by hand · Posted with care"/>
+  <video class="bg" src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" poster="assets/video-poster.jpg" autoplay muted loop playsinline></video>
   <div class="overlay">
     <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
     <h2>Made by hand.<br/><span class="italic">Posted</span> with care.</h2>
@@ -1846,7 +1839,7 @@
         <a class="btn btn-secondary">View All Lab Reports</a>
       </div>
       <div class="cert-frame">
-        <img src="assets/live-certifications.png" alt="Morhav Organics Pvt. Ltd. — Certified Excellence, Internationally Trusted Quality"/>
+        <img src="assets/section-independently-tested.png" alt="Independently tested. Stubbornly verified. — every batch lab-checked"/>
       </div>
     </div>
   </div>
@@ -1870,7 +1863,7 @@
       </div>
       <div class="doc">
         <div class="stamp">Lab Verified</div>
-        <img src="assets/lab-doc.jpg" alt="Independent lab nutrition analysis report"/>
+        <img src="assets/section-what-we-measure.png" alt="What we measure, we mean — independent lab nutrition analysis"/>
       </div>
     </div>
   </div>
@@ -1924,7 +1917,7 @@
 <section class="wellness sec">
   <div class="wrap">
     <div class="wellness-grid">
-      <div class="wellness-vis"><img src="assets/lifestyle-spoon.jpg" alt="A spoon of ghee — wellness ritual"/></div>
+      <div class="wellness-vis"><img src="assets/section-spoon-a-day.png" alt="A spoon a day, the old way — Mohan Ghee wellness ritual"/></div>
       <div>
         <div class="eyebrow eyebrow-gold">Wellness Benefits</div>
         <h2>A spoon a day,<br/>the <span class="italic">old way.</span></h2>
