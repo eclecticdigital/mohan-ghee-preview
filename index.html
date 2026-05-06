@@ -3059,12 +3059,13 @@
   });
 })();
 
-/* Product range filters */
+/* Product range filters — scoped to the ghee section only */
 (function() {
   var group = document.querySelector('[data-filter-group]');
   if (!group) return;
+  var section = group.closest('section');
   var pills = group.querySelectorAll('span[data-filter]');
-  var products = document.querySelectorAll('.product-grid .product');
+  var products = section.querySelectorAll('.product-grid .product');
   pills.forEach(function(pill) {
     pill.addEventListener('click', function() {
       var f = pill.getAttribute('data-filter');
