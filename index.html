@@ -353,27 +353,28 @@
     margin-bottom: 22px;
   }
 
-  /* The pop-out floating player — fixed in viewport, follows scroll */
+  /* The pop-out floating player — centered in viewport, follows scroll */
   .video-pop {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: min(40vw, 520px);
+    top: 50%;
+    left: 50%;
+    width: min(80vw, 1040px);
+    max-height: 80vh;
     aspect-ratio: 16 / 9;
     background: #000;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+    box-shadow: 0 30px 90px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08);
     z-index: 50;
     opacity: 0;
-    transform: translateY(20px) scale(0.85);
+    transform: translate(-50%, -50%) scale(0.88);
     pointer-events: none;
     transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.9, 0.2, 1);
     will-change: opacity, transform;
   }
   .video-pop.is-active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     pointer-events: auto;
   }
   .video-pop video {
@@ -1655,10 +1656,9 @@
     .video-band .overlay h2 { font-size: 26px; line-height: 1; margin: 0 0 12px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
     .video-band .overlay .tag { font-size: 15px; margin-bottom: 8px; }
     .video-pop {
-      right: 12px;
-      bottom: 12px;
       width: calc(100vw - 24px);
       max-width: none;
+      max-height: 70vh;
       border-radius: 8px;
     }
     .video-pop .ctrl-btn { width: 32px; height: 32px; }
