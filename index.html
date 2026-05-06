@@ -1018,11 +1018,23 @@
 
   /* LAB */
   .lab { background: var(--paper); padding: 100px 0; }
-  .lab .grid {
+  .lab .lab-head {
+    max-width: 880px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .lab .lab-head h2 { margin: 12px 0 22px; }
+  .lab .lab-head .lede {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .lab ul.checks.two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
+    column-gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto 56px;
   }
   .lab h2 {
     font-family: var(--display);
@@ -1057,15 +1069,19 @@
     transform: rotate(-45deg);
   }
   .lab .doc {
-    aspect-ratio: 4/5;
-    background: var(--paper-2);
+    aspect-ratio: 1600 / 1375;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--paper);
     border: 4px solid var(--blue-deep);
     border-radius: 6px;
-    box-shadow: 10px 10px 0 var(--red);
+    box-shadow: 12px 12px 0 var(--red);
     overflow: hidden;
     position: relative;
   }
   .lab .doc image-slot { width: 100%; height: 100%; }
+  .lab .doc img.img-fill { object-fit: cover; }
   .lab .doc .stamp {
     position: absolute;
     top: 24px; right: -12px;
@@ -1952,12 +1968,14 @@
 
     /* LAB — single col, smaller */
     .lab { padding: 36px 22px; border-top: 4px solid var(--turmeric); border-bottom: 4px solid var(--turmeric); }
-    .lab .grid { gap: 22px; }
+    .lab .lab-head { margin-bottom: 22px; }
+    .lab .lab-head .lede { font-size: 13px; line-height: 1.55; }
     .lab h2 { font-size: 26px; line-height: 0.95; margin: 8px 0 14px; }
+    .lab ul.checks.two-col { grid-template-columns: 1fr; column-gap: 0; margin-bottom: 28px; }
     .lab ul.checks li { font-size: 12px; line-height: 1.4; padding: 8px 0 8px 32px; }
     .lab ul.checks li::before { width: 18px; height: 18px; top: 11px; }
     .lab ul.checks li::after { left: 4px; top: 16px; }
-    .lab .doc { aspect-ratio: 5/4; border-width: 2px; box-shadow: 4px 4px 0 var(--red); }
+    .lab .doc { border-width: 2px; box-shadow: 4px 4px 0 var(--red); }
     .lab .doc .stamp { top: 12px; right: -8px; padding: 6px 14px; font-size: 11px; }
 
     /* COMMITMENT — 2-col grid, smaller cards */
@@ -2485,23 +2503,24 @@
 <!-- LAB -->
 <section class="lab">
   <div class="wrap">
-    <div class="grid">
-      <div>
-        <div class="eyebrow">Quality Assurances · At a Glance</div>
-        <h2>What we measure,<br/>we <span class="red">mean.</span></h2>
-        <ul class="checks">
-          <li>Sourcing and ageing of curd to preserve the highest level of natural butyrate</li>
-          <li>Maintained moisture-free profile, free of trans-fats and synthetic emulsifiers</li>
-          <li>Predominantly Bilona, no-shortcut hand-churn process</li>
-          <li>Cold-chain bottling of every jar within hours of clarification</li>
-          <li>Examining each single batch against AGMARK and pesticide residue benchmarks</li>
-          <li>No colour, no flavour, no preservatives — ever, full stop</li>
-        </ul>
-      </div>
-      <div class="doc">
-        <div class="stamp">Lab Verified</div>
-        <img class="img-fill" src="assets/section-what-we-measure.png" alt="What we measure, we mean — independent lab nutrition analysis"/>
-      </div>
+    <div class="lab-head">
+      <div class="eyebrow center">Quality Assurances · At a Glance</div>
+      <h2>What we measure,<br/>we <span class="red">mean.</span></h2>
+      <p class="lede">Every batch of Mohan Ghee is independently lab-tested against FSSAI, AGMARK and IS standards — published in full, with nothing hidden.</p>
+    </div>
+
+    <ul class="checks two-col">
+      <li>Sourcing and ageing of curd to preserve the highest level of natural butyrate</li>
+      <li>Maintained moisture-free profile, free of trans-fats and synthetic emulsifiers</li>
+      <li>Predominantly Bilona, no-shortcut hand-churn process</li>
+      <li>Cold-chain bottling of every jar within hours of clarification</li>
+      <li>Examining each single batch against AGMARK and pesticide residue benchmarks</li>
+      <li>No colour, no flavour, no preservatives — ever, full stop</li>
+    </ul>
+
+    <div class="doc">
+      <div class="stamp">Lab Verified</div>
+      <img class="img-fill" src="assets/section-what-we-measure.png" alt="FARE Labs analysis report — Mohan Ghee Predominantly Bilona — colour, odour, rancidity, milk fat, saponification value, iodine value and full chemical profile"/>
     </div>
   </div>
 </section>
