@@ -1,0 +1,2009 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mohan Ghee — Since 1947 · शुद्धता का विश्वास</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Direct from logo */
+    --red:        #c0271e;       /* "MOHAN GHEE" vermillion */
+    --red-deep:   #8d1a14;
+    --blue:       #1d3a8a;       /* royal blue border + tagline */
+    --blue-deep:  #122766;
+    --saffron:    #e8841a;       /* clay pot / churn */
+    --turmeric:   #f2b134;
+    --cream:      #fbe9b6;       /* logo background cream */
+    --cream-2:    #f7e0a0;
+    --ivory-2:    #f7e0a0;       /* alias used by tea section */
+    --paper:      #fff8e6;       /* tin yellow */
+    --paper-2:    #fdf6df;
+    --ink:        #1a1305;
+    --ink-2:      #3b2f15;
+    --muted:      #6b5a3a;
+    --rule:       #d8b86a;
+    --rule-soft:  #ecd9a6;
+    --green:      #2d6b3a;       /* the regd. trade-mark blue/green band */
+
+    --display:   "Alfa Slab One", "Oswald", Georgia, serif;
+    --display-i: "Lora", Georgia, serif;            /* italic display fallback */
+    --condensed: "Oswald", "Inter", sans-serif;
+    --serif:     "Lora", Georgia, serif;
+    --sans:      "Inter", system-ui, sans-serif;
+    --hindi:     "Tiro Devanagari Hindi", "Lora", serif;
+
+    --maxw: 1340px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* TYPE */
+  .display { font-family: var(--display); font-weight: 400; line-height: 0.95; letter-spacing: -0.005em; }
+  .cond { font-family: var(--condensed); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+  .hindi { font-family: var(--hindi); }
+
+  .eyebrow {
+    font-family: var(--condensed);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 600;
+    color: var(--red);
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before, .eyebrow::after { content: ""; width: 22px; height: 2px; background: var(--red); }
+  .eyebrow.center { display: flex; justify-content: center; }
+  .eyebrow.blue { color: var(--blue); }
+  .eyebrow.blue::before, .eyebrow.blue::after { background: var(--blue); }
+  .eyebrow.cream { color: var(--turmeric); }
+  .eyebrow.cream::before, .eyebrow.cream::after { background: var(--turmeric); }
+
+  /* TICKER */
+  .ticker {
+    background: var(--red);
+    color: var(--paper);
+    font-family: var(--condensed);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    overflow: hidden;
+    border-bottom: 3px solid var(--turmeric);
+  }
+  .ticker .row {
+    display: flex; gap: 56px; padding: 12px 0;
+    white-space: nowrap;
+    animation: scroll 50s linear infinite;
+  }
+  .ticker .row span { display: inline-flex; gap: 56px; align-items: center; }
+  .ticker .row span::after { content: "✦"; color: var(--turmeric); margin-left: 56px; }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* NAV */
+  nav.primary {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+    border-bottom: 4px solid var(--red);
+  }
+  nav.primary .row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    height: 88px;
+    gap: 32px;
+  }
+  nav.primary img.logo { height: 64px; width: auto; }
+  nav.primary ul {
+    display: flex; gap: 32px;
+    margin: 0; padding: 0; list-style: none;
+    justify-content: center;
+    font-family: var(--condensed);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  nav.primary ul a { color: var(--blue-deep); }
+  nav.primary ul a:hover { color: var(--red); }
+  nav.primary .ico-row { display: flex; gap: 12px; align-items: center; }
+  nav.primary .ico {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--blue-deep);
+    color: var(--blue-deep);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    background: transparent;
+  }
+  nav.primary .ico:hover { background: var(--blue-deep); color: var(--paper); }
+  nav.primary .cart-pill {
+    font-family: var(--condensed);
+    background: var(--red);
+    color: var(--paper);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--cream);
+    padding: 72px 0 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 8px solid var(--blue-deep);
+  }
+  .hero::before {
+    content: "";
+    position: absolute; left: 0; right: 0; top: 0; height: 5px;
+    background: repeating-linear-gradient(90deg, var(--red) 0 24px, var(--turmeric) 24px 48px, var(--blue-deep) 48px 72px);
+  }
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px;
+    align-items: end;
+  }
+  .hero .since {
+    display: inline-flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 3px solid var(--red);
+    border-radius: 999px;
+    padding: 12px 26px;
+    font-family: var(--condensed);
+    font-weight: 700;
+    color: var(--red);
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 4px 4px 0 var(--blue-deep);
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(56px, 9vw, 142px);
+    margin: 0 0 18px;
+    color: var(--blue-deep);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 .red { color: var(--red); display: block; }
+  .hero h1 .blue { color: var(--blue-deep); display: block; }
+  .hero .hindi-line {
+    font-family: var(--hindi);
+    font-size: clamp(22px, 2.6vw, 34px);
+    color: var(--red);
+    margin: 4px 0 22px;
+    letter-spacing: -0.005em;
+  }
+  .hero .lede {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+    max-width: 480px;
+    margin: 0 0 32px;
+    line-height: 1.65;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--condensed);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translate(-2px, -2px); }
+  .btn-red {
+    background: var(--red);
+    color: var(--paper);
+    box-shadow: 4px 4px 0 var(--blue-deep);
+  }
+  .btn-red:hover { box-shadow: 6px 6px 0 var(--blue-deep); }
+  .btn-blue {
+    background: var(--blue-deep);
+    color: var(--paper);
+    box-shadow: 4px 4px 0 var(--red);
+  }
+  .btn-blue:hover { box-shadow: 6px 6px 0 var(--red); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--blue-deep);
+    border: 2px solid var(--blue-deep);
+  }
+  .btn-outline-blue {
+    background: transparent;
+    color: var(--blue-deep);
+    border: 2px solid var(--blue-deep);
+  }
+  .btn-outline-blue:hover { background: var(--blue-deep); color: var(--paper); }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-stats {
+    margin-top: 48px;
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 2px dashed var(--rule);
+    gap: 0;
+  }
+  .hero-stats .it { padding-right: 16px; }
+  .hero-stats strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-stats span {
+    font-family: var(--condensed);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue-deep);
+  }
+
+  .hero-image {
+    aspect-ratio: 4/5;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    position: relative;
+    background: var(--turmeric);
+    border: 6px solid var(--blue-deep);
+    border-bottom: none;
+    box-shadow: 12px 12px 0 var(--red);
+  }
+  .hero-image image-slot { width: 100%; height: 100%; }
+  .hero-image .stamp-circle {
+    position: absolute;
+    top: 24px; right: 24px;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-family: var(--display);
+    font-size: 14px;
+    line-height: 1.1;
+    padding: 12px;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 3px var(--red);
+    z-index: 2;
+    transform: rotate(-8deg);
+  }
+
+  /* VIDEO BAND */
+  .video-band {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/7;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .video-band image-slot { width: 100%; height: 100%; }
+  .video-band::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.55));
+    pointer-events: none;
+  }
+  .video-band .overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    z-index: 2;
+    color: var(--paper);
+    padding: 32px;
+  }
+  .video-band .overlay h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 6vw, 96px);
+    line-height: 0.95;
+    margin: 0 0 12px;
+    color: var(--paper);
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+    max-width: 1100px;
+  }
+  .video-band .overlay .tag {
+    font-family: var(--hindi);
+    font-size: clamp(20px, 2.4vw, 32px);
+    color: var(--turmeric);
+    margin-bottom: 22px;
+  }
+  .video-band .play-btn {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--red);
+    border: 4px solid var(--paper);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--paper);
+    cursor: pointer;
+    margin-top: 24px;
+    box-shadow: 0 0 0 6px rgba(192,39,30,0.3);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(192,39,30,0.3); }
+    50% { box-shadow: 0 0 0 16px rgba(192,39,30,0.05); }
+  }
+
+  /* SECTION HEADERS */
+  .sec-head {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 56px;
+  }
+  .sec-head h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 5.4vw, 80px);
+    line-height: 0.95;
+    margin: 18px 0 16px;
+    color: var(--blue-deep);
+  }
+  .sec-head h2 .red { color: var(--red); }
+  .sec-head .hindi-sub {
+    font-family: var(--hindi);
+    font-size: 22px;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .sec-head p {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* OUR GHEE / DISHES */
+  .dishes { background: var(--paper); padding: 110px 0; }
+  .dish-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .dish {
+    background: var(--paper-2);
+    border: 3px solid var(--blue-deep);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform .2s ease;
+    display: flex; flex-direction: column;
+  }
+  .dish:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--red); }
+  .dish .img {
+    aspect-ratio: 1/1;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--blue-deep);
+  }
+  .dish .img image-slot { width: 100%; height: 100%; }
+  .dish .img .pill {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--red);
+    color: var(--paper);
+    font-family: var(--condensed);
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .dish .body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+  .dish h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0 0 4px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    text-transform: none;
+  }
+  .dish .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .dish .meta {
+    margin-top: auto;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+  }
+  .dish .price {
+    font-family: var(--display);
+    color: var(--red);
+    font-size: 18px;
+  }
+  .dish .add {
+    background: var(--blue-deep);
+    color: var(--paper);
+    border: none;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  /* BILONA RITUAL */
+  .bilona { background: var(--cream); padding: 110px 0; position: relative; }
+  .bilona::before, .bilona::after {
+    content: "";
+    position: absolute; left: 0; right: 0; height: 12px;
+    background: repeating-linear-gradient(90deg, var(--red) 0 16px, var(--turmeric) 16px 32px, var(--blue-deep) 32px 48px);
+  }
+  .bilona::before { top: 0; }
+  .bilona::after { bottom: 0; }
+  .bilona .lockup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  .bilona-vis {
+    aspect-ratio: 1/1;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background: var(--turmeric);
+    border: 6px solid var(--red);
+    box-shadow: 10px 10px 0 var(--blue-deep);
+  }
+  .bilona-vis image-slot { width: 100%; height: 100%; }
+  .bilona-vis .badge {
+    position: absolute;
+    top: 24px; left: 24px;
+    background: var(--paper);
+    padding: 14px 18px;
+    border: 2px solid var(--blue-deep);
+    border-radius: 4px;
+    font-family: var(--condensed);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    z-index: 2;
+  }
+  .bilona-vis .stat {
+    position: absolute;
+    right: 20px; bottom: 20px;
+    background: var(--blue-deep);
+    color: var(--paper);
+    padding: 18px 22px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+  .bilona-vis .stat strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--turmeric);
+  }
+  .bilona-vis .stat span {
+    font-family: var(--condensed);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .bilona h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 5vw, 76px);
+    line-height: 0.95;
+    color: var(--blue-deep);
+    margin: 18px 0 24px;
+  }
+  .bilona h2 .red { color: var(--red); }
+  .bilona p { font-size: 17px; color: var(--ink); max-width: 480px; line-height: 1.65; }
+
+  .ritual-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .ritual-steps .step {
+    background: var(--paper);
+    border: 3px solid var(--blue-deep);
+    border-radius: 6px;
+    padding: 26px 22px;
+    position: relative;
+  }
+  .ritual-steps .num {
+    font-family: var(--display);
+    font-size: 56px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .ritual-steps h4 {
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--blue-deep);
+    margin: 0 0 10px;
+  }
+  .ritual-steps p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* PRODUCT GALLERY */
+  .products { background: var(--blue-deep); padding: 120px 0; color: var(--paper); position: relative; }
+  .products .head {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 64px;
+  }
+  .products h2 {
+    font-family: var(--display);
+    font-size: clamp(44px, 5.6vw, 84px);
+    line-height: 0.95;
+    color: var(--paper);
+    margin: 18px 0 14px;
+  }
+  .products h2 .gold { color: var(--turmeric); }
+  .products .head .hindi-sub { color: var(--turmeric); font-family: var(--hindi); font-size: 22px; margin-bottom: 12px; }
+  .products .head p { color: rgba(255,248,230,0.8); font-size: 17px; line-height: 1.6; }
+  .filter-row {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-bottom: 56px;
+  }
+  .filter-row span {
+    font-family: var(--condensed);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 2px solid rgba(255,248,230,0.3);
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--paper);
+  }
+  .filter-row span.active { background: var(--red); border-color: var(--red); color: var(--paper); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .product {
+    background: var(--paper);
+    border: 3px solid var(--turmeric);
+    border-radius: 6px;
+    overflow: hidden;
+    color: var(--ink);
+    transition: transform .2s ease;
+    display: flex; flex-direction: column;
+  }
+  .product:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--red); }
+  .product .img {
+    aspect-ratio: 1/1.05;
+    background: var(--cream);
+    position: relative;
+    border-bottom: 3px solid var(--turmeric);
+  }
+  .product .img image-slot { width: 100%; height: 100%; }
+  .product .pill {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--red); color: var(--paper);
+    font-family: var(--condensed);
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .product .body { padding: 18px 20px 22px; flex: 1; display: flex; flex-direction: column; }
+  .product h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .product .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .product .meta {
+    margin-top: auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px;
+    border-top: 1px dashed var(--rule);
+  }
+  .product .price {
+    font-family: var(--display);
+    font-size: 20px;
+    color: var(--red);
+  }
+  .product .price small { font-family: var(--serif); font-size: 11px; color: var(--muted); margin-left: 4px; }
+  .product .add {
+    background: var(--blue-deep);
+    color: var(--paper);
+    font-family: var(--condensed);
+    font-size: 11px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 999px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .product .add:hover { background: var(--red); }
+
+  /* TEA LAUNCH */
+  .tea-launch {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(192, 39, 30, 0.06), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(29, 58, 138, 0.06), transparent 45%),
+      var(--paper);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .tea-launch::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(192, 39, 30, 0.05) 1.5px, transparent 1.5px);
+    background-size: 36px 36px;
+    background-position: 0 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .tea-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+  }
+  .tea-copy h2 {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: clamp(44px, 5.4vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 14px 0 24px;
+    color: var(--ink);
+  }
+  .tea-copy h2 .red { color: var(--red); }
+  .tea-copy h2 .italic {
+    font-family: var(--display-i);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .tea-lede {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 480px;
+    margin: 0 0 32px;
+  }
+  .tea-lede strong { color: var(--red); font-weight: 500; }
+  .tea-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    border-top: 1px solid var(--rule);
+  }
+  .tea-list li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .tea-bullet {
+    font-family: var(--display-i);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--red);
+  }
+  .tea-list li strong {
+    display: block;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .tea-list li span {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .tea-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* "Coming Soon" rotating stamp */
+  .coming-stamp {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 32px;
+    display: inline-block;
+  }
+  .coming-stamp-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: coming-rotate 22s linear infinite;
+  }
+  .coming-stamp-text {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    fill: var(--red);
+  }
+  @keyframes coming-rotate { to { transform: rotate(360deg); } }
+  .coming-stamp-core {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display-i);
+    font-style: italic;
+    font-size: 36px;
+    color: var(--red);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  /* Render the curved text using SVG fallback inside .coming-stamp-ring */
+
+  .tea-visual {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+    height: 540px;
+  }
+  .tea-vis-frame {
+    background: var(--ink);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+  .tea-vis-frame image-slot { width: 100%; height: 100%; }
+  .tea-vis-tag {
+    position: absolute;
+    left: 20px; bottom: 20px;
+    background: var(--paper);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--red);
+    z-index: 2;
+  }
+  .tea-vis-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr 0.8fr;
+    gap: 20px;
+  }
+  .tea-mini {
+    background: var(--ivory-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tea-mini image-slot { width: 100%; height: 100%; }
+  .tea-spec {
+    background: var(--red);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .tea-spec-num {
+    font-family: var(--display);
+    font-weight: 350;
+    font-size: 56px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .tea-spec-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
+    opacity: 0.9;
+  }
+  @media (max-width: 960px) {
+    .tea-grid { grid-template-columns: 1fr; gap: 56px; }
+    .tea-visual { height: 420px; }
+  }
+
+  /* HEALTH BAND */
+  .health-band {
+    background: var(--cream);
+    padding: 100px 0;
+    border-top: 8px solid var(--red);
+    border-bottom: 8px solid var(--red);
+  }
+  .health-band .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .health-band h2 {
+    font-family: var(--display);
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--blue-deep);
+    margin: 18px 0 22px;
+  }
+  .health-band h2 .red { color: var(--red); }
+  .health-band p { font-size: 17px; line-height: 1.65; color: var(--ink); max-width: 480px; margin-bottom: 28px; }
+  .health-band .visual {
+    aspect-ratio: 5/4;
+    border: 6px solid var(--blue-deep);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--turmeric);
+    box-shadow: 10px 10px 0 var(--red);
+  }
+  .health-band .visual image-slot { width: 100%; height: 100%; }
+
+  /* LEGACY 1947 */
+  .legacy {
+    background: var(--blue-deep);
+    color: var(--paper);
+    padding: 120px 0;
+    position: relative;
+  }
+  .legacy h2 {
+    font-family: var(--display);
+    font-size: clamp(44px, 6vw, 96px);
+    line-height: 0.95;
+    color: var(--paper);
+    margin: 18px 0 26px;
+  }
+  .legacy h2 .gold { color: var(--turmeric); }
+  .legacy p { color: rgba(255,248,230,0.85); font-size: 18px; line-height: 1.65; max-width: 520px; }
+  .legacy .grid {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .legacy .portrait {
+    aspect-ratio: 4/5;
+    border: 6px solid var(--turmeric);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--saffron);
+    box-shadow: 12px 12px 0 var(--red);
+  }
+  .legacy .portrait image-slot { width: 100%; height: 100%; }
+  .timeline {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 3px solid var(--turmeric);
+    padding-top: 36px;
+    position: relative;
+  }
+  .timeline .pt { padding: 0 24px; border-right: 1px solid rgba(255,248,230,0.2); }
+  .timeline .pt:last-child { border-right: none; }
+  .timeline .y {
+    font-family: var(--display);
+    font-size: 32px;
+    color: var(--turmeric);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .timeline h4 { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--paper); margin: 0 0 8px; letter-spacing: -0.005em; line-height: 1.25; }
+  .timeline p { font-size: 14px; color: rgba(255,248,230,0.65); margin: 0; line-height: 1.5; max-width: none; }
+
+  /* QUALITY STANDARDS - SAFFRON */
+  .standards { background: var(--saffron); color: var(--paper); padding: 100px 0; }
+  .standards .grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .standards h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 4.6vw, 64px);
+    line-height: 0.95;
+    color: var(--paper);
+    margin: 18px 0 22px;
+  }
+  .standards h2 .blue { color: var(--blue-deep); }
+  .standards p { font-size: 17px; line-height: 1.65; color: rgba(255,248,230,0.95); margin-bottom: 28px; }
+  .cert-wall {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    background: var(--paper);
+    padding: 28px;
+    border: 4px solid var(--blue-deep);
+    border-radius: 6px;
+  }
+  .cert-wall .c {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid var(--rule);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    font-family: var(--display);
+    font-size: 12px;
+    color: var(--blue-deep);
+    line-height: 1.05;
+    padding: 6px;
+  }
+  .cert-wall .c.red { background: var(--red); color: var(--paper); border-color: var(--red); }
+  .cert-wall .c.gold { background: var(--turmeric); color: var(--ink); border-color: var(--turmeric); }
+  .cert-wall .c.blue { background: var(--blue-deep); color: var(--paper); border-color: var(--blue-deep); }
+  .cert-wall--image {
+    display: block;
+    padding: 28px 32px;
+  }
+  .cert-wall--image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* LAB */
+  .lab { background: var(--paper); padding: 100px 0; }
+  .lab .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .lab h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 4.6vw, 64px);
+    line-height: 0.95;
+    color: var(--blue-deep);
+    margin: 18px 0 28px;
+  }
+  .lab h2 .red { color: var(--red); }
+  .lab ul.checks { list-style: none; padding: 0; margin: 0; }
+  .lab ul.checks li {
+    padding: 14px 0 14px 40px;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+    position: relative;
+  }
+  .lab ul.checks li::before {
+    content: "";
+    position: absolute; left: 0; top: 16px;
+    width: 22px; height: 22px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+  .lab ul.checks li::after {
+    content: "";
+    position: absolute; left: 6px; top: 21px;
+    width: 10px; height: 5px;
+    border-left: 2px solid var(--paper);
+    border-bottom: 2px solid var(--paper);
+    transform: rotate(-45deg);
+  }
+  .lab .doc {
+    aspect-ratio: 4/5;
+    background: var(--paper-2);
+    border: 4px solid var(--blue-deep);
+    border-radius: 6px;
+    box-shadow: 10px 10px 0 var(--red);
+    overflow: hidden;
+    position: relative;
+  }
+  .lab .doc image-slot { width: 100%; height: 100%; }
+  .lab .doc .stamp {
+    position: absolute;
+    top: 24px; right: -12px;
+    background: var(--red);
+    color: var(--paper);
+    font-family: var(--display);
+    padding: 10px 22px;
+    transform: rotate(8deg);
+    z-index: 2;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+  }
+
+  /* COMMITMENT (PILLARS) */
+  .commit { background: var(--cream); padding: 120px 0; }
+  .commit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .commit-card {
+    background: var(--paper);
+    border: 3px solid var(--blue-deep);
+    border-radius: 6px;
+    padding: 32px 28px;
+    transition: transform .2s ease;
+  }
+  .commit-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--red); }
+  .commit-card .ico-wrap {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .commit-card h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 0 0 10px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  .commit-card p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* WELLNESS */
+  .wellness { background: var(--paper); padding: 110px 0; }
+  .wellness .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .wellness h2 {
+    font-family: var(--display);
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--blue-deep);
+    margin: 18px 0 28px;
+  }
+  .wellness h2 .red { color: var(--red); }
+  .well-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
+  .well-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    align-items: start;
+    padding: 18px;
+    border: 2px solid var(--rule-soft);
+    border-radius: 6px;
+    background: var(--paper-2);
+  }
+  .well-list .ico {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .well-list h4 { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); margin: 0 0 6px; letter-spacing: -0.005em; line-height: 1.25; }
+  .well-list p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.55; }
+  .wellness-vis {
+    aspect-ratio: 4/5;
+    border: 6px solid var(--blue-deep);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--turmeric);
+    box-shadow: 10px 10px 0 var(--red);
+  }
+  .wellness-vis image-slot { width: 100%; height: 100%; }
+
+  /* MORHAV PROMISE */
+  .morhav {
+    background: linear-gradient(115deg, #2d6b3a 0%, #4a8a4f 60%, #6ba562 100%);
+    color: var(--paper);
+    padding: 110px 0;
+  }
+  .morhav .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .morhav h2 {
+    font-family: var(--display);
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--paper);
+    margin: 18px 0 22px;
+  }
+  .morhav h2 .gold { color: var(--turmeric); }
+  .morhav p { font-size: 17px; line-height: 1.65; color: rgba(255,248,230,0.9); max-width: 480px; margin-bottom: 26px; }
+  .morhav .stamp-pill {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 2px solid var(--turmeric);
+    color: var(--turmeric);
+    font-family: var(--condensed);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  .morhav-vis {
+    aspect-ratio: 5/4;
+    border: 6px solid var(--turmeric);
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.15);
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
+  }
+  .morhav-vis image-slot { width: 100%; height: 100%; }
+
+  /* TESTIMONIALS */
+  .testi { background: var(--cream); padding: 120px 0; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testi-card {
+    background: var(--paper);
+    border: 3px solid var(--red);
+    border-radius: 6px;
+    padding: 32px 28px;
+    box-shadow: 6px 6px 0 var(--blue-deep);
+    display: flex; flex-direction: column;
+  }
+  .testi-card .stars { color: var(--turmeric); font-size: 18px; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .testi-card blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 28px;
+    flex: 1;
+  }
+  .testi-card blockquote::before { content: "\201C "; color: var(--red); font-family: var(--display); font-size: 28px; vertical-align: -8px; }
+  .testi-card .who {
+    display: flex; align-items: center; gap: 14px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 18px;
+  }
+  .testi-card .av {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--turmeric);
+    border: 2px solid var(--blue-deep);
+  }
+  .testi-card .av img { width: 100%; height: 100%; object-fit: cover; }
+  .testi-card .av.av-initial {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+  .testi-card .name { font-family: var(--display); font-size: 16px; color: var(--blue-deep); }
+  .testi-card .place { font-family: var(--condensed); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+
+  /* CTA */
+  .cta {
+    background: var(--red);
+    color: var(--paper);
+    padding: 120px 0;
+    border-top: 8px solid var(--blue-deep);
+    border-bottom: 8px solid var(--blue-deep);
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: var(--display);
+    font-size: clamp(44px, 6vw, 92px);
+    line-height: 0.95;
+    color: var(--paper);
+    margin: 18px 0 16px;
+  }
+  .cta h2 .gold { color: var(--turmeric); }
+  .cta .hindi-sub { font-family: var(--hindi); font-size: 26px; color: var(--turmeric); margin-bottom: 12px; }
+  .cta p { font-size: 18px; color: rgba(255,248,230,0.92); max-width: 620px; margin: 0 auto 36px; line-height: 1.6; }
+  .cta .btn-blue { background: var(--blue-deep); box-shadow: 4px 4px 0 var(--ink); }
+
+  /* PATTERN STRIP */
+  .pattern-strip {
+    height: 56px;
+    background: var(--turmeric);
+    background-image:
+      repeating-linear-gradient(45deg, transparent 0 12px, rgba(192,39,30,0.15) 12px 24px),
+      radial-gradient(circle at 50% 50%, var(--red) 4px, transparent 5px);
+    background-size: auto, 40px 40px;
+    border-top: 4px solid var(--red);
+    border-bottom: 4px solid var(--red);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .pattern-strip .text {
+    font-family: var(--display);
+    color: var(--blue-deep);
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    display: flex; gap: 60px;
+  }
+  .pattern-strip .text span::after { content: " ✦ "; color: var(--red); margin: 0 30px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--blue-deep);
+    color: var(--paper);
+    padding: 80px 0 40px;
+    border-top: 8px solid var(--red);
+  }
+  footer .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.4fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+  footer .logo-block img { height: 72px; width: auto; margin-bottom: 18px; background: var(--paper); padding: 10px 14px; border-radius: 4px; }
+  footer h5 {
+    font-family: var(--condensed);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 22px;
+    color: var(--turmeric);
+  }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 12px; font-size: 14px; }
+  footer a:hover { color: var(--turmeric); }
+  footer .tag {
+    font-family: var(--hindi);
+    font-size: 18px;
+    color: var(--turmeric);
+    margin-bottom: 14px;
+  }
+  footer .body-tag {
+    font-size: 13px;
+    color: rgba(255,248,230,0.6);
+    line-height: 1.6;
+    max-width: 340px;
+  }
+  footer .news input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,248,230,0.3);
+    padding: 12px 0;
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+  }
+  footer .news input::placeholder { color: rgba(255,248,230,0.5); }
+  footer .news button {
+    margin-top: 14px;
+    background: var(--red);
+    border: none;
+    color: var(--paper);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: var(--condensed);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  footer .news button:hover { background: var(--turmeric); color: var(--ink); }
+  .foot-base {
+    border-top: 1px dashed rgba(255,248,230,0.2);
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    font-family: var(--condensed);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,248,230,0.55);
+  }
+  .foot-base .center { color: var(--turmeric); text-align: center; }
+  .foot-base .right { text-align: right; }
+
+  /* Real-image slots (replaces the <image-slot> web component for client preview) */
+  .img-fill {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Floating "Design Preview" badge — bottom-left, can be removed for production */
+  .preview-badge {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--condensed);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 2px solid var(--turmeric);
+    box-shadow: 4px 4px 0 var(--red);
+    pointer-events: none;
+    user-select: none;
+  }
+  .preview-badge .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--turmeric);
+    margin-right: 8px;
+    vertical-align: 1px;
+  }
+
+  @media (max-width: 960px) {
+    .hero .grid, .bilona .lockup, .legacy .grid, .health-band .grid, .standards .grid, .lab .grid, .wellness .grid, .morhav .grid,
+    .product-grid, .dish-grid, .ritual-steps, .timeline, .testi-grid, .commit-grid, .cert-wall, footer .grid {
+      grid-template-columns: 1fr;
+    }
+    .timeline .pt { border-right: none; border-bottom: 1px solid rgba(255,248,230,0.2); padding-bottom: 24px; margin-bottom: 24px; }
+    nav.primary .row { grid-template-columns: auto 1fr auto; }
+    nav.primary ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="row">
+    <span>Since 1947 · मोहन घी, 1947 से</span>
+    <span>शुद्धता का विश्वास · Trust of Purity</span>
+    <span>A2 Bilona Ghee · Hand-Churned</span>
+    <span>Free Shipping over ₹999</span>
+    <span>Since 1947 · मोहन घी, 1947 से</span>
+    <span>शुद्धता का विश्वास · Trust of Purity</span>
+    <span>A2 Bilona Ghee · Hand-Churned</span>
+    <span>Free Shipping over ₹999</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="primary">
+  <div class="wrap">
+    <div class="row">
+      <a href="#"><img class="logo" src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd."/></a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#legacy">Since 1947</a></li>
+        <li><a href="#bilona">Vedic Ghee</a></li>
+        <li><a href="#dishes">Gaon Ka Ghee</a></li>
+        <li><a href="#wellness">Wellness</a></li>
+        <li><a href="#testi">Media</a></li>
+        <li><a href="#journal">Blogs</a></li>
+      </ul>
+      <div class="ico-row">
+        <button class="ico" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button class="ico" aria-label="Account"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button class="cart-pill">Cart · 0</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="since">Estd. 1947 · India's Original Bilona</div>
+        <h1>
+          <span class="red">शुद्धता का</span>
+          <span class="blue">VISHWAS.</span>
+        </h1>
+        <div class="hindi-line">गाँव से ख़ालिस घी, माँगवाते थे</div>
+        <p class="lede">
+          From the year of independence till today — three generations of Indian families have grown up on Mohan Ghee. A2 Buffalo &amp; Cow milk, slow-churned on a wooden bilona, packed in the same iron tin you remember from your grandmother's kitchen.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-red">Shop Mohan Ghee
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn btn-ghost">Our 1947 Story</button>
+        </div>
+        <div class="hero-stats">
+          <div class="it"><strong>78</strong><span>Years Since 1947</span></div>
+          <div class="it"><strong>3</strong><span>Generations Strong</span></div>
+          <div class="it"><strong>100%</strong><span>A2 Desi Milk</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img class="img-fill" src="assets/p1-mohan-desi.jpg" alt="Mohan Ghee Desi Ghee tin — A2 buffalo, hand-churned bilona since 1947" />
+        <div class="stamp-circle">SINCE<br/>1947</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO BAND 1 -->
+<section class="video-band">
+  <img class="img-fill" src="assets/dnbf-banner.jpg" alt="A taste of tradition, untouched since 1947 — Mohan Ghee" />
+  <div class="overlay">
+    <div>
+      <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
+      <h2 class="display">A taste of <span style="color:var(--turmeric);">tradition,</span><br/>untouched since 1947.</h2>
+      <button class="play-btn" aria-label="Play video">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS (moved up) -->
+<section class="products" id="shop">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow cream center">Our Range · हमारी श्रृंखला</div>
+      <div class="hindi-sub">शुद्ध, असली, घर जैसा</div>
+      <h2>Eight expressions of <span class="gold">pure ghee.</span></h2>
+      <p>From the iconic Mohan Ghee Desi tin to the new Morhav Organics A2 Gir Reserve — every jar carries the same recipe, the same patience, the same hands.</p>
+    </div>
+
+    <div class="filter-row">
+      <span class="active">All</span>
+      <span>Mohan Ghee · Since 1947</span>
+      <span>Morhav A2 Gir</span>
+      <span>Vedic Ghee</span>
+      <span>Wellness</span>
+    </div>
+
+    <div class="product-grid">
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p1-mohan-desi.jpg" alt="Mohan Ghee Desi Ghee tin"/><span class="pill">★ Since 1947</span></div>
+        <div class="body"><h3>Mohan Ghee® Desi Ghee</h3><div class="sub">A2 Buffalo · Predominantly Bilona</div><div class="meta"><div class="price">₹865<small>/tin</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p2-mohan-cow.jpg" alt="Mohan Ghee Cow Ghee tin"/><span class="pill">Cow Milk</span></div>
+        <div class="body"><h3>Mohan Ghee® Cow Ghee</h3><div class="sub">Traditional Bilona Method</div><div class="meta"><div class="price">₹923<small>/tin</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p3-morhav-a2gir.jpg" alt="Morhav A2 Gir Cow Ghee jar"/><span class="pill">A2 Gir · Ayurvedic</span></div>
+        <div class="body"><h3>Morhav® A2 Gir Cow Ghee</h3><div class="sub">Hand-curd · Ayurvedic Bilona</div><div class="meta"><div class="price">₹1,405<small>/jar</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p4-morhav-buffalo.jpg" alt="Morhav Desi Ghee from A2 Buffalo"/><span class="pill">A2 Murrah</span></div>
+        <div class="body"><h3>Morhav® Ghee Desi Ghee</h3><div class="sub">A2 Buffalo · Grass-fed Murrah</div><div class="meta"><div class="price">₹1,405<small>/jar</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p5-morhav-veda-cow.jpg" alt="Morhav Veda Ghee Cow jar"/><span class="pill">Vedic</span></div>
+        <div class="body"><h3>Morhav® Veda Ghee · Cow</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price">₹1,612<small>/jar</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p6-morhav-veda-buff.jpg" alt="Morhav Veda Ghee Buffalo jar"/><span class="pill">Vedic Buffalo</span></div>
+        <div class="body"><h3>Morhav® Veda Ghee · Buffalo</h3><div class="sub">A2 Buffalo · Ayurvedic</div><div class="meta"><div class="price">₹1,612<small>/jar</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p7-morhav-cow.jpg" alt="Morhav A2 Bilona Reserve jar"/><span class="pill">Reserve</span></div>
+        <div class="body"><h3>Morhav® A2 Bilona Reserve</h3><div class="sub">100% Ayurvedic · Authentic Vedic</div><div class="meta"><div class="price">₹2,395<small>/jar</small></div><button class="add">Add</button></div></div>
+      </article>
+      <article class="product">
+        <div class="img"><img class="img-fill" src="assets/p1-mohan-desi-alt.jpg" alt="Mohan Ghee Desi Ghee — 2 Litre Family Tin"/><span class="pill">Family Tin · 2 L</span></div>
+        <div class="body"><h3>Mohan Ghee® Desi · Family Tin</h3><div class="sub">A2 Buffalo · 2 Ltr Bilona</div><div class="meta"><div class="price">₹1,729<small>/tin</small></div><button class="add">Add</button></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TEA LAUNCH TEASER -->
+<section class="tea-launch" id="tea">
+  <div class="wrap">
+    <div class="tea-grid">
+      <div class="tea-copy">
+        <div class="coming-stamp">
+          <svg class="coming-stamp-ring" viewBox="0 0 140 140">
+            <defs>
+              <path id="comingCircle" d="M 70,70 m -56,0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0"></path>
+            </defs>
+            <text class="coming-stamp-text">
+              <textPath href="#comingCircle" startOffset="0">★ COMING SOON · LAUNCHING 2025 · नई शुरुआत · MOHAN TEA · </textPath>
+            </text>
+          </svg>
+          <span class="coming-stamp-core">New</span>
+        </div>
+        <div class="eyebrow" style="color: var(--red);">A New Chapter · नया अध्याय</div>
+        <div class="hindi-sub" style="color: var(--blue-deep);">माँ के हाथ की चाय</div>
+        <h2>From the <span class="red">hearth</span>, now to the <span class="red italic">kettle.</span></h2>
+        <p class="tea-lede">After 78 years of pouring ghee into India's kitchens, Mohan is proud to introduce its next ritual — <strong>Mohan Tea</strong>. Hand-plucked, hill-grown, and blended the way grandmother brewed it: with cardamom, with patience, with love.</p>
+        <ul class="tea-list">
+          <li><span class="tea-bullet">i.</span><div><strong>Mohan Masala Chai</strong><span>Single-origin Assam · cardamom, clove, ginger, fennel</span></div></li>
+          <li><span class="tea-bullet">ii.</span><div><strong>Mohan Kesar Chai</strong><span>Kashmiri saffron · slow-blended with green cardamom</span></div></li>
+          <li><span class="tea-bullet">iii.</span><div><strong>Mohan Tulsi Green</strong><span>Whole-leaf Darjeeling · holy basil · ayurvedic</span></div></li>
+          <li><span class="tea-bullet">iv.</span><div><strong>Mohan Adrak Elaichi</strong><span>Handpicked CTC · ginger and cardamom · for the morning cup</span></div></li>
+        </ul>
+        <div class="tea-cta">
+          <button class="btn btn-red">Notify Me at Launch
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn btn-outline-blue">Read the Story</button>
+        </div>
+      </div>
+
+      <div class="tea-visual">
+        <div class="tea-vis-frame">
+          <img class="img-fill" src="assets/tea-pack.jpg" alt="Mohan Masala Chai — whole spices on a wooden board"/>
+          <div class="tea-vis-tag">No. 01 · Mohan Masala</div>
+        </div>
+        <div class="tea-vis-side">
+          <div class="tea-mini">
+            <img class="img-fill" src="assets/tea-cup.jpg" alt="Brewing chai with steam"/>
+          </div>
+          <div class="tea-mini">
+            <img class="img-fill" src="assets/tea-leaves.jpg" alt="Loose tea leaves with cardamom and clove"/>
+          </div>
+          <div class="tea-spec">
+            <div class="tea-spec-num">04</div>
+            <div class="tea-spec-label">Blends<br/>at launch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BILONA RITUAL -->
+<section class="bilona" id="bilona">
+  <div class="wrap">
+    <div class="lockup">
+      <div class="bilona-vis">
+        <img class="img-fill" src="assets/live-bilona-banner.jpg" alt="The wooden bilona churn — Mohan Ghee's traditional hand-churning ritual"/>
+        <div class="badge">बिलोना · The Wooden Churn</div>
+        <div class="stat"><strong>4 hrs</strong><span>Of hand-churning</span></div>
+      </div>
+      <div>
+        <div class="eyebrow blue">The Bilona Method</div>
+        <h2>Four hours of <span class="red">churning.</span><br/>Twenty-seven of patience.</h2>
+        <p>The bilona is a wooden churn older than memory. We do not modernise it. The cream is cultured into curd, set overnight, and turned by hand until the butter rises like sunlight to the top.</p>
+        <button class="btn btn-blue" style="margin-top: 20px;">See How It's Made
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="ritual-steps">
+      <div class="step"><div class="num">01</div><h4>The Cow</h4><p>Indigenous Gir, Sahiwal &amp; Murrah. Free-grazed. Milk only after the calf has had her share.</p></div>
+      <div class="step"><div class="num">02</div><h4>The Curd</h4><p>Whole milk, cultured with yesterday's curd. Set in clay pots, overnight, in the cool of dawn.</p></div>
+      <div class="step"><div class="num">03</div><h4>The Churn</h4><p>Two women, a wooden bilona, four hours of rhythm. Butter rises. Buttermilk falls.</p></div>
+      <div class="step"><div class="num">04</div><h4>The Flame</h4><p>Slow-simmered in copper kadhai over wood-fire until white butter turns gold.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO BAND 2 -->
+<section class="video-band">
+  <img class="img-fill" src="assets/lifestyle-cows.jpg" alt="Desi cows grazing in golden-hour fields"/>
+  <div class="overlay">
+    <div>
+      <div class="tag">गाँव से ख़ालिस घी</div>
+      <h2 class="display">From <span style="color:var(--turmeric);">the farm</span> to your family's table.</h2>
+      <button class="play-btn" aria-label="Play video">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- OUR GHEE / DISHES (moved down) -->
+<section class="dishes" id="dishes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">Our Ghee · हमारा घी</div>
+      <div class="hindi-sub">हर थाली में, घर का स्वाद</div>
+      <h2>A spoonful that completes <span class="red">every meal.</span></h2>
+      <p>From the morning's first puri to the dollop on dinner's dal — Mohan Ghee turns the everyday into a celebration.</p>
+    </div>
+
+    <div class="dish-grid">
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-puri.jpg" alt="Aloo puri thali with ghee dollop"/><span class="pill">Festive</span></div>
+        <div class="body"><h3>Aloo Puri Thali</h3><div class="sub">Predominantly Bilona · 1 kg</div><div class="meta"><div class="price">₹865</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-dal.jpg" alt="Dal tadka with ghee"/><span class="pill">Cow Milk</span></div>
+        <div class="body"><h3>Dal Tadka Series</h3><div class="sub">Cow Bilona · 1 kg</div><div class="meta"><div class="price">₹923</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-khichdi.jpg" alt="Khichdi with golden ghee on top"/><span class="pill">A2 Gir</span></div>
+        <div class="body"><h3>Khichdi Reserve</h3><div class="sub">Hand-curd · Ayurvedic</div><div class="meta"><div class="price">₹1,405</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-biryani.jpg" alt="Biryani with ghee finish"/><span class="pill">A2 Buffalo</span></div>
+        <div class="body"><h3>Biryani Special</h3><div class="sub">Murrah · Bilona Method</div><div class="meta"><div class="price">₹1,405</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-ladoo.jpg" alt="Besan ladoo platter"/><span class="pill">Vedic</span></div>
+        <div class="body"><h3>Besan Ladoo</h3><div class="sub">Earthen pot · Wood-fire</div><div class="meta"><div class="price">₹1,612</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-halwa.jpg" alt="Sooji halwa with raisins"/><span class="pill">Reserve</span></div>
+        <div class="body"><h3>Sooji Halwa</h3><div class="sub">100% Ayurvedic Bilona</div><div class="meta"><div class="price">₹2,395</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-chyawanprash.jpg" alt="Chyawanprash with almonds"/><span class="pill">Wellness</span></div>
+        <div class="body"><h3>Chyawanprash</h3><div class="sub">40+ herbs · Slow-cooked</div><div class="meta"><div class="price">₹1,612</div><button class="add">+ Add</button></div></div>
+      </article>
+      <article class="dish">
+        <div class="img"><img class="img-fill" src="assets/dish-roti.jpg" alt="Phulka roti with ghee"/><span class="pill">Daily</span></div>
+        <div class="body"><h3>Phulka Pure</h3><div class="sub">Everyday Bilona · Family</div><div class="meta"><div class="price">₹790</div><button class="add">+ Add</button></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH BAND -->
+<section class="health-band" id="wellness">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow blue">Health · Wellness · Tradition</div>
+        <h2>Health &amp; wellness <span class="red">for all.</span></h2>
+        <p>Affordable. Inclusive. Authentic. Mohan Ghee is the taste of tradition served in every Indian home — from the first jar in 1947 to the kitchens of today. Discover the original recipe, untouched.</p>
+        <button class="btn btn-red">Shop the Range
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="visual"><img class="img-fill" src="assets/live-jingle1.jpg" alt="Mohan Ghee — the taste of tradition served in every Indian home"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY 1947 -->
+<section class="legacy" id="legacy">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow cream">Three Generations · One Recipe</div>
+        <h2>Begun in <span class="gold">1947.</span><br/>Carried in a thousand kitchens.</h2>
+        <p>What started as a clay pot of ghee on a winter morning in 1947 — the year of India's freedom — became a small, stubborn promise. We make ghee the way our grandmother taught us. And on most days, we still make it the way she watches us.</p>
+        <button class="btn btn-red" style="margin-top: 24px;">Read Our Story
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="portrait"><img class="img-fill" src="assets/live-1947-banner.jpg" alt="Mohan Ghee since 1947 — three generations of Indian families"/></div>
+    </div>
+
+    <div class="timeline">
+      <div class="pt"><div class="y">1947</div><h4>The First Tin</h4><p>Mohan Ghee Products is founded in the year of independence. The first yellow tin leaves the kitchen.</p></div>
+      <div class="pt"><div class="y">1980s</div><h4>A Household Name</h4><p>Three generations across North India grow up on the same recipe. The trade-mark, the iron tin, unchanged.</p></div>
+      <div class="pt"><div class="y">2010s</div><h4>The Bilona Revival</h4><p>The wooden bilona returns to the centre of our kitchen, even as the rest of the industry mechanises.</p></div>
+      <div class="pt"><div class="y">Today</div><h4>Morhav Organics</h4><p>The next chapter — Morhav® carries Mohan Ghee's ethos forward into A2 Gir, Vedic, and Bilona reserves.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO BAND 3 -->
+<section class="video-band">
+  <img class="img-fill" src="assets/lifestyle-pour.jpg" alt="Golden ghee being ladled into a glass jar"/>
+  <div class="overlay">
+    <div>
+      <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
+      <h2 class="display">Made by hand. <span style="color:var(--turmeric);">Posted</span> with care.</h2>
+      <button class="play-btn" aria-label="Play video">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section class="standards">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow" style="color:var(--blue-deep);"><span style="background:var(--blue-deep);"></span>Quality · Verified</div>
+        <h2>Independently tested.<br/><span class="blue">Stubbornly verified.</span></h2>
+        <p>From FSSAI to ISO 22000, India Organic to GMP — every batch of Mohan Ghee is checked against the highest standards in dairy. Our Morhav Organics line carries the same lineage forward, lab-tested and traceably sourced.</p>
+        <button class="btn btn-blue">View All Lab Reports
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="cert-wall cert-wall--image">
+        <img src="assets/live-certifications.png" alt="MORHAV ORGANICS PVT. LTD. — Certified Excellence, Internationally Trusted Quality. HACCP, ISO 22000:2018, FSSAI, GMP, FDA Approved, USDA Organic, ISO 9001:2015, MSME, RoHS, APEDA, CE, Organic."/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="lab">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Quality Assurances · At a Glance</div>
+        <h2>What we measure,<br/>we <span class="red">mean.</span></h2>
+        <ul class="checks">
+          <li>Sourcing and ageing of curd to preserve the highest level of natural butyrate</li>
+          <li>Maintained moisture-free profile, free of trans-fats and synthetic emulsifiers</li>
+          <li>Predominantly Bilona, no-shortcut hand-churn process</li>
+          <li>Cold-chain bottling of every jar within hours of clarification</li>
+          <li>Examining each single batch against AGMARK and pesticide residue benchmarks</li>
+          <li>No colour, no flavour, no preservatives — ever, full stop</li>
+        </ul>
+      </div>
+      <div class="doc">
+        <div class="stamp">Lab Verified</div>
+        <img class="img-fill" src="assets/lab-doc.jpg" alt="Independent lab nutrition analysis report"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENT -->
+<section class="commit">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">What Makes Us Different</div>
+      <h2>Our <span class="red">commitment</span> to you.</h2>
+      <p>Six things we will not compromise on, no matter how many tins we make in a day.</p>
+    </div>
+
+    <div class="commit-grid">
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18 6.5 22 8 14.5 3 10l6.5-1.5L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>100% Pure &amp; Natural</h4>
+        <p>No additives, no preservatives, no shortcuts. Just milk, fire, and time.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Traditional Bilona Process</h4>
+        <p>Wood-churned, slow-cooked — exactly as it has been done since 1947.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Superior Sourcing</h4>
+        <p>Indigenous breeds, grass-fed, free-grazed. The herd you can name.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1 12H6L5 8zM9 8V5a3 3 0 016 0v3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>Premium Quality</h4>
+        <p>Every batch tested for aroma, granularity, and butyrate before it ever ships.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 15v6M5 12h6M13 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Nutrient-Rich</h4>
+        <p>Naturally high in A2, omega-3, K2, and the fat-soluble vitamins that matter.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12l4 4L21 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Rigorous QA</h4>
+        <p>Multi-stage tested, lab-verified, authenticated by independent boards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS -->
+<section class="wellness">
+  <div class="wrap">
+    <div class="grid">
+      <div class="wellness-vis"><img class="img-fill" src="assets/lifestyle-spoon.jpg" alt="A spoon of ghee — wellness ritual"/></div>
+      <div>
+        <div class="eyebrow">Wellness Benefits</div>
+        <h2>A spoon a day,<br/>the <span class="red">old way.</span></h2>
+        <ul class="well-list">
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <div><h4>Strengthens Immunity &amp; Vitality</h4><p>Rich in A, D, E, K — supporting daily wellness, the way ayurveda intended.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 12c2 2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><h4>Supports Gut &amp; Digestion</h4><p>Butyric acid nourishes the gut lining — easier on the stomach than any other fat.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18V8a3 3 0 116 0v10M5 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><h4>Aids Strength &amp; Recovery</h4><p>Clean fats for sustained energy — for athletes, mothers, growing children alike.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12s4-7 8-7 8 7 8 7-4 7-8 7-8-7-8-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="2"/></svg></div>
+            <div><h4>Nourishes Skin &amp; Eyes</h4><p>Generations have used a fingertip of ghee on lips, eyelids, and tired hands.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORHAV PROMISE -->
+<section class="morhav">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="stamp-pill">Morhav Organics · The Next Chapter</span>
+        <h2>Morhav's promise: nature in its <span class="gold">purest form.</span></h2>
+        <p>Where heritage meets holistic well-being. Carrying the time-honoured ethos of Mohan Ghee® into a curated range of A2 Gir Cow Ghee, Vedic Ghee, and Premium Bilona — for the next generation of Indian kitchens.</p>
+        <button class="btn btn-red">Discover Morhav
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="morhav-vis"><img class="img-fill" src="assets/morhav-banner.jpg" alt="Morhav A2 Gir Cow Ghee — the next chapter"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testi">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">Happy Clients · हमारे ग्राहक</div>
+      <h2>What India <span class="red">writes back.</span></h2>
+      <p>2,418 reviews · 4.9 average</p>
+    </div>
+    <div class="testi-grid">
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>It smells exactly like my naani's kitchen on Diwali morning. I cried a little, into the daliya.</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar1.png" alt="Anjali Rao"/></div>
+          <div><div class="name">Anjali Rao</div><div class="place">Bengaluru</div></div>
+        </div>
+      </article>
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>I have been on three different ghees this year. None settled in the gut like Mohan. The grain is alive.</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar2.png" alt="Dr. Vikram Iyer"/></div>
+          <div><div class="name">Dr. Vikram Iyer</div><div class="place">Pune</div></div>
+        </div>
+      </article>
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>I sent the Morhav box to my mother in London. She called and said the lid alone smelled of home.</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar3.png" alt="Saira Mathur"/></div>
+          <div><div class="name">Saira Mathur</div><div class="place">Mumbai → London</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="hindi-sub">गाँव से ख़ालिस घी, मंगवाते थे</div>
+    <h2>Bring home the <span class="gold">1947 jar.</span></h2>
+    <p>A spoonful of ghee in warm water on rising. A drizzle on dal. A finger-print of it inside the first roti. Mohan Ghee earns its place — slowly, generously, the way good things do.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <button class="btn btn-blue">Shop Mohan Ghee
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12m0 0L8 2m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn" style="background:var(--turmeric); color:var(--ink); box-shadow: 4px 4px 0 var(--ink);">Discover Morhav</button>
+    </div>
+  </div>
+</section>
+
+<!-- PATTERN STRIP -->
+<div class="pattern-strip">
+  <div class="text">
+    <span>Made by Hand</span><span>Posted with Care</span><span>शुद्धता का विश्वास</span><span>Since 1947</span>
+    <span>Made by Hand</span><span>Posted with Care</span><span>शुद्धता का विश्वास</span><span>Since 1947</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="logo-block">
+        <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd." />
+        <div class="tag">शुद्धता का विश्वास, 1947 से</div>
+        <div class="body-tag">Mohan Ghee Products Pvt. Ltd. · Hand-churned, slow-cooked A2 Bilona Ghee from indigenous desi cows. Made with patience. Posted with care across India and the world.</div>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#">Mohan Desi Ghee</a></li>
+          <li><a href="#">Mohan Cow Ghee</a></li>
+          <li><a href="#">Morhav A2 Gir</a></li>
+          <li><a href="#">Veda Ghee</a></li>
+          <li><a href="#">Chyawanprash</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Story</h5>
+        <ul>
+          <li><a href="#">Since 1947</a></li>
+          <li><a href="#">The Bilona Way</a></li>
+          <li><a href="#">Vedic Ghee</a></li>
+          <li><a href="#">Gaon Ka Ghee</a></li>
+          <li><a href="#">Morhav Organics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <ul>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Wholesale</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h5>Letters from the Kitchen</h5>
+        <p style="font-size:13px; color:rgba(255,248,230,0.65); margin: 0 0 18px; line-height:1.55;">
+          A short, slow newsletter — one recipe, one note from grandmother, one new batch.
+        </p>
+        <input type="email" placeholder="your.email@kitchen.in" />
+        <div><button>Subscribe</button></div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <div>© Mohan Ghee Products Pvt. Ltd. · Since 1947</div>
+      <div class="center">Made by hand · Posted with care</div>
+      <div class="right">Privacy · Terms · Accessibility</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating client-preview marker -->
+<div class="preview-badge" aria-hidden="true">
+  <span class="dot"></span>Design Preview · v2
+</div>
+
+</body>
+</html>
