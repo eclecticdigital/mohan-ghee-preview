@@ -1656,15 +1656,16 @@
       box-shadow: 0 0 0 2px var(--red);
     }
 
-    /* VIDEO BAND — mobile: keep banner; pop-out player full-width at bottom */
+    /* VIDEO BAND — mobile: bigger square (1:1) banner */
     .video-band {
-      max-height: 60vh;
+      aspect-ratio: 1 / 1;
+      max-height: 92vh;
       border-top: 4px solid var(--turmeric);
       border-bottom: 4px solid var(--turmeric);
     }
     .video-band .overlay { padding: 0 24px; }
-    .video-band .overlay h2 { font-size: 26px; line-height: 1; margin: 0 0 12px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
-    .video-band .overlay .tag { font-size: 15px; margin-bottom: 8px; }
+    .video-band .overlay h2 { font-size: 32px; line-height: 1; margin: 0 0 14px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+    .video-band .overlay .tag { font-size: 16px; margin-bottom: 10px; }
     .video-pop {
       width: calc(100vw - 24px);
       max-width: none;
@@ -2858,12 +2859,30 @@
     var isInView = false;
     var dismissed = false;
 
+    function tryPlay() {
+      vid.muted = true;
+      var p = vid.play();
+      if (p && typeof p.then === 'function') {
+        p.catch(function() {
+          /* iOS / mobile: video may not be ready. Force a load and retry on canplay. */
+          var onCanPlay = function() {
+            vid.removeEventListener('canplay', onCanPlay);
+            vid.removeEventListener('loadeddata', onCanPlay);
+            if (pop.classList.contains('is-active')) vid.play().catch(function(){});
+          };
+          vid.addEventListener('canplay', onCanPlay);
+          vid.addEventListener('loadeddata', onCanPlay);
+          try { vid.load(); } catch(_) {}
+        });
+      }
+    }
+
     function popOut() {
       if (!isInView || dismissed) return;
       band.classList.add('is-popped');
       pop.classList.add('is-active');
       pop.setAttribute('aria-hidden', 'false');
-      vid.play().catch(function(){});
+      tryPlay();
     }
     function popIn() {
       band.classList.remove('is-popped');
@@ -2915,7 +2934,7 @@
       if (document.hidden) {
         vid.pause();
       } else if (pop.classList.contains('is-active')) {
-        vid.play().catch(function(){});
+        tryPlay();
       }
     });
   });
