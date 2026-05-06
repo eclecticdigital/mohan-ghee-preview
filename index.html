@@ -1433,6 +1433,7 @@
 
   /* ═══════════════ MOBILE-ONLY ELEMENTS (hidden on desktop) ═══════════════ */
   .mobile-subnav, .mobile-only,
+  .mobile-menu, .mobile-menu-overlay,
   .nav-mobile-menu, .nav-mobile-cart { display: none; }
 
   /* ═══════════════ COMPREHENSIVE MOBILE STYLES (≤768px) ═══════════════ */
@@ -1588,17 +1589,17 @@
     .eyebrow { font-size: 9.5px; letter-spacing: 0.28em; gap: 10px; }
     .eyebrow::before, .eyebrow::after { width: 16px; height: 1.5px; }
 
-    /* PRODUCTS — horizontal scroll rail (200px cards) */
-    .products { padding: 36px 0 32px; }
-    .products .head { padding: 0 22px; margin-bottom: 16px; max-width: none; }
-    .products h2 { font-size: 30px; line-height: 0.95; margin: 4px 0 10px; }
-    .products .head .hindi-sub { font-size: 16px; }
-    .products .head p { font-size: 13px; line-height: 1.55; }
+    /* PRODUCTS — bigger horizontal scroll rail (270px cards) — hero section */
+    .products { padding: 56px 0 48px; }
+    .products .head { padding: 0 22px; margin-bottom: 22px; max-width: none; }
+    .products h2 { font-size: 36px; line-height: 0.95; margin: 6px 0 12px; }
+    .products .head .hindi-sub { font-size: 18px; }
+    .products .head p { font-size: 14px; line-height: 1.6; }
     .filter-row {
       gap: 8px;
       overflow-x: auto;
       flex-wrap: nowrap;
-      padding: 0 22px 16px;
+      padding: 0 22px 22px;
       margin-bottom: 0;
       justify-content: flex-start;
       scrollbar-width: none;
@@ -1606,9 +1607,9 @@
     .filter-row::-webkit-scrollbar { display: none; }
     .filter-row span {
       flex-shrink: 0;
-      font-size: 9.5px;
+      font-size: 10.5px;
       letter-spacing: 0.16em;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-color: var(--turmeric);
       color: var(--turmeric);
       white-space: nowrap;
@@ -1617,34 +1618,199 @@
     .product-grid {
       display: flex;
       grid-template-columns: none;
-      gap: 14px;
+      gap: 16px;
       overflow-x: auto;
-      padding: 0 22px 8px;
+      padding: 0 22px 12px;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
     }
     .product-grid::-webkit-scrollbar { display: none; }
     .product {
-      flex: 0 0 200px;
+      flex: 0 0 270px;
       scroll-snap-align: start;
-      border-width: 2px;
+      border-width: 3px;
     }
-    .product .img { aspect-ratio: 1/1; border-bottom-width: 2px; }
-    .product .pill { font-size: 8.5px; padding: 4px 8px; top: 8px; left: 8px; }
-    .product .body { padding: 12px 14px; }
+    .product .img { aspect-ratio: 1/1; border-bottom-width: 3px; }
+    .product .pill { font-size: 10px; padding: 6px 12px; top: 12px; left: 12px; letter-spacing: 0.18em; }
+    .product .body { padding: 18px 18px 20px; }
     .product h3 {
       font-family: var(--condensed);
       font-weight: 600;
-      font-size: 13.5px;
+      font-size: 16px;
       line-height: 1.2;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      margin: 0 0 4px;
+      margin: 0 0 6px;
     }
-    .product .sub { font-size: 11px; margin-bottom: 10px; }
-    .product .price { font-size: 15px; }
-    .product .price small { font-size: 8px; letter-spacing: 0.1em; }
-    .product .add { padding: 5px 10px; font-size: 9px; }
+    .product .sub { font-size: 12.5px; line-height: 1.4; margin-bottom: 14px; }
+    .product .meta { padding-top: 14px; }
+    .product .price { font-size: 19px; }
+    .product .price small { font-size: 9.5px; letter-spacing: 0.14em; }
+    .product .add { padding: 8px 14px; font-size: 10.5px; letter-spacing: 0.16em; }
+    /* Rail meta (Swipe to explore + count) */
+    .product-rail-meta.mobile-only {
+      padding: 16px 22px 0;
+      display: flex !important;
+      justify-content: space-between;
+      font-family: var(--condensed);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,248,230,0.7);
+    }
+
+    /* MOBILE MENU DRAWER (slide-in from left) */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: min(86vw, 360px);
+      height: 100vh;
+      background: var(--paper);
+      z-index: 200;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+      box-shadow: 8px 0 32px rgba(0,0,0,0.25);
+      display: block;
+      padding: 20px 22px 32px;
+    }
+    .mobile-menu.is-open { transform: translateX(0); }
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20,12,5,0.5);
+      z-index: 199;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--rule-soft);
+    }
+    .mobile-menu-head img { height: 50px; width: auto; }
+    .mobile-menu-close {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--paper);
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .mobile-menu .greeting {
+      background: var(--cream);
+      border: 2px solid var(--blue-deep);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+    }
+    .mobile-menu .greeting .hi {
+      font-family: var(--hindi);
+      color: var(--red);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .mobile-menu .greeting .text {
+      font-family: var(--display);
+      color: var(--blue-deep);
+      font-size: 18px;
+      letter-spacing: -0.005em;
+    }
+    .mobile-menu nav { display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu nav a {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 4px;
+      border-bottom: 1px dashed var(--rule);
+      font-family: var(--condensed);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-deep);
+      text-decoration: none;
+    }
+    .mobile-menu nav a:hover, .mobile-menu nav a:active { color: var(--red); }
+    .mobile-menu nav a .ico {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 1.5px solid var(--blue-deep);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-deep);
+      flex-shrink: 0;
+    }
+    .mobile-menu nav a .badge-soon {
+      margin-left: auto;
+      background: var(--turmeric);
+      color: var(--blue-deep);
+      font-family: var(--condensed);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .mobile-menu .quick {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .mobile-menu .quick a {
+      background: var(--blue-deep);
+      color: var(--paper);
+      border-radius: 6px;
+      padding: 14px 12px;
+      font-family: var(--condensed);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+    }
+    .mobile-menu .quick a:hover { background: var(--red); }
+    .mobile-menu .lang {
+      display: flex; gap: 8px;
+      padding: 12px 0;
+      border-top: 2px solid var(--rule-soft);
+      border-bottom: 2px solid var(--rule-soft);
+      margin-bottom: 22px;
+    }
+    .mobile-menu .lang span {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      font-family: var(--condensed);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1.5px solid var(--rule);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .mobile-menu .lang span.active {
+      background: var(--red);
+      color: var(--paper);
+      border-color: var(--red);
+    }
+    .mobile-menu .foot-logo {
+      text-align: center;
+      padding-top: 22px;
+      border-top: 2px solid var(--rule-soft);
+    }
+    .mobile-menu .foot-logo img { height: 40px; opacity: 0.7; }
 
     /* TEA LAUNCH — single column */
     .tea-launch { padding: 36px 0; }
@@ -1983,6 +2149,79 @@
   <span>Blogs</span>
 </div>
 
+<!-- MOBILE MENU DRAWER (slide-in from left, mobile-only) -->
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Site menu">
+  <div class="mobile-menu-head">
+    <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd."/>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">×</button>
+  </div>
+
+  <div class="greeting">
+    <div class="hi">नमस्ते</div>
+    <div class="text">Welcome, friend.</div>
+  </div>
+
+  <nav>
+    <a href="#home">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 9v12h4v-7h6v7h4V9" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      Home
+    </a>
+    <a href="#shop">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6L5 8zM9 8V5a3 3 0 016 0v3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      Shop
+    </a>
+    <a href="#legacy">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2" stroke-linecap="round"/></svg></span>
+      Since 1947
+    </a>
+    <a href="#bilona">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h12M5 12h14M7 18h10" stroke-linecap="round"/></svg></span>
+      The Bilona Way
+    </a>
+    <a href="#shop">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1 3-6z" stroke-linejoin="round"/></svg></span>
+      Vedic Ghee
+    </a>
+    <a href="#tea">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h12v8a4 4 0 01-4 4H9a4 4 0 01-4-4V8zM17 10h2a2 2 0 012 2v2a2 2 0 01-2 2h-2" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      Mohan Tea
+      <span class="badge-soon">Soon</span>
+    </a>
+    <a href="#dishes">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke-linecap="round"/></svg></span>
+      Recipes
+    </a>
+    <a href="#wellness">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke-linejoin="round"/></svg></span>
+      Wellness
+    </a>
+    <a href="#testi">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14v10H8l-3 3V5z" stroke-linejoin="round"/></svg></span>
+      Media &amp; Blog
+    </a>
+    <a href="#">
+      <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      Contact
+    </a>
+  </nav>
+
+  <div class="quick">
+    <a href="#">Cart · 0</a>
+    <a href="#">Saved</a>
+  </div>
+
+  <div class="lang">
+    <span class="active">EN</span>
+    <span>हिंदी</span>
+    <span>Hinglish</span>
+  </div>
+
+  <div class="foot-logo">
+    <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee"/>
+  </div>
+</aside>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="wrap">
@@ -2082,6 +2321,10 @@
         <div class="img"><img class="img-fill" src="assets/p1-mohan-desi-alt.jpg" alt="Mohan Ghee Desi Ghee — 2 Litre Family Tin"/><span class="pill">Family Tin · 2 L</span></div>
         <div class="body"><h3>Mohan Ghee® Desi · Family Tin</h3><div class="sub">A2 Buffalo · 2 Ltr Bilona</div><div class="meta"><div class="price">₹1,729<small>/2 L</small></div><button class="add">Add</button></div></div>
       </article>
+    </div>
+    <div class="product-rail-meta mobile-only">
+      <span>← Swipe to explore</span>
+      <span>08 Products</span>
     </div>
   </div>
 </section>
@@ -2537,5 +2780,22 @@
   </div>
 </footer>
 
+<script>
+(function() {
+  var menu = document.getElementById('mobileMenu');
+  var overlay = document.getElementById('menuOverlay');
+  var trigger = document.querySelector('.nav-mobile-menu');
+  var close = document.getElementById('menuClose');
+  function open() { menu.classList.add('is-open'); overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+  function shut() { menu.classList.remove('is-open'); overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
+  if (trigger) trigger.addEventListener('click', open);
+  if (close) close.addEventListener('click', shut);
+  if (overlay) overlay.addEventListener('click', shut);
+  /* close drawer when any in-page link is tapped */
+  if (menu) menu.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', shut);
+  });
+})();
+</script>
 </body>
 </html>
