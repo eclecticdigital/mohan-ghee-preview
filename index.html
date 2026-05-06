@@ -1643,10 +1643,14 @@
     .hero-stats span { color: var(--paper); font-size: 9px; letter-spacing: 0.14em; line-height: 1.2; opacity: 0.9; font-weight: 500; }
     .hero-image {
       aspect-ratio: 4/5;
-      margin: 0 -22px;
-      border-radius: 8px 8px 0 0;
+      width: 84%;
+      max-width: 360px;
+      margin: 18px auto 28px;
+      border-radius: 8px;
       border-width: 4px;
-      box-shadow: 8px 0 0 var(--red), -8px 0 0 var(--red);
+      box-shadow: 10px 10px 0 var(--red);
+      transform: rotate(-2.5deg);
+      transform-origin: center;
     }
     .hero-image .stamp-circle {
       top: 14px; right: 14px;
@@ -1654,7 +1658,10 @@
       font-size: 11px; padding: 8px;
       border-width: 2px;
       box-shadow: 0 0 0 2px var(--red);
+      transform: rotate(2.5deg);
     }
+    .hero .hindi-line { margin: 6px 0 4px; }
+    .hero .lede { margin: 4px 0 18px; }
 
     /* VIDEO BAND — mobile: bigger square (1:1) banner */
     .video-band {
