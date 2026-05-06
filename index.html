@@ -300,15 +300,15 @@
     transform: rotate(-8deg);
   }
 
-  /* VIDEO BAND — full-width 16:9, poster banner that pops to live video on dwell */
+  /* VIDEO BAND — banner stays put; the video literally pops OUT of it
+     as a fixed-position 16:9 floating player while the band is on screen. */
   .video-band {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    max-height: 82vh;
+    aspect-ratio: 16 / 7;
+    max-height: 70vh;
     background: var(--ink);
     overflow: hidden;
-    cursor: pointer;
   }
   .video-band image-slot { width: 100%; height: 100%; }
   .video-band .poster {
@@ -316,43 +316,22 @@
     width: 100%; height: 100%;
     object-fit: cover;
     z-index: 0;
-    transition: opacity 0.7s ease, transform 1.4s ease;
-  }
-  .video-band.is-popped .poster {
-    opacity: 0;
-    transform: scale(1.04);
-  }
-  .video-band video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    opacity: 0;
-    transform: scale(0.97);
-    transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.2, 0.9, 0.2, 1);
-    will-change: opacity, transform;
-  }
-  .video-band.is-popped video {
-    opacity: 1;
-    transform: scale(1);
   }
   .video-band .scrim {
     position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
     pointer-events: none;
-    transition: opacity 0.6s ease;
-    z-index: 2;
+    z-index: 1;
   }
-  .video-band.is-popped .scrim { opacity: 0; }
   .video-band .overlay {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     text-align: center;
-    z-index: 3;
+    z-index: 2;
     color: var(--paper);
     padding: 32px;
     pointer-events: none;
-    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .video-band.is-popped .overlay {
     opacity: 0;
@@ -373,31 +352,59 @@
     color: var(--turmeric);
     margin-bottom: 22px;
   }
-  .video-band .mute-btn {
+
+  /* The pop-out floating player — fixed in viewport, follows scroll */
+  .video-pop {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: min(40vw, 520px);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(20px) scale(0.85);
+    pointer-events: none;
+    transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.9, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .video-pop.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .video-pop video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-pop .pop-controls {
     position: absolute;
-    bottom: 22px; right: 22px;
-    z-index: 4;
-    width: 48px; height: 48px;
+    top: 10px; right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+  .video-pop .ctrl-btn {
+    width: 36px; height: 36px;
     border-radius: 50%;
     background: rgba(0,0,0,0.55);
-    color: var(--paper);
-    border: 1.5px solid rgba(255,255,255,0.35);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
     display: flex; align-items: center; justify-content: center;
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    opacity: 0;
-    pointer-events: none;
-    transition: background 0.2s ease, transform 0.2s ease, opacity 0.4s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
   }
-  .video-band.is-popped .mute-btn {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .video-band .mute-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.06); }
-  .video-band .mute-btn .icon-unmute { display: none; }
-  .video-band .mute-btn[data-muted="false"] .icon-mute { display: none; }
-  .video-band .mute-btn[data-muted="false"] .icon-unmute { display: inline; }
+  .video-pop .ctrl-btn:hover { background: rgba(0,0,0,0.85); transform: scale(1.06); }
+  .video-pop .mute-btn .icon-unmute { display: none; }
+  .video-pop .mute-btn[data-muted="false"] .icon-mute { display: none; }
+  .video-pop .mute-btn[data-muted="false"] .icon-unmute { display: inline; }
 
   /* SECTION HEADERS */
   .sec-head {
@@ -1638,16 +1645,23 @@
       box-shadow: 0 0 0 2px var(--red);
     }
 
-    /* VIDEO BAND — mobile: keep 16:9 banner, smaller text, smaller mute btn */
+    /* VIDEO BAND — mobile: keep banner; pop-out player full-width at bottom */
     .video-band {
-      max-height: 70vh;
+      max-height: 60vh;
       border-top: 4px solid var(--turmeric);
       border-bottom: 4px solid var(--turmeric);
     }
     .video-band .overlay { padding: 0 24px; }
     .video-band .overlay h2 { font-size: 26px; line-height: 1; margin: 0 0 12px; text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
     .video-band .overlay .tag { font-size: 15px; margin-bottom: 8px; }
-    .video-band .mute-btn { bottom: 14px; right: 14px; width: 40px; height: 40px; }
+    .video-pop {
+      right: 12px;
+      bottom: 12px;
+      width: calc(100vw - 24px);
+      max-width: none;
+      border-radius: 8px;
+    }
+    .video-pop .ctrl-btn { width: 32px; height: 32px; }
 
     /* SECTION HEADERS — smaller display */
     .sec-head { padding: 36px 0 22px; margin-bottom: 22px; max-width: none; }
@@ -2328,7 +2342,6 @@
 <!-- VIDEO BAND 1 -->
 <section class="video-band" data-video-band>
   <img class="poster" src="assets/banner-hero.png" alt="A taste of tradition, untouched since 1947 — Mohan Ghee" />
-  <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
   <div class="overlay">
     <div>
@@ -2336,10 +2349,18 @@
       <h2 class="display">A taste of <span style="color:var(--turmeric);">tradition,</span><br/>untouched since 1947.</h2>
     </div>
   </div>
-  <button class="mute-btn" data-muted="true" aria-label="Unmute">
-    <svg class="icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-    <svg class="icon-unmute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
-  </button>
+  <div class="video-pop" aria-hidden="true">
+    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-1.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="pop-controls">
+      <button class="ctrl-btn mute-btn" data-muted="true" aria-label="Unmute">
+        <svg class="icon-mute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg class="icon-unmute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+      </button>
+      <button class="ctrl-btn close-btn" aria-label="Close video">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
 </section>
 
 <!-- PRODUCTS (moved up) -->
@@ -2517,7 +2538,6 @@
 <!-- VIDEO BAND 3 -->
 <section class="video-band" data-video-band>
   <img class="poster" src="assets/lifestyle-pour.jpg" alt="Made by hand, posted with care — Mohan Ghee" />
-  <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" muted loop playsinline preload="metadata"></video>
   <div class="scrim"></div>
   <div class="overlay">
     <div>
@@ -2525,10 +2545,18 @@
       <h2 class="display">Made by hand. <span style="color:var(--turmeric);">Posted</span> with care.</h2>
     </div>
   </div>
-  <button class="mute-btn" data-muted="true" aria-label="Unmute">
-    <svg class="icon-mute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-    <svg class="icon-unmute" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
-  </button>
+  <div class="video-pop" aria-hidden="true">
+    <video src="https://github.com/eclecticdigital/mohan-ghee-preview/releases/download/media-v1/video-2.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="pop-controls">
+      <button class="ctrl-btn mute-btn" data-muted="true" aria-label="Unmute">
+        <svg class="icon-mute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg class="icon-unmute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/></svg>
+      </button>
+      <button class="ctrl-btn close-btn" aria-label="Close video">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
 </section>
 
 <!-- STANDARDS -->
@@ -2800,8 +2828,10 @@
   });
 })();
 
-/* Video bands: poster banner by default; on 2s scroll dwell, pops to live video.
-   Reverts when band scrolls out. Pure scroll-driven, no scroll hijack. */
+/* Video bands: poster banner stays put; after 2s of scroll dwell, the video
+   pops OUT into a fixed-position 16:9 floating player (bottom-right of viewport).
+   Page keeps scrolling normally behind it. When the band leaves the viewport
+   the player shrinks back and pauses. */
 (function() {
   var bands = document.querySelectorAll('[data-video-band]');
   if (!bands.length) return;
@@ -2809,27 +2839,36 @@
   var DWELL_MS = prefersReduced ? 200 : 2000;
 
   bands.forEach(function(band) {
-    var vid = band.querySelector('video');
-    var muteBtn = band.querySelector('.mute-btn');
+    var pop = band.querySelector('.video-pop');
+    if (!pop) return;
+    var vid = pop.querySelector('video');
+    var muteBtn = pop.querySelector('.mute-btn');
+    var closeBtn = pop.querySelector('.close-btn');
     var dwellTimer;
     var isInView = false;
+    var dismissed = false;
 
     function popOut() {
-      if (!isInView) return;
+      if (!isInView || dismissed) return;
       band.classList.add('is-popped');
+      pop.classList.add('is-active');
+      pop.setAttribute('aria-hidden', 'false');
       vid.play().catch(function(){});
     }
     function popIn() {
       band.classList.remove('is-popped');
+      pop.classList.remove('is-active');
+      pop.setAttribute('aria-hidden', 'true');
       vid.pause();
     }
 
-    /* Dwell-trigger pop on scroll into view */
+    /* Dwell-trigger pop while band is in view */
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
           if (e.isIntersecting) {
             isInView = true;
+            dismissed = false;
             clearTimeout(dwellTimer);
             dwellTimer = setTimeout(popOut, DWELL_MS);
           } else {
@@ -2838,11 +2877,11 @@
             popIn();
           }
         });
-      }, { threshold: 0.55 });
+      }, { threshold: 0.5 });
       io.observe(band);
     }
 
-    /* Mute / unmute toggle */
+    /* Mute / unmute */
     if (muteBtn) {
       muteBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -2852,11 +2891,20 @@
       });
     }
 
+    /* Close — dismiss until the band leaves and re-enters the viewport */
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dismissed = true;
+        popIn();
+      });
+    }
+
     /* Pause when tab is hidden; resume only if currently popped */
     document.addEventListener('visibilitychange', function() {
       if (document.hidden) {
         vid.pause();
-      } else if (band.classList.contains('is-popped')) {
+      } else if (pop.classList.contains('is-active')) {
         vid.play().catch(function(){});
       }
     });
