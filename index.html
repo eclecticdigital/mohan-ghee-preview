@@ -1400,7 +1400,7 @@
     border-radius: 999px;
     border: 2px solid var(--turmeric);
     box-shadow: 4px 4px 0 var(--red);
-    pointer-events: none;
+    pointer-events: auto;
     user-select: none;
   }
   .preview-badge .dot {
@@ -1411,6 +1411,8 @@
     margin-right: 8px;
     vertical-align: 1px;
   }
+  .preview-badge a { color: var(--turmeric); text-decoration: none; margin-left: 10px; }
+  .preview-badge a:hover { text-decoration: underline; }
 
   @media (max-width: 960px) {
     .hero .grid, .bilona .lockup, .legacy .grid, .health-band .grid, .standards .grid, .lab .grid, .wellness .grid, .morhav .grid,
@@ -2018,8 +2020,8 @@
 </footer>
 
 <!-- Floating client-preview marker -->
-<div class="preview-badge" aria-hidden="true">
-  <span class="dot"></span>Design Preview · v2
+<div class="preview-badge">
+  <span class="dot"></span>v1 · Vintage Provisions <a href="v2.html">switch to v2</a>
 </div>
 
 </body>

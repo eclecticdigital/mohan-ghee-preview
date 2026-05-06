@@ -1,0 +1,2125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mohan Ghee — Hand-Churned Since 1947 · v2 Design Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* v2 Design System */
+    --ghee-gold:    #F5B041;       /* Primary accent · CTAs, highlights */
+    --ghee-gold-2:  #E8A032;       /* Hover */
+    --ghee-gold-3:  #C8881F;       /* Active / deeper */
+    --terracotta:   #A04000;       /* Secondary accent · borders, subheadings, marquee */
+    --terracotta-2: #8a3700;
+    --cream:        #FDFBF7;       /* Background */
+    --cream-2:      #F5EFE5;
+    --cream-3:      #EAE3D5;
+    --charcoal:     #2C1E16;       /* Headings + body text */
+    --charcoal-2:   #4a3a2e;       /* Muted body */
+    --charcoal-3:   #7a6a5e;       /* Caption */
+    --vedic-green:  #2E7D32;       /* Trust, certifications */
+    --vedic-green-2:#1f5c23;
+    --rule:         #d8cdb8;
+    --rule-soft:    #ede4d2;
+
+    --display:   "Playfair Display", "Cormorant Garamond", Georgia, serif;
+    --serif:     "Lora", Georgia, serif;
+    --sans:      "Inter", system-ui, sans-serif;
+    --hindi:     "Tiro Devanagari Hindi", "Lora", serif;
+
+    --radius-sm: 6px;
+    --radius:    8px;
+    --radius-lg: 16px;
+
+    --maxw: 1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--cream); color: var(--charcoal); }
+  body {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--charcoal-2);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { color: var(--charcoal); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* TYPE */
+  .display { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -0.005em; color: var(--charcoal); }
+  .display-italic { font-family: var(--display); font-weight: 400; font-style: italic; color: var(--charcoal); }
+  .hindi { font-family: var(--hindi); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+  .eyebrow-gold { color: var(--ghee-gold-3); }
+  .eyebrow.center { display: block; text-align: center; }
+
+  /* ───────── BUTTONS ───────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1.2;
+  }
+  .btn-primary {
+    background: var(--ghee-gold);
+    color: var(--charcoal);
+  }
+  .btn-primary:hover {
+    background: var(--ghee-gold-2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { background: var(--ghee-gold-3); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--terracotta);
+    border: 2px solid var(--terracotta);
+  }
+  .btn-secondary:hover { background: var(--terracotta); color: var(--cream); }
+  .btn-light {
+    background: var(--cream);
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+  }
+  .btn-light:hover { background: var(--charcoal); color: var(--cream); }
+  .btn-large { font-size: 18px; padding: 16px 48px; }
+  .btn-small { font-size: 14px; padding: 10px 20px; }
+
+  /* ───────── MARQUEE ───────── */
+  .marquee {
+    background: var(--terracotta);
+    color: #fff8ec;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 0;
+  }
+  .marquee .row {
+    display: flex; gap: 0;
+    padding: 14px 0;
+    white-space: nowrap;
+    animation: marquee-scroll 60s linear infinite;
+  }
+  .marquee .row span { display: inline-flex; align-items: center; }
+  .marquee .row span::after {
+    content: "✦";
+    color: var(--ghee-gold);
+    margin: 0 36px;
+    font-size: 11px;
+  }
+  @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ───────── HEADER ───────── */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .site-header .row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 88px;
+    gap: 32px;
+  }
+  .site-header .nav-links {
+    display: flex; gap: 24px;
+    margin: 0; padding: 0; list-style: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+  .site-header .nav-links a:hover { color: var(--terracotta); }
+  .site-header .nav-links li { position: relative; padding-left: 16px; }
+  .site-header .nav-links li:first-child { padding-left: 0; }
+  .site-header .nav-links li:not(:first-child)::before {
+    content: "·";
+    position: absolute;
+    left: -2px;
+    color: var(--charcoal-3);
+  }
+  .menu-icon {
+    background: none; border: none;
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--charcoal);
+  }
+  .menu-icon span {
+    display: block; width: 20px; height: 2px;
+    background: var(--charcoal);
+    box-shadow: 0 -6px 0 var(--charcoal), 0 6px 0 var(--charcoal);
+  }
+  .header-left { display: flex; align-items: center; gap: 24px; }
+
+  .brand-logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .brand-logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+  .footer-brand-logo img {
+    height: 72px;
+    width: auto;
+    display: block;
+    background: var(--cream);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+  }
+
+  .header-icons {
+    display: flex; gap: 18px; align-items: center;
+    justify-content: flex-end;
+  }
+  .icon-btn {
+    background: none; border: none;
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--charcoal);
+    position: relative;
+  }
+  .icon-btn:hover { color: var(--terracotta); }
+  .icon-btn .badge {
+    position: absolute;
+    top: -2px; right: -4px;
+    width: 18px; height: 18px;
+    background: #d04020;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ───────── HERO ───────── */
+  .hero {
+    position: relative;
+    min-height: 86vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--cream);
+  }
+  .hero .bg {
+    position: absolute; inset: 0;
+    z-index: 1;
+  }
+  .hero .bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero .bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(110deg, rgba(20,12,5,0.85) 0%, rgba(20,12,5,0.55) 45%, rgba(20,12,5,0.15) 100%);
+  }
+  .hero .wrap { position: relative; z-index: 2; padding-top: 120px; padding-bottom: 120px; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin: 0 0 18px;
+    max-width: 780px;
+  }
+  .hero h1 .italic {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero .sub {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 32px);
+    color: rgba(255,255,255,0.95);
+    margin: 0 0 22px;
+  }
+  .hero .trust-row {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.06em;
+    margin: 0 0 36px;
+  }
+  .hero .trust-row span { display: inline-block; }
+  .hero .trust-row span:not(:first-child) { margin-left: 8px; }
+  .hero .trust-row span:not(:first-child)::before {
+    content: "•";
+    color: var(--ghee-gold);
+    margin-right: 10px;
+  }
+  .hero .scroll-cue {
+    position: absolute;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .hero .scroll-cue .arrow {
+    display: block;
+    margin: 8px auto 0;
+    animation: bounce 2.4s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ───────── SECTION HEADERS ───────── */
+  .sec {
+    padding: 100px 0;
+  }
+  .sec-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .sec-head h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    margin: 14px 0 14px;
+    color: var(--charcoal);
+  }
+  .sec-head h2 .italic { font-style: italic; font-weight: 400; }
+  .sec-head .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--charcoal-3);
+    margin: 0;
+  }
+  .sec-head .hindi-sub {
+    font-family: var(--hindi);
+    font-size: 18px;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+
+  /* ───────── VIDEO BAND (editorial) ───────── */
+  .video-band {
+    position: relative;
+    width: 100%;
+    height: clamp(360px, 56vw, 620px);
+    overflow: hidden;
+    color: #fff;
+  }
+  .video-band img.bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .video-band::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+  .video-band .overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    z-index: 2;
+    padding: 32px;
+  }
+  .video-band h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 5.4vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: #fff;
+    margin: 0 0 14px;
+    max-width: 1000px;
+  }
+  .video-band h2 .italic { font-style: italic; font-weight: 400; }
+  .video-band .tag {
+    font-family: var(--hindi);
+    font-size: clamp(18px, 2vw, 26px);
+    color: var(--ghee-gold);
+    margin-bottom: 22px;
+  }
+  .video-band .play {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--ghee-gold);
+    color: var(--charcoal);
+    border: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    margin-top: 14px;
+    box-shadow: 0 0 0 6px rgba(245,176,65,0.25);
+    animation: pulse-gold 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(245,176,65,0.25); }
+    50% { box-shadow: 0 0 0 18px rgba(245,176,65,0.05); }
+  }
+
+  /* ───────── PRODUCTS · OUR TIMELESS CLASSICS ───────── */
+  .products { background: var(--cream); padding: 100px 0; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .product-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--rule-soft);
+    transition: all 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44,30,22,0.08);
+    border-color: transparent;
+  }
+  .product-card .img {
+    aspect-ratio: 1/1;
+    background: var(--cream-2);
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card .img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .img img { transform: scale(1.04); }
+  .product-card .badge {
+    position: absolute; top: 14px; left: 14px;
+    z-index: 2;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .product-card .badge.bestseller { background: var(--terracotta); color: #fff; }
+  .product-card .badge.new { background: var(--vedic-green); color: #fff; }
+  .product-card .badge.sale { background: var(--ghee-gold); color: var(--charcoal); }
+  .product-card .badge.limited {
+    background: transparent;
+    color: var(--terracotta);
+    border: 1.5px solid var(--terracotta);
+  }
+  .product-card .body {
+    padding: 22px 22px 24px;
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .product-card h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 19px;
+    color: var(--charcoal);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+  .product-card .stars {
+    color: var(--ghee-gold);
+    font-size: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .product-card .stars small {
+    color: var(--charcoal-3);
+    font-family: var(--sans);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  .product-card .price {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+  .product-card .price .from {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--charcoal-3);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-right: 4px;
+    font-weight: 500;
+  }
+  .product-card .price .strike {
+    color: var(--charcoal-3);
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: line-through;
+    margin-right: 6px;
+  }
+  .product-card .add {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    color: var(--terracotta);
+    border: 2px solid var(--terracotta);
+    border-radius: var(--radius-sm);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .product-card .add:hover { background: var(--terracotta); color: #fff; }
+  .products .view-all {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .products .view-all a {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--terracotta);
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 2px;
+  }
+  .products .view-all a:hover { color: var(--charcoal); border-color: var(--charcoal); }
+
+  /* ───────── TEA LAUNCH (editorial reveal) ───────── */
+  .tea {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    padding: 110px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .tea-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .tea .stamp {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: var(--vedic-green);
+    color: #fff;
+    display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .tea .stamp .big {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 26px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 2px;
+  }
+  .tea h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(40px, 4.6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 12px 0 22px;
+  }
+  .tea h2 .italic { font-style: italic; font-weight: 400; color: var(--terracotta); }
+  .tea-lede {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--charcoal-2);
+    max-width: 480px;
+    margin: 0 0 28px;
+  }
+  .tea-lede strong { color: var(--terracotta); font-weight: 600; }
+  .tea-list {
+    list-style: none; padding: 0; margin: 0 0 32px;
+    border-top: 1px solid var(--rule);
+  }
+  .tea-list li {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .tea-bullet {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ghee-gold-3);
+  }
+  .tea-list li strong {
+    display: block;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+  .tea-list li span {
+    font-size: 14px;
+    color: var(--charcoal-3);
+    line-height: 1.55;
+  }
+
+  .tea-visual {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+    height: 540px;
+  }
+  .tea-vis-frame {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    background: var(--charcoal);
+  }
+  .tea-vis-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .tea-vis-tag {
+    position: absolute;
+    left: 20px; bottom: 20px;
+    background: rgba(255,255,255,0.95);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+  .tea-vis-side { display: grid; grid-template-rows: 1fr 1fr 0.85fr; gap: 18px; }
+  .tea-mini { background: var(--cream-2); border-radius: var(--radius); overflow: hidden; }
+  .tea-mini img { width: 100%; height: 100%; object-fit: cover; }
+  .tea-spec {
+    background: var(--terracotta);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .tea-spec-num {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 0.9;
+    margin-bottom: 6px;
+  }
+  .tea-spec-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* ───────── BILONA JOURNEY ───────── */
+  .bilona { background: var(--cream); padding: 100px 0; position: relative; }
+  .bilona-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 40px;
+    position: relative;
+  }
+  .bilona-grid::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--rule);
+    transform: translateX(-0.5px);
+  }
+  .bilona-step {
+    display: grid;
+    gap: 18px;
+    position: relative;
+    padding: 0 0 60px;
+  }
+  .bilona-step.left { grid-template-columns: 1fr; padding-right: 40px; text-align: right; }
+  .bilona-step.right { grid-template-columns: 1fr; padding-left: 40px; }
+  .bilona-step .num {
+    font-family: var(--display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 64px;
+    color: var(--ghee-gold-3);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .bilona-step h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--charcoal);
+    margin: 0 0 12px;
+  }
+  .bilona-step p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--charcoal-2);
+    max-width: 460px;
+  }
+  .bilona-step.left p { margin-left: auto; }
+  .bilona-step .img {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 5/3;
+    background: var(--cream-2);
+  }
+  .bilona-step .img img { width: 100%; height: 100%; object-fit: cover; }
+  .bilona-step .marker {
+    position: absolute;
+    top: 18px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--ghee-gold);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--rule);
+  }
+  .bilona-step.left .marker { right: -7px; }
+  .bilona-step.right .marker { left: -7px; }
+
+  /* ───────── DISHES (OUR GHEE) ───────── */
+  .dishes { background: var(--cream-2); padding: 100px 0; }
+  .dish-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+  .dish-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--rule-soft);
+    transition: all 0.3s ease;
+  }
+  .dish-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(44,30,22,0.08);
+  }
+  .dish-card .img {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: var(--cream-2);
+  }
+  .dish-card .img img { width: 100%; height: 100%; object-fit: cover; }
+  .dish-card .body { padding: 18px 20px 20px; }
+  .dish-card h4 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin: 0 0 4px;
+  }
+  .dish-card .sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--charcoal-3);
+  }
+
+  /* ───────── HEALTH BAND ───────── */
+  .health-band { background: var(--cream); padding: 100px 0; }
+  .health-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .health-band h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 14px 0 20px;
+  }
+  .health-band h2 .italic { font-style: italic; font-weight: 400; color: var(--terracotta); }
+  .health-band p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--charcoal-2);
+    max-width: 460px;
+    margin-bottom: 28px;
+  }
+  .health-vis {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 5/4;
+    background: var(--cream-2);
+    box-shadow: 0 16px 40px rgba(44,30,22,0.10);
+  }
+  .health-vis img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ───────── LEGACY 1947 BANNER ───────── */
+  .legacy-banner {
+    position: relative;
+    height: clamp(420px, 50vw, 540px);
+    overflow: hidden;
+    color: #fff;
+  }
+  .legacy-banner img.bg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: sepia(0.3) brightness(0.85);
+  }
+  .legacy-banner::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(105deg, rgba(20,12,5,0.85) 0%, rgba(20,12,5,0.45) 60%, transparent 100%);
+  }
+  .legacy-banner .overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center;
+    z-index: 2;
+  }
+  .legacy-banner .copy { max-width: 540px; }
+  .legacy-banner .ornament {
+    color: var(--ghee-gold);
+    font-size: 18px;
+    letter-spacing: 0.6em;
+    margin-bottom: 14px;
+  }
+  .legacy-banner .since {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.32em;
+    color: var(--ghee-gold);
+    margin-bottom: 18px;
+  }
+  .legacy-banner h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 4.6vw, 60px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: #fff;
+    margin: 0 0 18px;
+  }
+  .legacy-banner p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.92);
+    margin: 0 0 28px;
+    max-width: 480px;
+  }
+  .legacy-banner .seal {
+    position: absolute;
+    top: 20px; right: 24px;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--ghee-gold);
+    color: var(--ghee-gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    z-index: 3;
+  }
+
+  /* ───────── QUALITY STANDARDS ───────── */
+  .standards { background: var(--cream); padding: 100px 0; }
+  .standards-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .standards h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 14px 0 20px;
+  }
+  .standards h2 .italic { font-style: italic; font-weight: 400; color: var(--vedic-green); }
+  .standards p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--charcoal-2);
+    margin-bottom: 28px;
+    max-width: 440px;
+  }
+  .cert-frame {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--rule-soft);
+    box-shadow: 0 8px 32px rgba(44,30,22,0.05);
+  }
+  .cert-frame img { width: 100%; height: auto; display: block; }
+
+  /* ───────── LAB ASSURANCES ───────── */
+  .lab { background: var(--cream-2); padding: 100px 0; }
+  .lab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .lab h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 14px 0 24px;
+  }
+  .lab h2 .italic { font-style: italic; font-weight: 400; color: var(--terracotta); }
+  .lab ul {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .lab ul li {
+    padding: 16px 0 16px 36px;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--charcoal-2);
+    position: relative;
+  }
+  .lab ul li::before {
+    content: "";
+    position: absolute; left: 0; top: 18px;
+    width: 22px; height: 22px;
+    background: var(--vedic-green);
+    border-radius: 50%;
+  }
+  .lab ul li::after {
+    content: "";
+    position: absolute; left: 6px; top: 23px;
+    width: 10px; height: 5px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+  }
+  .lab .doc {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(44,30,22,0.10);
+    border: 1px solid var(--rule-soft);
+    position: relative;
+  }
+  .lab .doc img { width: 100%; height: 100%; object-fit: cover; }
+  .lab .doc .stamp {
+    position: absolute;
+    top: 24px; right: -10px;
+    background: var(--vedic-green);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transform: rotate(6deg);
+  }
+
+  /* ───────── COMMITMENT PILLARS ───────── */
+  .commit { background: var(--cream); padding: 100px 0; }
+  .commit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .commit-card {
+    background: var(--cream-2);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+  .commit-card:hover {
+    background: #fff;
+    border-color: var(--rule);
+    box-shadow: 0 10px 30px rgba(44,30,22,0.06);
+    transform: translateY(-3px);
+  }
+  .commit-card .ico {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--ghee-gold);
+    color: var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .commit-card h4 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--charcoal);
+    margin: 0 0 10px;
+  }
+  .commit-card p {
+    font-size: 14px;
+    color: var(--charcoal-3);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ───────── WELLNESS ───────── */
+  .wellness { background: var(--cream-2); padding: 100px 0; }
+  .wellness-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .wellness h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 14px 0 24px;
+  }
+  .wellness h2 .italic { font-style: italic; font-weight: 400; color: var(--ghee-gold-3); }
+  .well-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+  .well-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    align-items: start;
+    padding: 22px;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule-soft);
+  }
+  .well-list .ico {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--vedic-green);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .well-list h4 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--charcoal);
+    margin: 0 0 6px;
+  }
+  .well-list p {
+    font-size: 14px;
+    color: var(--charcoal-3);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .wellness-vis {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    box-shadow: 0 16px 40px rgba(44,30,22,0.10);
+  }
+  .wellness-vis img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ───────── MORHAV PROMISE ───────── */
+  .morhav {
+    background: linear-gradient(115deg, #2E7D32 0%, #4a8a4f 60%, #6ba562 100%);
+    color: #fff;
+    padding: 100px 0;
+  }
+  .morhav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .morhav .pill {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1.5px solid var(--ghee-gold);
+    color: var(--ghee-gold);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  .morhav h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: #fff;
+    margin: 0 0 22px;
+  }
+  .morhav h2 .italic { font-style: italic; font-weight: 400; color: var(--ghee-gold); }
+  .morhav p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.92);
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+  .morhav .btn-primary { background: var(--ghee-gold); color: var(--charcoal); }
+  .morhav .btn-primary:hover { background: #fff; }
+  .morhav-vis {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 5/4;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  }
+  .morhav-vis img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ───────── TESTIMONIALS ───────── */
+  .testi { background: var(--cream); padding: 100px 0; }
+  .testi-head { text-align: center; margin-bottom: 56px; }
+  .testi-head h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    color: var(--charcoal);
+    margin: 0 0 12px;
+  }
+  .testi-head .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--charcoal-3);
+    margin: 0 0 20px;
+  }
+  .testi-rating {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .testi-rating .stars { color: var(--ghee-gold); font-size: 22px; letter-spacing: 0.04em; }
+  .testi-rating .count {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--charcoal-3);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .testi-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    border: 1px solid var(--rule-soft);
+    display: flex; flex-direction: column;
+  }
+  .testi-card .stars { color: var(--ghee-gold); font-size: 16px; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .testi-card blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--charcoal-2);
+    margin: 0 0 22px;
+    flex: 1;
+  }
+  .testi-card .who { display: flex; align-items: center; gap: 14px; }
+  .testi-card .av {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--cream-2);
+    border: 2px solid var(--rule-soft);
+    flex-shrink: 0;
+  }
+  .testi-card .av img { width: 100%; height: 100%; object-fit: cover; }
+  .testi-card .name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--charcoal);
+  }
+  .testi-card .place {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--charcoal-3);
+  }
+  .testi-card .verified {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--vedic-green);
+    margin-left: auto;
+  }
+  .testi-card .verified::before {
+    content: "✓";
+    width: 14px; height: 14px;
+    background: var(--vedic-green);
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+  }
+  .testi-meta {
+    text-align: center;
+    margin-top: 12px;
+  }
+  .testi-meta .badges {
+    display: inline-flex;
+    gap: 28px;
+    margin-top: 24px;
+    color: var(--charcoal-3);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .testi-meta .badges span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* ───────── NEWSLETTER CTA ───────── */
+  .newsletter {
+    background: var(--ghee-gold);
+    color: var(--charcoal);
+    padding: 70px 0;
+  }
+  .newsletter .row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .newsletter h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin: 0 0 6px;
+  }
+  .newsletter p {
+    font-size: 16px;
+    color: var(--charcoal-2);
+    margin: 0;
+  }
+  .newsletter form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  .newsletter input {
+    background: #fff;
+    border: none;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--charcoal);
+    outline: none;
+  }
+  .newsletter input::placeholder { color: var(--charcoal-3); }
+  .newsletter button {
+    background: var(--charcoal);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .newsletter button:hover { background: var(--terracotta); }
+
+  /* ───────── FOOTER ───────── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.85);
+    padding: 80px 0 24px;
+  }
+  footer .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  footer .brand .since {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ghee-gold);
+    margin: 8px 0 16px;
+  }
+  footer .brand .blurb {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    max-width: 280px;
+    margin-bottom: 18px;
+  }
+  footer .brand .social { display: flex; gap: 10px; }
+  footer .brand .social a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.85);
+    transition: all 0.3s ease;
+  }
+  footer .brand .social a:hover { background: var(--ghee-gold); border-color: var(--ghee-gold); color: var(--charcoal); }
+
+  footer h5 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    margin: 0 0 22px;
+    letter-spacing: 0.01em;
+  }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 12px; font-size: 14px; color: rgba(255,255,255,0.75); }
+  footer ul a:hover { color: var(--ghee-gold); }
+
+  footer .contact .row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 14px; }
+  footer .contact .row svg { color: var(--ghee-gold); flex-shrink: 0; }
+  footer .contact-cta {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 8px 18px;
+    border: 1.5px solid var(--ghee-gold);
+    color: var(--ghee-gold);
+    border-radius: var(--radius-sm);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+  }
+  footer .contact-cta:hover { background: var(--ghee-gold); color: var(--charcoal); }
+
+  footer .cert-strip {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    justify-content: center;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+  footer .cert-strip span {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  footer .foot-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-family: var(--sans);
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ───────── PREVIEW BADGE ───────── */
+  .preview-badge {
+    position: fixed;
+    left: 18px; bottom: 18px;
+    z-index: 9999;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--ghee-gold);
+    box-shadow: 0 6px 18px rgba(44,30,22,0.18);
+    pointer-events: auto;
+    user-select: none;
+  }
+  .preview-badge .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ghee-gold);
+    margin-right: 8px;
+    vertical-align: 1px;
+  }
+  .preview-badge a { color: var(--ghee-gold); text-decoration: none; margin-left: 10px; }
+  .preview-badge a:hover { text-decoration: underline; }
+
+  /* ───────── RESPONSIVE ───────── */
+  @media (max-width: 1024px) {
+    .product-grid, .dish-grid { grid-template-columns: repeat(2, 1fr); }
+    .commit-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 48px; }
+    .bilona-grid::before { display: none; }
+    .bilona-grid { grid-template-columns: 1fr; gap: 40px; }
+    .bilona-step.left, .bilona-step.right { padding: 0; text-align: left; }
+    .bilona-step.left p { margin-left: 0; }
+    .bilona-step .marker { display: none; }
+  }
+  @media (max-width: 768px) {
+    .wrap { padding: 0 22px; }
+    .hero { min-height: auto; padding: 80px 0; }
+    .product-grid, .dish-grid { grid-template-columns: 1fr; }
+    .commit-grid { grid-template-columns: 1fr; }
+    .tea-grid, .health-grid, .standards-grid, .lab-grid, .wellness-grid, .morhav-grid, .newsletter .row {
+      grid-template-columns: 1fr; gap: 40px;
+    }
+    .tea-visual { height: 460px; }
+    .site-header .nav-links { display: none; }
+    footer .grid { grid-template-columns: 1fr 1fr; }
+    .legacy-banner .seal { width: 48px; height: 48px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee">
+  <div class="row">
+    <span>No Preservatives</span>
+    <span>100% A2 Milk</span>
+    <span>Traditional Bilona Method</span>
+    <span>FSSAI Certified</span>
+    <span>Lab Tested Purity</span>
+    <span>Hand-Churned Since 1947</span>
+    <span>No Preservatives</span>
+    <span>100% A2 Milk</span>
+    <span>Traditional Bilona Method</span>
+    <span>FSSAI Certified</span>
+    <span>Lab Tested Purity</span>
+    <span>Hand-Churned Since 1947</span>
+  </div>
+</div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="row">
+      <div class="header-left">
+        <button class="menu-icon" aria-label="Menu"><span></span></button>
+        <ul class="nav-links">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#legacy">Our Story</a></li>
+          <li><a href="#bilona">Bilona Process</a></li>
+          <li><a href="#testi">Blog</a></li>
+        </ul>
+      </div>
+      <a href="#home" class="brand-logo">
+        <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd. · Since 1947"/>
+      </a>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 6h15l-2 11H7L5 6z M5 6l-1-3H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.5" fill="currentColor"/><circle cx="17" cy="21" r="1.5" fill="currentColor"/></svg>
+          <span class="badge">2</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <div class="bg">
+    <img src="assets/lifestyle-pour.jpg" alt="Hand-churned ghee being poured over a fresh paratha"/>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow eyebrow-gold" style="color: var(--ghee-gold);">Since 1947 · शुद्धता का विश्वास</div>
+    <h1 style="margin-top: 18px;">The Taste You<br/>Grew Up <span class="italic">With.</span></h1>
+    <p class="sub">Hand-Churned Since 1947</p>
+    <p class="trust-row">
+      <span>Pure A2 Ghee</span>
+      <span>Traditional Bilona Method</span>
+      <span>No Preservatives</span>
+    </p>
+    <a href="#shop" class="btn btn-primary btn-large">Shop the Legacy</a>
+  </div>
+  <div class="scroll-cue">
+    <span>Discover Our Story</span>
+    <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 1v12m0 0L1 7m6 6l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEO BAND 1 ═══════════ -->
+<section class="video-band">
+  <img class="bg" src="assets/dnbf-banner.jpg" alt="A taste of tradition"/>
+  <div class="overlay">
+    <div class="tag">मोहन घी, 1947 से शुद्धता का विश्वास</div>
+    <h2>A taste of <span class="italic">tradition,</span><br/>untouched since 1947.</h2>
+    <button class="play" aria-label="Play video">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ PRODUCTS · OUR TIMELESS CLASSICS ═══════════ -->
+<section class="products sec" id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">Our Range · हमारी श्रृंखला</div>
+      <h2>Our <span class="italic">Timeless</span> Classics</h2>
+      <p class="lede">Hand-churned with love since 1947</p>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="img">
+          <span class="badge bestseller">Bestseller</span>
+          <img src="assets/p1-mohan-desi.jpg" alt="Mohan Ghee Desi Ghee tin"/>
+        </div>
+        <div class="body">
+          <h3>Mohan Ghee® Desi Ghee</h3>
+          <div class="stars">★★★★★ <small>(2,418)</small></div>
+          <div class="price"><span class="from">From</span> ₹865.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge">Cow Milk</span>
+          <img src="assets/p2-mohan-cow.jpg" alt="Mohan Ghee Cow Ghee"/>
+        </div>
+        <div class="body">
+          <h3>Mohan Ghee® Cow Ghee</h3>
+          <div class="stars">★★★★★ <small>(1,124)</small></div>
+          <div class="price"><span class="from">From</span> ₹923.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge new">New · A2 Gir</span>
+          <img src="assets/p3-morhav-a2gir.jpg" alt="Morhav A2 Gir Cow Ghee"/>
+        </div>
+        <div class="body">
+          <h3>Morhav® A2 Gir Cow Ghee</h3>
+          <div class="stars">★★★★★ <small>(486)</small></div>
+          <div class="price"><span class="from">From</span> ₹1,405.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge">A2 Murrah</span>
+          <img src="assets/p4-morhav-buffalo.jpg" alt="Morhav Desi Ghee from A2 Buffalo"/>
+        </div>
+        <div class="body">
+          <h3>Morhav® Ghee Desi Ghee</h3>
+          <div class="stars">★★★★★ <small>(312)</small></div>
+          <div class="price"><span class="from">From</span> ₹1,405.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge">Vedic</span>
+          <img src="assets/p5-morhav-veda-cow.jpg" alt="Morhav Veda Ghee Cow"/>
+        </div>
+        <div class="body">
+          <h3>Morhav® Veda Ghee · Cow</h3>
+          <div class="stars">★★★★★ <small>(204)</small></div>
+          <div class="price"><span class="from">From</span> ₹1,612.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge">Vedic Buffalo</span>
+          <img src="assets/p6-morhav-veda-buff.jpg" alt="Morhav Veda Ghee Buffalo"/>
+        </div>
+        <div class="body">
+          <h3>Morhav® Veda Ghee · Buffalo</h3>
+          <div class="stars">★★★★★ <small>(196)</small></div>
+          <div class="price"><span class="from">From</span> ₹1,612.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge limited">Reserve</span>
+          <img src="assets/p7-morhav-cow.jpg" alt="Morhav A2 Bilona Reserve"/>
+        </div>
+        <div class="body">
+          <h3>Morhav® A2 Bilona Reserve</h3>
+          <div class="stars">★★★★★ <small>(89)</small></div>
+          <div class="price"><span class="from">From</span> ₹2,395.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="img">
+          <span class="badge sale">Family · 2 L</span>
+          <img src="assets/p1-mohan-desi-alt.jpg" alt="Mohan Ghee Desi Ghee 2L Family Tin"/>
+        </div>
+        <div class="body">
+          <h3>Mohan Ghee® Desi · Family Tin</h3>
+          <div class="stars">★★★★★ <small>(674)</small></div>
+          <div class="price"><span class="strike">₹1,925</span> ₹1,729.00</div>
+          <button class="add">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="view-all"><a href="#shop">View All Products →</a></div>
+  </div>
+</section>
+
+<!-- ═══════════ TEA LAUNCH TEASER ═══════════ -->
+<section class="tea sec" id="tea">
+  <div class="wrap">
+    <div class="tea-grid">
+      <div>
+        <div class="stamp">
+          <span class="big">New</span>
+          <span>Coming<br/>2025</span>
+        </div>
+        <div class="eyebrow" style="color: var(--terracotta);">A New Chapter · नया अध्याय</div>
+        <h2>From the hearth,<br/>now to the <span class="italic">kettle.</span></h2>
+        <p class="tea-lede">After 78 years of pouring ghee into India's kitchens, Mohan is proud to introduce its next ritual — <strong>Mohan Tea</strong>. Hand-plucked, hill-grown, and blended the way grandmother brewed it: with cardamom, with patience, with love.</p>
+        <ul class="tea-list">
+          <li><span class="tea-bullet">i.</span><div><strong>Mohan Masala Chai</strong><span>Single-origin Assam · cardamom, clove, ginger, fennel</span></div></li>
+          <li><span class="tea-bullet">ii.</span><div><strong>Mohan Kesar Chai</strong><span>Kashmiri saffron · slow-blended with green cardamom</span></div></li>
+          <li><span class="tea-bullet">iii.</span><div><strong>Mohan Tulsi Green</strong><span>Whole-leaf Darjeeling · holy basil · ayurvedic</span></div></li>
+          <li><span class="tea-bullet">iv.</span><div><strong>Mohan Adrak Elaichi</strong><span>Handpicked CTC · ginger and cardamom · for the morning cup</span></div></li>
+        </ul>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a class="btn btn-primary">Notify Me at Launch</a>
+          <a class="btn btn-secondary">Read the Story</a>
+        </div>
+      </div>
+
+      <div class="tea-visual">
+        <div class="tea-vis-frame">
+          <img src="assets/tea-pack.jpg" alt="Mohan Tea masala chai with whole spices"/>
+          <div class="tea-vis-tag">No. 01 · Mohan Masala</div>
+        </div>
+        <div class="tea-vis-side">
+          <div class="tea-mini"><img src="assets/tea-cup.jpg" alt="Brewing chai with cardamom"/></div>
+          <div class="tea-mini"><img src="assets/tea-leaves.jpg" alt="Loose tea leaves"/></div>
+          <div class="tea-spec">
+            <div class="tea-spec-num">04</div>
+            <div class="tea-spec-label">Blends<br/>at launch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BILONA JOURNEY ═══════════ -->
+<section class="bilona sec" id="bilona">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">The Bilona Method</div>
+      <h2>The <span class="italic">Bilona</span> Journey</h2>
+      <p class="lede">Four generations of tradition in every spoonful</p>
+    </div>
+
+    <div class="bilona-grid">
+      <div class="bilona-step left">
+        <div class="marker"></div>
+        <div>
+          <div class="num">01</div>
+          <h3>The A2 Advantage</h3>
+          <p>We source pure A2 milk from indigenous Gir cows and Murrah buffaloes, grazing freely in natural pastures. A2 beta-casein protein is easier to digest and closer to what your grandmother used.</p>
+        </div>
+      </div>
+      <div class="bilona-step right">
+        <div class="marker"></div>
+        <div class="img"><img src="assets/lifestyle-cows.jpg" alt="Indigenous A2 cows in pasture"/></div>
+      </div>
+
+      <div class="bilona-step left">
+        <div class="marker"></div>
+        <div class="img"><img src="assets/lifestyle-bilona.jpg" alt="Setting curd in earthen pots"/></div>
+      </div>
+      <div class="bilona-step right">
+        <div class="marker"></div>
+        <div>
+          <div class="num">02</div>
+          <h3>Setting the Curd</h3>
+          <p>We don't use cream. We use whole milk, set into curd overnight in earthen matkas, just like Dadi used to. The clay pots keep it cool naturally and add minerals — the foundation of true bilona.</p>
+        </div>
+      </div>
+
+      <div class="bilona-step left">
+        <div class="marker"></div>
+        <div>
+          <div class="num">03</div>
+          <h3>The Bilona Churn</h3>
+          <p>Before dawn, we churn the curd using a traditional wooden bilona — clockwise and anti-clockwise — to extract the purest Makhan (butter). This slow process preserves nutrients that machines destroy.</p>
+        </div>
+      </div>
+      <div class="bilona-step right">
+        <div class="marker"></div>
+        <div class="img"><img src="assets/live-bilona-banner.jpg" alt="Wooden bilona hand-churning"/></div>
+      </div>
+
+      <div class="bilona-step left">
+        <div class="marker"></div>
+        <div class="img"><img src="assets/lifestyle-pour.jpg" alt="Slow firewood heating — golden ghee being poured"/></div>
+      </div>
+      <div class="bilona-step right">
+        <div class="marker"></div>
+        <div>
+          <div class="num">04</div>
+          <h3>Slow Firewood Heating</h3>
+          <p>The Makhan is heated on low firewood flames for hours. This slow heating locks in the rich danedar (granular) texture, deep aroma, and golden colour that defines authentic Bilona ghee.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEO BAND 2 ═══════════ -->
+<section class="video-band">
+  <img class="bg" src="assets/lifestyle-cows.jpg" alt="From the farm to your family's table"/>
+  <div class="overlay">
+    <div class="tag">गाँव से ख़ालिस घी</div>
+    <h2>From <span class="italic">the farm</span><br/>to your family's table.</h2>
+    <button class="play" aria-label="Play video">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ DISHES — OUR GHEE ═══════════ -->
+<section class="dishes sec" id="dishes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">Our Ghee · हमारा घी</div>
+      <h2>A spoonful that completes <span class="italic">every meal.</span></h2>
+      <p class="lede">From the morning's first puri to the dollop on dinner's dal — Mohan Ghee turns the everyday into a celebration.</p>
+    </div>
+
+    <div class="dish-grid">
+      <article class="dish-card"><div class="img"><img src="assets/dish-puri.jpg" alt="Aloo puri thali"/></div><div class="body"><h4>Aloo Puri Thali</h4><div class="sub">Festive · Family Favourite</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-dal.jpg" alt="Dal tadka"/></div><div class="body"><h4>Dal Tadka</h4><div class="sub">Comfort · Everyday Hero</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-khichdi.jpg" alt="Khichdi"/></div><div class="body"><h4>Khichdi</h4><div class="sub">Wholesome · Ayurvedic</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-biryani.jpg" alt="Biryani"/></div><div class="body"><h4>Biryani Special</h4><div class="sub">Aromatic · Layered</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-ladoo.jpg" alt="Besan ladoo"/></div><div class="body"><h4>Besan Ladoo</h4><div class="sub">Festive · Slow-Cooked</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-halwa.jpg" alt="Sooji halwa"/></div><div class="body"><h4>Sooji Halwa</h4><div class="sub">Heritage · Hand-Stirred</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-chyawanprash.jpg" alt="Chyawanprash"/></div><div class="body"><h4>Chyawanprash</h4><div class="sub">Wellness · Ayurvedic Tonic</div></div></article>
+      <article class="dish-card"><div class="img"><img src="assets/dish-roti.jpg" alt="Phulka"/></div><div class="body"><h4>Phulka Pure</h4><div class="sub">Daily · Family Bilona</div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HEALTH & WELLNESS ═══════════ -->
+<section class="health-band sec" id="wellness">
+  <div class="wrap">
+    <div class="health-grid">
+      <div>
+        <div class="eyebrow">Health · Wellness · Tradition</div>
+        <h2>Health &amp; wellness <span class="italic">for all.</span></h2>
+        <p>Affordable. Inclusive. Authentic. Mohan Ghee is the taste of tradition served in every Indian home — from the first jar in 1947 to the kitchens of today. Discover the original recipe, untouched.</p>
+        <a class="btn btn-primary">Shop the Range</a>
+      </div>
+      <div class="health-vis"><img src="assets/live-jingle1.jpg" alt="Mohan Ghee — taste of tradition served in every Indian home"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LEGACY 1947 BANNER ═══════════ -->
+<section class="legacy-banner" id="legacy">
+  <img class="bg" src="assets/lifestyle-grandma.jpg" alt="Three generations of Mohan Ghee — since 1947"/>
+  <div class="seal">M</div>
+  <div class="wrap overlay">
+    <div class="copy">
+      <div class="ornament">— ✦ —</div>
+      <div class="since">Since 1947</div>
+      <h2>75 Years Ago,<br/>We Made a <span style="color: var(--ghee-gold); font-style: italic;">Promise…</span></h2>
+      <p>To never compromise on purity. To honour tradition. To serve every family as we serve our own. That promise still guides us today — through three generations, one recipe, and a thousand kitchens.</p>
+      <a class="btn btn-primary">Read Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEO BAND 3 ═══════════ -->
+<section class="video-band">
+  <img class="bg" src="assets/video-poster.jpg" alt="Made by hand · Posted with care"/>
+  <div class="overlay">
+    <div class="tag">शुद्ध घी, माँ के हाथों जैसा</div>
+    <h2>Made by hand.<br/><span class="italic">Posted</span> with care.</h2>
+    <button class="play" aria-label="Play video">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════ QUALITY STANDARDS ═══════════ -->
+<section class="standards sec">
+  <div class="wrap">
+    <div class="standards-grid">
+      <div>
+        <div class="eyebrow" style="color: var(--vedic-green);">Quality · Verified</div>
+        <h2>Independently tested.<br/><span class="italic">Stubbornly verified.</span></h2>
+        <p>From FSSAI to ISO 22000, India Organic to GMP — every batch of Mohan Ghee is checked against the highest standards in dairy. Our Morhav Organics line carries the same lineage forward, lab-tested and traceably sourced.</p>
+        <a class="btn btn-secondary">View All Lab Reports</a>
+      </div>
+      <div class="cert-frame">
+        <img src="assets/live-certifications.png" alt="Morhav Organics Pvt. Ltd. — Certified Excellence, Internationally Trusted Quality"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LAB ═══════════ -->
+<section class="lab sec">
+  <div class="wrap">
+    <div class="lab-grid">
+      <div>
+        <div class="eyebrow">Quality Assurances · At a Glance</div>
+        <h2>What we measure,<br/>we <span class="italic">mean.</span></h2>
+        <ul>
+          <li>Sourcing and ageing of curd to preserve the highest level of natural butyrate</li>
+          <li>Maintained moisture-free profile, free of trans-fats and synthetic emulsifiers</li>
+          <li>Predominantly Bilona, no-shortcut hand-churn process</li>
+          <li>Cold-chain bottling of every jar within hours of clarification</li>
+          <li>Examining each single batch against AGMARK and pesticide residue benchmarks</li>
+          <li>No colour, no flavour, no preservatives — ever, full stop</li>
+        </ul>
+      </div>
+      <div class="doc">
+        <div class="stamp">Lab Verified</div>
+        <img src="assets/lab-doc.jpg" alt="Independent lab nutrition analysis report"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMMITMENT PILLARS ═══════════ -->
+<section class="commit sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow center">What Makes Us Different</div>
+      <h2>Our <span class="italic">commitment</span> to you.</h2>
+      <p class="lede">Six things we will not compromise on, no matter how many tins we make in a day.</p>
+    </div>
+
+    <div class="commit-grid">
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 22 12 18 6.5 22 8 14.5 3 10l6.5-1.5L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>100% Pure &amp; Natural</h4>
+        <p>No additives, no preservatives, no shortcuts. Just milk, fire, and time.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Traditional Bilona Process</h4>
+        <p>Wood-churned, slow-cooked — exactly as it has been done since 1947.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Superior Sourcing</h4>
+        <p>Indigenous breeds, grass-fed, free-grazed. The herd you can name.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 8h14l-1 12H6L5 8zM9 8V5a3 3 0 016 0v3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>Premium Quality</h4>
+        <p>Every batch tested for aroma, granularity, and butyrate before it ever ships.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 15v6M5 12h6M13 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>Nutrient-Rich</h4>
+        <p>Naturally high in A2, omega-3, K2, and the fat-soluble vitamins that matter.</p>
+      </div>
+      <div class="commit-card">
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12l4 4L21 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Rigorous QA</h4>
+        <p>Multi-stage tested, lab-verified, authenticated by independent boards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WELLNESS BENEFITS ═══════════ -->
+<section class="wellness sec">
+  <div class="wrap">
+    <div class="wellness-grid">
+      <div class="wellness-vis"><img src="assets/lifestyle-spoon.jpg" alt="A spoon of ghee — wellness ritual"/></div>
+      <div>
+        <div class="eyebrow eyebrow-gold">Wellness Benefits</div>
+        <h2>A spoon a day,<br/>the <span class="italic">old way.</span></h2>
+        <ul class="well-list">
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+            <div><h4>Strengthens Immunity &amp; Vitality</h4><p>Rich in A, D, E, K — supporting daily wellness, the way ayurveda intended.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 12c2 2 6 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><h4>Supports Gut &amp; Digestion</h4><p>Butyric acid nourishes the gut lining — easier on the stomach than any other fat.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18V8a3 3 0 116 0v10M5 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><h4>Aids Strength &amp; Recovery</h4><p>Clean fats for sustained energy — for athletes, mothers, growing children alike.</p></div>
+          </li>
+          <li>
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12s4-7 8-7 8 7 8 7-4 7-8 7-8-7-8-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="2"/></svg></div>
+            <div><h4>Nourishes Skin &amp; Eyes</h4><p>Generations have used a fingertip of ghee on lips, eyelids, and tired hands.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MORHAV PROMISE ═══════════ -->
+<section class="morhav sec">
+  <div class="wrap">
+    <div class="morhav-grid">
+      <div>
+        <span class="pill">Morhav Organics · The Next Chapter</span>
+        <h2>Morhav's promise: nature in its <span class="italic">purest form.</span></h2>
+        <p>Where heritage meets holistic well-being. Carrying the time-honoured ethos of Mohan Ghee® into a curated range of A2 Gir Cow Ghee, Vedic Ghee, and Premium Bilona — for the next generation of Indian kitchens.</p>
+        <a class="btn btn-primary">Discover Morhav</a>
+      </div>
+      <div class="morhav-vis"><img src="assets/morhav-banner.jpg" alt="Morhav A2 Gir Cow Ghee — the next chapter"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section class="testi sec" id="testi">
+  <div class="wrap">
+    <div class="testi-head">
+      <div class="eyebrow center">Happy Clients · हमारे ग्राहक</div>
+      <h2>Loved by <span class="italic">Families</span> Across India</h2>
+      <p class="lede">Join 50,000+ happy customers who trust Mohan Ghee</p>
+      <div class="testi-rating">
+        <span>4.9</span>
+        <span class="stars">★★★★★</span>
+        <span class="count" style="margin-left: 4px;">(2,847 reviews)</span>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"It smells exactly like my naani's kitchen on Diwali morning. The granular texture and aroma are authentic. My kids love it in their rotis."</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar1.png" alt="Anjali Rao"/></div>
+          <div>
+            <div class="name">Anjali Rao</div>
+            <div class="place">Bengaluru, Karnataka</div>
+          </div>
+          <span class="verified">Verified</span>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Been ordering for 2 years. The A2 buffalo ghee is pure gold. My digestion improved and the taste is unmatched. Worth every paisa."</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar2.png" alt="Dr. Vikram Iyer"/></div>
+          <div>
+            <div class="name">Dr. Vikram Iyer</div>
+            <div class="place">Pune, Maharashtra</div>
+          </div>
+          <span class="verified">Verified</span>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"At 68, I can tell real Bilona ghee from fake. This is the real deal. Reminds me of my mother's kitchen. God bless this family."</blockquote>
+        <div class="who">
+          <div class="av"><img src="assets/avatar3.png" alt="Lakshmi Iyer"/></div>
+          <div>
+            <div class="name">Lakshmi Iyer</div>
+            <div class="place">Chennai, Tamil Nadu</div>
+          </div>
+          <span class="verified">Verified</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="testi-meta">
+      <a class="btn btn-secondary">Read All Reviews</a>
+      <div class="badges">
+        <span>🍃 FSSAI Certified</span>
+        <span>🧪 Lab Tested</span>
+        <span>🌿 100% Organic</span>
+        <span>⭐ 5,000+ 5-Star Reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NEWSLETTER CTA ═══════════ -->
+<section class="newsletter">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <h3>Join the Mohan Ghee Family</h3>
+        <p>Get recipes, wellness tips, and exclusive offers</p>
+      </div>
+      <form onsubmit="event.preventDefault();">
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="brand">
+        <a href="#home" class="footer-brand-logo">
+          <img src="assets/mohan-logo-clean.png" alt="Mohan Ghee Products Pvt. Ltd."/>
+        </a>
+        <div class="since">Serving India Since 1947</div>
+        <p class="blurb">Traditional Bilona ghee, hand-churned with love for four generations.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.2c-.8-.9-1.7-.9-2.1-1C16.6 3.5 12 3.5 12 3.5s-4.6 0-8 .3c-.4.1-1.3.1-2.1 1C1.2 5.5 1 7 1 7s-.2 1.8-.2 3.6V12c0 1.8.2 3.6.2 3.6s.2 1.5.9 2.2c.8.9 1.9.9 2.4 1 1.7.2 7.7.3 7.7.3s4.6 0 8-.3c.4-.1 1.3-.1 2.1-1 .7-.7.9-2.2.9-2.2s.2-1.8.2-3.6V10.6c0-1.8-.2-3.6-.2-3.6zM9.7 14.6V8.4l5.9 3.1-5.9 3.1z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2-.2-.5-.5-.4-.6-.4h-.6c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2 0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4.1 2.7 1.2 2.7.8 3.2.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#">A2 Cow Ghee</a></li>
+          <li><a href="#">A2 Buffalo Ghee</a></li>
+          <li><a href="#">Gift Sets</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+          <li><a href="#">All Products</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="#">Our 1947 Story</a></li>
+          <li><a href="#">The Bilona Process</a></li>
+          <li><a href="#">Health Benefits</a></li>
+          <li><a href="#">Blog &amp; Recipes</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h5>Get in Touch</h5>
+        <div class="row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>+91 98765 43210</span>
+        </div>
+        <div class="row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7a2 2 0 012-2h14a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>hello@mohanghee.in</span>
+        </div>
+        <div class="row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s-7-7-7-13a7 7 0 1114 0c0 6-7 13-7 13z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Rajasthan, India</span>
+        </div>
+        <a class="contact-cta" href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="cert-strip">
+      <span>🍃 FSSAI Certified</span>
+      <span>🌿 100% Organic</span>
+      <span>🧪 Lab Tested</span>
+      <span>🔒 Secure Checkout</span>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Mohan Ghee Products Pvt. Ltd. · All rights reserved.</div>
+      <div>Privacy Policy · Terms of Service · Shipping Policy</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ PREVIEW BADGE ═══════════ -->
+<div class="preview-badge">
+  <span class="dot"></span>v2 · New Design System <a href="index.html">switch to v1</a>
+</div>
+
+</body>
+</html>
